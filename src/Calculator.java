@@ -4,7 +4,7 @@ import javax.script.ScriptException;
 
 
 public class Calculator {
-	public Object parse(String Message){
+	public Object parseJS(String Message){
 		ScriptEngineManager mgr = new ScriptEngineManager();
 	    ScriptEngine engine = mgr.getEngineByName("JavaScript");
 	    try {

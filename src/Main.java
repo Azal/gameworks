@@ -13,7 +13,7 @@ public class Main {
 				BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
 				String s = bufferRead.readLine();
 
-				System.out.println(calc.parse(s));
+				System.out.println(calc.parseJS(s));
 				//System.out.println(s);
 			}
 			catch(IOException e)
