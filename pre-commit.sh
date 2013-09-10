@@ -1,15 +1,21 @@
-echo "Hello";
 confirmation="0"
-# while true; do
-#     read -p "Are you sure you want to push to master? (y/n) : " yn
-#     case $yn in
-#         [Yy]* ) confirmation=1; break;;
-#         [Nn]* ) confirmation=0; break;;
-#         * ) echo "Please answer yes or no.";;
-#     esac
-# done
-read -p "Are you sure you want to push to master? (y/n) : " confirmation
-echo "Pre-Commit Message $confirmation";
+branch=$(echo "$(git symbolic-ref HEAD 2>/dev/null)")
+case $branch in
+    ["refs/heads/master"]* ) confirmation=1; break;;
+    * ) echo "not-master";;
+esac
+if [ $confirmation == 1 ]
+then
+    if [ -f i_want_to_commit_to_master ]
+    then
+      rm i_want_to_commit_to_master
+      exit 0
+    else
+      echo "This is the 'master' branch. Only the dictator is allowed to work here.";
+      echo "Remember to create file 'touch i_want_to_commit_to_master' to commit to master"
+    fi
+    exit 1
+fi
+# echo "Pre-Commit Message $confirmation";
 exit
-echo "Pre-Commit Message2"; 
 
