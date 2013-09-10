@@ -1,0 +1,1 @@
+echo "Pre-Commit Message";
