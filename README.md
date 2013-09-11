@@ -3,28 +3,38 @@ Gameworks (Games + Framework)
 
 ## Introduction
 
-Framework description goes here....
+Framework description goes here....  
+This project will finally be available as an Eclipse plug-in. More to come.
 
 ### Installation
 
 To clone the project start with:
 
 	git clone https://github.com/maxfindel/gameworks
-If you don't have permission to write, send an email to the owner(max@findel.cl).
+
+If you don't have permission to write, send an email to the owner([max@findel.cl](mailto:max@findel.cl)).  
 Then start an Eclipse Java Project with this folder as root and you are good to go.
 
 The first thing you need to do once you cloned the project is:
 
+	cd gameworks
 	cp ./pre-commit.sh .git/hooks/pre-commit
 This will prevent casual pushes to the **master** branch. 
 
-### Useful links
-[Codification Standard](https://docs.google.com/document/d/1I_9CAdi5IocV03Z_EkPQFpNvF4ElPkB1GibfhFCLJSI/edit?hl=es-419&forcehl=1)  
-[Git Merging & Branhing](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)  
-[Google Form For Users Info](https://docs.google.com/forms/d/1QtkXnSQXjXHQgoak7EcNlUq2M_GFHQws0GqxbSG0eJI/viewform)  
+Now, go to your groups branch with:
+
+	git checkout groupX/master
+
+### Oficial Documents
+[Codification Standard](https://docs.google.com/document/d/1I_9CAdi5IocV03Z_EkPQFpNvF4ElPkB1GibfhFCLJSI/edit?hl=es-419&forcehl=1) - How to write code when working on this project.  
+[Modules' Overview](https://docs.google.com/document/d/1m7EfpFAl9fo-AB1Bv2Gl3hi68soGBCxONnmcXbIKuLc/edit?usp=sharing) - Shows on what everyone will be working.  
+[Users Info](https://docs.google.com/forms/d/1QtkXnSQXjXHQgoak7EcNlUq2M_GFHQws0GqxbSG0eJI/viewform) - Information about the students working on the project. Please do fill.  
 <!-- [(NOT) Public Information](https://docs.google.com/spreadsheet/ccc?key=0Am_s2HenpOt6dEFhVGZjZGZhWkM0N2xySTBDd0tOYUE#gid=0)  -->
 
-### Team
+### Useful links
+[Git Merging & Branhing](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging) - Lear the basics of branches and mixes before getting started  
+
+### Teams
 
 * **Git Dictator:** Max Findel
 * **Community:** Nikolas Bravo, Ignacio Carmach
@@ -37,3 +47,12 @@ This will prevent casual pushes to the **master** branch.
 	- *Group 6:* Input/Output 
 	- *Group 7:* Persistency (game state) 
 	- *Group 8:* Conectivity / Network
+
+####Git Branches
+master -> Only for dictator. Always stable.  
+groupX/master -> Stable branch for each group.  
+groupX/other -> You can work on any other branch you like.  
+
+##Credits & Licence
+
+All your base(codes) are belong to us!
