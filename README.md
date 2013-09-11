@@ -26,6 +26,7 @@ Now, go to your groups branch with:
 	git checkout groupX/master
 
 ### Oficial Documents
+[G+ Community](https://plus.google.com/communities/107638331003604365607) - The **oficial** community and communication way.  
 [Codification Standard](https://docs.google.com/document/d/1I_9CAdi5IocV03Z_EkPQFpNvF4ElPkB1GibfhFCLJSI/edit?hl=es-419&forcehl=1) - How to write code when working on this project.  
 [Modules' Overview](https://docs.google.com/document/d/1m7EfpFAl9fo-AB1Bv2Gl3hi68soGBCxONnmcXbIKuLc/edit?usp=sharing) - Shows on what everyone will be working.  
 [Users Info](https://docs.google.com/forms/d/1QtkXnSQXjXHQgoak7EcNlUq2M_GFHQws0GqxbSG0eJI/viewform) - Information about the students working on the project. Please do fill.  
