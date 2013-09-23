@@ -33,7 +33,7 @@ Now, go to your groups branch with:
 <!-- [(NOT) Public Information](https://docs.google.com/spreadsheet/ccc?key=0Am_s2HenpOt6dEFhVGZjZGZhWkM0N2xySTBDd0tOYUE#gid=0)  -->
 
 ### Useful links
-[Git Merging & Branhing](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging) - Lear the basics of branches and mixes before getting started  
+[Git Merging & Branching](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging) - Lear the basics of branches and mixes before getting started  
 
 ### Teams
 
