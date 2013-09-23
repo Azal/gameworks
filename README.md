@@ -34,7 +34,7 @@ Now, go to your groups branch with:
 
 ### Useful links
 [Git Merging & Branching](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging) - Lear the basics of branches and mixes before getting started  
-[BrainBash(ßeta)](https://github.com/maxfindel/brainBash)
+[BrainBash(ßeta)](https://github.com/maxfindel/brainBash) - A Unix-Console helper for Github and other platforms.
 
 
 ### Teams
