@@ -25,7 +25,7 @@ Now, go to your groups branch with:
 
 	git checkout groupX/master
 
-**Always** pull changes before doing any work:
+***Always*** pull changes before doing any work:
 
 	git pull origin groupX/master
 	git pull origin master
