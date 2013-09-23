@@ -43,7 +43,7 @@ Now, go to your groups branch with:
 * **Community:** Nikolas Bravo, Ignacio Carmach
 * **Groups and assignments:**
 	- *Group 1:* Preview 
-	- *Group 2:* Resources 
+	- ***Group 2:* Resources** 
 	- *Group 3:* Character behaviour 
 	- *Group 4:* Events 
 	- *Group 5:* Scenery creation: maps, characters, items / inanimated objects, story 
