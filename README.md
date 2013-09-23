@@ -34,13 +34,15 @@ Now, go to your groups branch with:
 
 ### Useful links
 [Git Merging & Branching](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging) - Lear the basics of branches and mixes before getting started  
+[BrainBash(ßeta)](https://github.com/maxfindel/brainBash)
+
 
 ### Teams
 
 * **Git Dictator:** Max Findel
 * **Community:** Nikolas Bravo, Ignacio Carmach
 * **Groups and assignments:**
-	- ***Group 1:* Preview** 
+	- *Group 1:* Preview 
 	- *Group 2:* Resources 
 	- *Group 3:* Character behaviour 
 	- *Group 4:* Events 
