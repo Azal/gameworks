@@ -3,7 +3,7 @@ Gameworks (Games + Framework)
 
 ## Introduction
 
-Framework description goes here....  
+The Gameworks framework allows you to create java game applications in a quick and easy way. The main target is the creation of 2D games, with the focus on RPG genre. It provides a lot of classes and functions, which makes it easy for starter java programmers to develop awesome game projects from scratch.
 This project will finally be available as an Eclipse plug-in. More to come.
 
 ### Installation
