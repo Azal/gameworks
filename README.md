@@ -25,6 +25,14 @@ Now, go to your groups branch with:
 
 	git checkout groupX/master
 
+**Always** pull changes before doing any work:
+
+	git pull origin groupX/master
+	git pull origin master
+	/* If there are any changes or updates you want to push: */
+	git push origin groupX/master
+
+
 ### Oficial Documents
 [G+ Community](https://plus.google.com/communities/107638331003604365607) - The **oficial** community and communication way.  
 [Codification Standard](https://docs.google.com/document/d/1I_9CAdi5IocV03Z_EkPQFpNvF4ElPkB1GibfhFCLJSI/edit?hl=es-419&forcehl=1) - How to write code when working on this project.  
