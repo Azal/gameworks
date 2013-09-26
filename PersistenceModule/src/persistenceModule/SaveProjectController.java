@@ -18,15 +18,16 @@ import org.json.simple.parser.ParseException;
 public class SaveProjectController {
 	
 public SaveProjectController(){
-	save(); System.out.print("started");
+	//save();
+	//read();
 	
 }
 	
 	
 public void save(){
 	JSONObject obj = new JSONObject();
-	obj.put("name", "mkyong.com");
-	obj.put("age", new Integer(100));
+	obj.put("name", "Katherine");
+	obj.put("age", new Integer(22));
  
 	JSONArray list = new JSONArray();
 	list.add("msg 1");
@@ -37,7 +38,7 @@ public void save(){
  
 	try {
  
-		FileWriter file = new FileWriter("c:\\test.json");
+		FileWriter file = new FileWriter("archivos/test.json");
 		file.write(obj.toJSONString());
 		file.flush();
 		file.close();
@@ -49,12 +50,12 @@ public void save(){
 	System.out.print(obj);
 }
 
-public void read(String args){
+public void read(){
 	JSONParser parser = new JSONParser();
 	 
 	try {
  
-		Object obj = parser.parse(new FileReader("c:\\test.json"));
+		Object obj = parser.parse(new FileReader("archivos/test.json"));
  
 		JSONObject jsonObject = (JSONObject) obj;
  
