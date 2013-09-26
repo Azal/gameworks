@@ -17,7 +17,7 @@ public class EventManager {
         /* 
          * ArrayList of Events. By having the complete list of Events, the Manager can check 
          */
-        private ArrayList<Event> stringList = new ArrayList<Event>(); 
+        private ArrayList<Event> events = new ArrayList<Event>(); 
         /* 
         constructor Blah documentation comment...     */
         private EventManager() {       }
