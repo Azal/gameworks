@@ -1,17 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package src.net;
 
 import java.net.*;
 import java.io.*;
 import java.util.concurrent.LinkedBlockingQueue;
 
-/**
- *
- * @author felipecortessaavedra
- */
+
 public class Sender implements Runnable{
     
     public LinkedBlockingQueue<NetworkMessage> messageQueue;

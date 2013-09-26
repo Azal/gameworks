@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package src.net;
 
 import java.io.FileOutputStream;
@@ -13,9 +9,7 @@ import java.util.Observer;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.io.*;
 import java.io.FileOutputStream;
-/**
- *
- */
+
 public class Network implements Observer,
        Serializable {
     
@@ -43,7 +37,7 @@ public class Network implements Observer,
     }
     public boolean checkPort(int _port){
         boolean portTaken = false;
-    ServerSocket socket = null;
+        ServerSocket socket = null;
     try {
         socket = new ServerSocket(_port);
         socket.close();
@@ -118,12 +112,11 @@ public class Network implements Observer,
         receiver.addObserver(o);
     }
     
-    //Metodo de la interfaz observer, se ejecuta cuando llega un mensaje
+    //Observer Interface method. It executes when a message is received.
     @Override
     public void update(Observable obs, Object obj) {
         NetworkMessage message = (NetworkMessage)obj;
-        //Si nos saludan, saludamos de vuelta (para que??)
-        //para eventual posibilidad de elegir con quien conectamos
+        //If we are greeted, we say hi back.
         if(message.getType() == NetworkMessage.TYPE_HELLO)
             sender.send(new NetworkMessage(NetworkMessage.TYPE_HELLO_RES,"",Network.getPort()+""), message.sender,message.port);
             

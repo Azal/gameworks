@@ -1,16 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package src.net;
 import java.io.*;
 import java.net.*;
 import java.util.Observable;
 
-/**
- *
- * @author felipecortessaavedra
- */
 public class Receiver extends Observable implements Runnable  {
     
     private ServerSocket server;

@@ -1,13 +1,8 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package src.net;
 import java.io.Serializable;
 import java.net.InetAddress;
-/**
- *
- * */
+
 public class NetworkMessage implements Serializable{
     
     public static final int TYPE_HELLO = 0;
