@@ -3,6 +3,7 @@ import src.net.Network;
 import src.net.NetworkMessage;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
@@ -72,7 +73,19 @@ public class Connection implements Observer {
         network.send(text,conversacion,dest.getAddress(),dest.getPort());
         System.out.println("Mensaje enviado");
     }
-    
+    public boolean addUser(String address,String Group) {
+        try {
+            InetAddress ad = InetAddress.getByName(address);
+            User u = new User(ad,Integer.parseInt("6140"));
+            System.out.println("Usuario agregado correctamente");
+            //return conversacionUser.users.add(u);
+            return true;
+        }
+        catch(Exception e) {
+            System.out.println("Error al agregar usuario con ip "+address+"\n"+e.getMessage());
+        }
+        return false;
+    }
     public void sendMessage(String text,String conversacion) {
         if(activeConversation.users.size() == 0)
             System.out.println("No hay usuarios para mandar el mensaje");

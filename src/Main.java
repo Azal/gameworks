@@ -23,6 +23,9 @@ public class Main {
 	public static void main(String[] args) throws IOException { 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		Connection connection=new Connection();
+		System.out.print("Enter String");
+		String IP = br.readLine();
+		connection.addUser(IP, "6140");
 		while(true){
 			connection.sendMessage("test", "default");
 			System.out.print("Enter String");
