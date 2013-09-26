@@ -2,5 +2,6 @@ package Resources.src;
 
 
 public interface ISound {
-	public void Play() ;
+	public void PlaySynchronous();
+	public void PlayAsynchronous();
 }
