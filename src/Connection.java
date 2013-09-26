@@ -14,9 +14,7 @@ public class Connection implements Observer {
     private User localUser;
     private Conversation activeConversation;
     private LinkedList<Conversation> conversations;
-	/**
-	 * @param args
-	 */
+
 	public Connection(){
 		conversations.add(new Conversation("Default"));
 		activeConversation=conversations.get(0);

@@ -9,10 +9,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-/**
- *
- * @author johnpeebles
- */
+
 public class Conversation {
     protected LinkedList<User> users;
     protected String name;

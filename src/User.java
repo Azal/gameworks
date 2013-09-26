@@ -6,10 +6,6 @@ package src;
  */
 import java.net.InetAddress;
 
-/**
- *
- * @author felipecortessaavedra
- */
 public class User {
     private InetAddress address;
     private int port;
