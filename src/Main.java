@@ -13,9 +13,13 @@ public class Main {
 	 */
 
 	/**  
-    main documentation comment */
-	public static void main(String[] args) {
+    main documentation comment 
+	 * @throws Exception */
+	public static void main(String[] args) throws Exception {
 		System.out.println("Hello gaming world!");
+		
+		Game game = Game.Create("Test", 800, 400);
+		game.Init();
 	}
 
 }
