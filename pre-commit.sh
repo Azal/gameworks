@@ -9,6 +9,7 @@ then
     if [ -f i_want_to_commit_to_master ]
     then
       rm i_want_to_commit_to_master
+      git rm i_want_to_commit_to_master
       exit 0
     else
       echo "This is the 'master' branch. Only the dictator is allowed to work here.";
