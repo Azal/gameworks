@@ -13,7 +13,7 @@ To clone the project start with:
 	git clone https://github.com/maxfindel/gameworks
 
 If you don't have permission to write, send an email to the owner([max@findel.cl](mailto:max@findel.cl)).  
-Then start an Eclipse Java Project with this folder as root and you are good to go.
+Then start an Eclipse Java Project with the folder **/scr** as root(superuser) and you are good to go.
 
 The first thing you need to do once you cloned the project is:
 
@@ -30,6 +30,8 @@ Now, go to your groups branch with:
 	git pull origin groupX/master
 	git pull origin master
 	/* If there are any changes or updates you want to push: */
+	git add .
+	git commit -m "-message-"
 	git push origin groupX/master
 
 
@@ -51,7 +53,7 @@ Now, go to your groups branch with:
 * **Community:** Nikolas Bravo, Ignacio Carmach
 * **Groups and assignments:**
 	- *Group 1:* Preview 
-	- ***Group 2:* Resources** 
+	- *Group 2:* Resources 
 	- *Group 3:* Character behaviour 
 	- *Group 4:* Events 
 	- *Group 5:* Scenery creation: maps, characters, items / inanimated objects, story 
