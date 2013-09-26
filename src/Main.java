@@ -1,6 +1,8 @@
 package src;
-
-
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import src.net.Network;
 public class Main {
 
 	/**
@@ -15,9 +17,21 @@ public class Main {
 	 */
 
 	/**  
-    main documentation comment */
-	public static void main(String[] args) {
-		System.out.println("Hello gaming world!");
+	main documentation comment */
+	private Network network;
+	public static void main(String[] args) throws IOException { 
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		while(true){
+			System.out.print("Enter String: ");
+			String s = br.readLine();
+			System.out.println(s);
+			System.out.print("Enter Integer: ");
+			try{
+				int i = Integer.parseInt(br.readLine());
+				System.out.println(i);
+			}catch(NumberFormatException nfe){
+				System.err.println("\nInvalid Format!");
+			}
+		}
 	}
-
 }
