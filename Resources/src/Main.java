@@ -20,7 +20,7 @@ public class Main {
 	public static void main(String[] args) {
 		SoundFactory sf = new SoundFactory();
 
-		ISound sound = sf.createSound("/Users/iCarmach/Downloads/sound_ambience_nature.wav");
+		ISound sound = sf.createSound("assets/sounds/sound_ambience_nature.wav");
 		sound.PlayAsynchronous();
 
 		System.out.println("hola");
