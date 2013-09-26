@@ -1,10 +1,9 @@
 package src;
-//import src.net.Network;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
-
+import src.net.Network;
 public class Main {
 
 	/**
@@ -20,19 +19,21 @@ public class Main {
 
 	/**  
 	main documentation comment */
-	//private Network network;
+	private Network network;
 	public static void main(String[] args) throws IOException { 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		Connection connection=new Connection();
 		while(true){
-			System.out.print("Enter String: ");
+			connection.sendMessage("test", "default");
+			System.out.print("Enter String");
 			String s = br.readLine();
-			System.out.println(s);
-			System.out.print("Enter Integer: ");
+			System.out.print(s);
+			System.out.print("Enter Integer:");
 			try{
 				int i = Integer.parseInt(br.readLine());
-				System.out.println(i);
+				System.out.print(i);
 			}catch(NumberFormatException nfe){
-				System.err.println("\nInvalid Format!");
+				System.err.println("Invalid Format!");
 			}
 		}
 	}

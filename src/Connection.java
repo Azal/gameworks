@@ -1,5 +1,4 @@
 package src;
-
 import src.net.Network;
 import src.net.NetworkMessage;
 
@@ -14,8 +13,11 @@ public class Connection implements Observer {
     private User localUser;
     private Conversation activeConversation;
     private LinkedList<Conversation> conversations;
-
+	/**
+	 * @param args
+	 */
 	public Connection(){
+        conversations = new LinkedList<Conversation>();
 		conversations.add(new Conversation("Default"));
 		activeConversation=conversations.get(0);
 		System.out.println("Inicializando red");
@@ -42,6 +44,7 @@ public class Connection implements Observer {
         src.net.NetworkMessage m = (src.net.NetworkMessage)message;
         if(m.getType() == src.net.NetworkMessage.TYPE_TEXT){
             String contenido=m.getContent();
+            System.out.print("Dice: "+contenido);
             // ui.newMessage(m.getContent(),m.getSender().toString());
         }
        // else if(m.getType() == NetworkMessage.TYPE_HELLO_RES)
