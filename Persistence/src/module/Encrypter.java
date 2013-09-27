@@ -1,4 +1,4 @@
-package persistenceModule;
+package module;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -12,19 +12,42 @@ import java.util.Iterator;
 
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.junit.runners.Parameterized.Parameters;
  
+/**
+-save&read project progress info in json files.-
+ *
+ *	@version  0.1
+    @author @group7/slakat
+    @since 26/09/2013 - @group7/slakat
+    @update_log
+       
+ */
 
+/**  
+main documentation comment */
 
-public class SaveProjectController {
+public class Encrypter {
 	
-public SaveProjectController(){
+
+public Encrypter(){
 	//save();
 	//read();
 	
 }
 	
-	
-public void save(){
+
+/**
+ * <p>
+ * 
+ * <p>
+ * 
+ * @param message
+ * @return
+ */
+@SuppressWarnings("unchecked")
+public boolean write(String message){
+	boolean success = false;
 	JSONObject obj = new JSONObject();
 	obj.put("name", "Katherine");
 	obj.put("age", new Integer(22));
@@ -38,24 +61,27 @@ public void save(){
  
 	try {
  
-		FileWriter file = new FileWriter("archivos/test.json");
+		FileWriter file = new FileWriter("files/test.json");
 		file.write(obj.toJSONString());
 		file.flush();
 		file.close();
+		success = true;
  
 	} catch (IOException e) {
 		e.printStackTrace();
 	}
  
 	System.out.print(obj);
+	return success;
 }
 
-public void read(){
+public boolean read(String route){
+	boolean success=false;
 	JSONParser parser = new JSONParser();
 	 
 	try {
  
-		Object obj = parser.parse(new FileReader("archivos/test.json"));
+		Object obj = parser.parse(new FileReader("files/test.json"));
  
 		JSONObject jsonObject = (JSONObject) obj;
  
@@ -70,6 +96,7 @@ public void read(){
 		Iterator<String> iterator = msg.iterator();
 		while (iterator.hasNext()) {
 			System.out.println(iterator.next());
+		success = true;
 		}
  
 	} catch (FileNotFoundException e) {
@@ -79,10 +106,20 @@ public void read(){
 	} catch (ParseException e) {
 		e.printStackTrace();
 	}
+	
+	return success;
  
 }
 
+public void encoding()
+{
+	
+}
 
+public void decoding()
+{
+	
+}
 
 
 }
