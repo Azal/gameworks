@@ -65,7 +65,7 @@ public class ImageX implements IImage{
 	}
 	@Override
 	public boolean reloadImage() {
-		return LoadImage();
+		return loadImage();
 		
 	}
 }
