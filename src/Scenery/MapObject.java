@@ -1,4 +1,4 @@
-package scenery;
+package src.Scenery;
 
 public abstract class MapObject {
 	protected int height;
