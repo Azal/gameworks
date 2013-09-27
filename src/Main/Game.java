@@ -108,10 +108,20 @@ public class Game {
 	public void Init() throws Exception
 	{
 		container.setVisible(true);
+		
+		onInit();
 
 		GameThread gt = new GameThread(game);
 		gt.run();
 
+	}
+	
+	/**
+	 * This method is called when game.Init()
+	 * @author nggomez
+	 */
+	private void onInit(){
+		// here it should load all events (key, mouse, etc) and initial map state
 	}
 
 	public BufferStrategy GetStrategy()
