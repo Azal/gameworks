@@ -7,12 +7,14 @@ public class SoundMP3 implements ISound{
 
 	}
 
-	public void PlaySynchronous() {
+	public boolean PlaySynchronous() {
 		//play it.
+		return true;
 	}
 
-	public void PlayAsynchronous() {
+	public boolean PlayAsynchronous() {
 		//play it.
+		return true;
 	}
 
 }

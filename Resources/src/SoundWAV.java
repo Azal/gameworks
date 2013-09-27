@@ -34,11 +34,11 @@ public class SoundWAV extends Thread implements ISound{
         curPosition = p;
     }
 
-	public void PlaySynchronous() {
+	public boolean PlaySynchronous() {
 		File soundFile = new File(filename);
         if (!soundFile.exists()) { 
             System.err.println("Wave file not found: " + filename);
-            return;
+            return false;
         } 
  
         AudioInputStream audioInputStream = null;
@@ -46,10 +46,10 @@ public class SoundWAV extends Thread implements ISound{
             audioInputStream = AudioSystem.getAudioInputStream(soundFile);
         } catch (UnsupportedAudioFileException e1) { 
             e1.printStackTrace();
-            return;
+            return false;
         } catch (IOException e1) { 
             e1.printStackTrace();
-            return;
+            return false;
         } 
  
         AudioFormat format = audioInputStream.getFormat();
@@ -61,10 +61,10 @@ public class SoundWAV extends Thread implements ISound{
             auline.open(format);
         } catch (LineUnavailableException e) { 
             e.printStackTrace();
-            return;
+            return false;
         } catch (Exception e) { 
             e.printStackTrace();
-            return;
+            return false;
         } 
  
         if (auline.isControlSupported(FloatControl.Type.PAN)) { 
@@ -85,18 +85,21 @@ public class SoundWAV extends Thread implements ISound{
                 nBytesRead = audioInputStream.read(abData, 0, abData.length);
                 if (nBytesRead >= 0) 
                     auline.write(abData, 0, nBytesRead);
-            } 
+            }
         } catch (IOException e) { 
             e.printStackTrace();
-            return;
+            return false;
         } finally { 
             auline.drain();
             auline.close();
         }
+        
+        return true;
 	}
 
-	public void PlayAsynchronous() {
+	public boolean PlayAsynchronous() {
 		new SoundWAV(filename).start();
+		return true;
 	}
 
 	public void run() {
