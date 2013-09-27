@@ -79,7 +79,7 @@ public class Connection implements Observer {
             User u = new User(ad,Integer.parseInt("6140"));
             System.out.println("Usuario agregado correctamente");
             //return conversacionUser.users.add(u);
-            return true;
+            return activeConversation.users.add(u);
         }
         catch(Exception e) {
             System.out.println("Error al agregar usuario con ip "+address+"\n"+e.getMessage());
