@@ -58,8 +58,6 @@ Now, go to your groups branch with:
 	- *Group 6:* Input/Output 
 	- ***Group 7:* Persistency (game state)**
 	- *Group 8:* Conectivity / Network
-	- *Group 7:* Persistency (game state) 
-	- *Group 8:* Connectivity / Network 
 
 ####Git Branches
 master -> Only for dictator. Always stable.  
