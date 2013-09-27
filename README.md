@@ -13,7 +13,7 @@ To clone the project start with:
 	git clone https://github.com/maxfindel/gameworks
 
 If you don't have permission to write, send an email to the owner([max@findel.cl](mailto:max@findel.cl)).  
-Then start an Eclipse Java Project with the folder **/scr** as root(superuser) and you are good to go.
+Then start an Eclipse Java Project with the folder **gameworks/** as location and you are good to go.
 
 The first thing you need to do once you cloned the project is:
 
