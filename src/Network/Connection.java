@@ -105,7 +105,7 @@ public class Connection implements Observer {
     }
     private void sendHiMessage(User dest) {
         System.out.println("Sending invite to user " + dest.toString());
-        String port="6740";
+        String puerto="6740";
         network.send(new NetworkMessage(NetworkMessage.TYPE_HELLO,activeConversation.name,Network.getPort()+""), dest.getAddress(),dest.getPort());
     }
     public void sendMessage(String text,String conversacion) {
