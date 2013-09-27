@@ -1,5 +1,10 @@
 package Resources.src;
 
+/**
+ * @Version 0.1
+ * @created_by @group2/Ignacio Carmach
+ *
+ */
 
 public class VideoWMV implements IVideo{
 
@@ -7,7 +12,7 @@ public class VideoWMV implements IVideo{
 		
 	}
 	
-	public boolean Play() {
+	public boolean play() {
 		//play it.
 		return true;
 	}

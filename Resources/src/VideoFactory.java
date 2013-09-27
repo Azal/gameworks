@@ -1,5 +1,10 @@
 package Resources.src;
 
+/**
+ * @Version 0.1
+ * @created_by @group2/Ignacio Carmach
+ *
+ */
 
 public class VideoFactory extends Factory{
 	
@@ -8,7 +13,7 @@ public class VideoFactory extends Factory{
 	}
 	
 	public IVideo createVideo(String path) {
-		if(GetExtension(path).equals("wmv")) {
+		if(getExtension(path).equals("wmv")) {
 			return new VideoWMV(path);
 		}
 		

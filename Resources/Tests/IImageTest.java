@@ -1,5 +1,11 @@
 package Resources.Tests;
 
+/**
+ * @Version 0.1
+ * @created_by @group2/Mauricio Vera
+ *
+ */
+
 import static org.junit.Assert.*;
 
 import java.awt.image.PixelGrabber;
@@ -26,7 +32,7 @@ public class IImageTest {
 	public void testFilterGreyScale() {
 		ImageFactory imageFactory = new ImageFactory();
 		IImage iim = imageFactory.createImage("assets/images/megaman.gif");
-		iim.FilterGreyScale(1);
+		iim.filterGreyScale(1);
 		try{
 			PixelGrabber grab1 = new PixelGrabber(iim.getImageObject(), 0, 0, -1, -1, true);
 			grab1.grabPixels();

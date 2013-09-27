@@ -38,7 +38,7 @@ public class Main {
 		SoundFactory sf = new SoundFactory();
 
 		ISound sound = sf.createSound("assets/sounds/sound_ambience_nature.wav");
-		sound.PlayAsynchronous();
+		sound.playAsynchronous();
 
 		System.out.println("hola");
 		
@@ -52,7 +52,7 @@ public class Main {
  
         ImageFactory iff = new ImageFactory();
          IImage iim = iff.createImage("assets/images/megaman.gif");
-         iim.FilterGreyScale(1);
+         iim.filterGreyScale(1);
          JLabel picLabel = new JLabel(new ImageIcon(iim.getImageObject()));
          f.add(picLabel);
          f.pack();

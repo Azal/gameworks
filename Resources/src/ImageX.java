@@ -10,6 +10,12 @@ import java.awt.image.WritableRaster;
 import java.io.*;
 import javax.imageio.*;
 
+/**
+ * @Version 0.1
+ * @created_by @group2/Mauricio Vera
+ *
+ */
+
 public class ImageX implements IImage{
 
 	private BufferedImage img;
@@ -18,10 +24,10 @@ public class ImageX implements IImage{
 
 	public ImageX(String path) {
 		filename = path;
-		LoadImage();
+		loadImage();
 
 	}
-	public boolean LoadImage() {
+	public boolean loadImage() {
 	       try {
 	           img = ImageIO.read(new File(filename));
 	       } 
@@ -32,7 +38,7 @@ public class ImageX implements IImage{
 	       return true;
 
 	}
-	public void FilterGreyScale(int option){
+	public void filterGreyScale(int option){
 		if (img == null) return;
 		if (option==1){
 			ColorSpace cs = ColorSpace.getInstance(ColorSpace.CS_LINEAR_RGB);
@@ -48,7 +54,7 @@ public class ImageX implements IImage{
 		}
 	}
 	
-	public boolean Rotate() {
+	public boolean rotate() {
 		//rotate
 		return true;
 	}

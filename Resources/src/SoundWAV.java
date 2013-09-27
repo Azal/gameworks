@@ -12,6 +12,12 @@ import javax.sound.sampled.SourceDataLine;
 import javax.sound.sampled.FloatControl; 
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+/**
+ * @Version 0.1
+ * @created_by @group2/Ignacio Carmach
+ *
+ */
+
 public class SoundWAV extends Thread implements ISound{
 	enum Position { 
         LEFT, RIGHT, NORMAL
@@ -34,14 +40,14 @@ public class SoundWAV extends Thread implements ISound{
         curPosition = p;
     }
 
-	public boolean PlaySynchronous() {
+	public boolean playSynchronous() {
 		File soundFile = new File(filename);
         if (!soundFile.exists()) { 
-            System.err.println("Wave file not found: " + filename);
             return false;
         } 
  
         AudioInputStream audioInputStream = null;
+        System.err.println("Wave file not found: " + filename);
         try { 
             audioInputStream = AudioSystem.getAudioInputStream(soundFile);
         } catch (UnsupportedAudioFileException e1) { 
@@ -97,12 +103,12 @@ public class SoundWAV extends Thread implements ISound{
         return true;
 	}
 
-	public boolean PlayAsynchronous() {
+	public boolean playAsynchronous() {
 		new SoundWAV(filename).start();
 		return true;
 	}
 
 	public void run() {
-		PlaySynchronous();
+		playSynchronous();
 	}
 }
