@@ -1,3 +1,4 @@
+import routes.PatrolPath;
 import routes.ShortPath;
 
 
@@ -19,9 +20,19 @@ public class Main {
 		int[][] road = ShortPath.getPath(map);
 		for(int i = 0; i < road.length; i++)
 		{
-			String line = "(" + road[i][0] + ", " + road[i][1] + ")";
-			System.out.println(line);
+			String coord = "(" + road[i][0] + ", " + road[i][1] + "), ";
+			System.out.print(coord);
 		}
+		
+		//PatrolPath test
+		System.out.println("PatrolPath test:");
+		road = PatrolPath.getPath(map);
+		for(int i = 0; i < road.length; i++)
+		{
+			String coord = "(" + road[i][0] + ", " + road[i][1] + "), ";
+			System.out.print(coord);
+		}
+		
 	}
 
 }
