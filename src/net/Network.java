@@ -117,9 +117,10 @@ public class Network implements Observer,
     public void update(Observable obs, Object obj) {
         NetworkMessage message = (NetworkMessage)obj;
         //If we are greeted, we say hi back.
-        if(message.getType() == NetworkMessage.TYPE_HELLO)
+        if(message.getType() == NetworkMessage.TYPE_HELLO){
             sender.send(new NetworkMessage(NetworkMessage.TYPE_HELLO_RES,"",Network.getPort()+""), message.sender,message.port);
-            
+        System.out.println("mande hola");
+        }
         if(message.getType() == NetworkMessage.TYPE_HELLO_RES)
             System.out.println("ACK " + message.getString() + "--" + message.sender);
         System.out.println(message.getContent());

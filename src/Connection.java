@@ -42,6 +42,7 @@ public class Connection implements Observer {
 	}
     @Override
     public void update(Observable o, Object message) {
+    	
         src.net.NetworkMessage m = (src.net.NetworkMessage)message;
         if(m.getType() == src.net.NetworkMessage.TYPE_TEXT){
             String contenido=m.getContent();
