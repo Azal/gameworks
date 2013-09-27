@@ -123,7 +123,6 @@ public class Network implements Observer,
         }
         //if(message.getType() == NetworkMessage.TYPE_HELLO_RES)
             //System.out.println("ACK " + message.getString() + "--" + message.sender);
-        System.out.println(message.getContent());
     }
     
     

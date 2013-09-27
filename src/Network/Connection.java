@@ -57,7 +57,7 @@ public class Connection implements Observer {
         NetworkMessage m = (NetworkMessage)message;
         if(m.getType() == NetworkMessage.TYPE_TEXT){
             String contenido=m.getContent();
-            System.out.print("Says: "+contenido);
+            System.out.print("Says: "+contenido + "\n");
             // ui.newMessage(m.getContent(),m.getSender().toString());
         }
        // else if(m.getType() == NetworkMessage.TYPE_HELLO_RES)
