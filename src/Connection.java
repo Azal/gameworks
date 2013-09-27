@@ -43,6 +43,7 @@ public class Connection implements Observer {
     @Override
     public void update(Observable o, Object message) {
         src.net.NetworkMessage m = (src.net.NetworkMessage)message;
+        System.out.print(m.getContent());
         if(m.getType() == src.net.NetworkMessage.TYPE_TEXT){
             String contenido=m.getContent();
             System.out.print("Dice: "+contenido);
@@ -59,7 +60,7 @@ public class Connection implements Observer {
             String contenido=m.getContent();
             String[] puertoSplitted=contenido.split("-");
             //ui.newMessage(m.getContent(), m.getSender().toString(), Integer.parseInt(puertoSplitted[puertoSplitted.length-1]));
-          //  ui.newMessage(puertoSplitted[0]+"-Conexion Creada",m.getSender().toString()+":"+puertoSplitted[puertoSplitted.length-1]);
+            //ui.newMessage(puertoSplitted[0]+"-Conexion Creada",m.getSender().toString()+":"+puertoSplitted[puertoSplitted.length-1]);
             //ui.addAddressBack(m.getSender().toString().substring(1)+":"+puertoSplitted[puertoSplitted.length-1], puertoSplitted[0]);
         }
         else if(m.getType()==NetworkMessage.TYPE_READ_IMAGE){

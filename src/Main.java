@@ -3,7 +3,6 @@ package src;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import src.net.Network;;
 public class Main {
 
 	/**
@@ -19,11 +18,10 @@ public class Main {
 
 	/**  
 	main documentation comment */
-	private Network network;
 	public static void main(String[] args) throws IOException { 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		Connection connection=new Connection();
-		System.out.print("Enter String");
+		System.out.print("Enter IP");
 		String IP = br.readLine();
 		connection.addUser(IP, "6140");
 		while(true){
