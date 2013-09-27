@@ -23,7 +23,7 @@ public class Main {
 		Connection connection=new Connection();
 		System.out.print("Enter IP");
 		String IP = br.readLine();
-		connection.addUser(IP, "6140");
+		connection.addUser(IP, "6740");
 		while(true){
 			connection.sendMessage("test", "default");
 			System.out.print("Enter String");

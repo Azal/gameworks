@@ -78,7 +78,7 @@ public class Connection implements Observer {
     public boolean addUser(String address,String Group) {
         try {
             InetAddress ad = InetAddress.getByName(address);
-            User u = new User(ad,Integer.parseInt("6140"));
+            User u = new User(ad,Integer.parseInt("6740"));
             System.out.println("Usuario agregado correctamente");
             //return conversacionUser.users.add(u);
             return activeConversation.users.add(u);
