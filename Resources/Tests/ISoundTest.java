@@ -23,13 +23,13 @@ public class ISoundTest {
 	public void loadAndPlayAsynchronousSound() {
 		SoundFactory sf = new SoundFactory();
 		ISound sound = sf.createSound("assets/sounds/sound_ambience_nature.wav");
-		assertTrue(sound.PlayAsynchronous());
+		assertTrue(sound.playAsynchronous());
 	}
 	@Test
 	public void loadAndPlaySynchronousSound() {
 		SoundFactory sf = new SoundFactory();
 		ISound sound = sf.createSound("assets/sounds/sound_ambience_nature.wav");
-		assertTrue(sound.PlaySynchronous());
+		assertTrue(sound.playSynchronous());
 	}
 
 }

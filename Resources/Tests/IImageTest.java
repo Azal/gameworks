@@ -56,7 +56,7 @@ public class IImageTest {
 		assertNotNull(imageFactory);
 		IImage iim = imageFactory.createImage("assets/images/megaman.gif");
 		assertNotNull(iim);
-		iim.FilterGreyScale(1);
+		iim.filterGreyScale(1);
 		assertTrue(iim.reloadImage());
 	}
 }
