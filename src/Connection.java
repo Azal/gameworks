@@ -46,14 +46,14 @@ public class Connection implements Observer {
         src.net.NetworkMessage m = (src.net.NetworkMessage)message;
         if(m.getType() == src.net.NetworkMessage.TYPE_TEXT){
             String contenido=m.getContent();
-            System.out.print("Dice: "+contenido);
+            System.out.print("Says: "+contenido);
             // ui.newMessage(m.getContent(),m.getSender().toString());
         }
        // else if(m.getType() == NetworkMessage.TYPE_HELLO_RES)
             // ui.newStatus("Usuario confirmo conexion :" + m.getSender().toString());
         else if(m.getType() == NetworkMessage.TYPE_BYE) {
             // this.deleteUser(m.getSender());
-            System.out.println("Usuario desconectado " + m.getSender().toString());
+            System.out.println("User disconnected " + m.getSender().toString());
            // ui.newStatus("Usuario se desconecto :" + m.getSender().toString());
         }
         else if(m.getType() == NetworkMessage.TYPE_HELLO) {
@@ -69,21 +69,21 @@ public class Connection implements Observer {
             //ui.addAddressBack(m.getSender().toString().substring(1)+":"+puertoSplitted[puertoSplitted.length-1], puertoSplitted[0]);
         }
         else if(m.getType()==NetworkMessage.TYPE_READ_IMAGE){
-            System.out.print("leer imagen");
+            System.out.print("read image");
            //  ui.addImage(m.getContent().toString());
         }
     }
     public void sendMessage(String text,String conversacion, User dest) {
-        System.out.println("Enviando mensaje");
+        System.out.println("Sending message");
         String puerto=String.valueOf(localUser.getPort());
         network.send(text,conversacion,dest.getAddress(),dest.getPort());
-        System.out.println("Mensaje enviado");
+        System.out.println("Message sent");
     }
     public boolean addUser(String address,String Group) {
         try {
             InetAddress ad = InetAddress.getByName(address);
             User u = new User(ad,Integer.parseInt("6740"));
-            System.out.println("Usuario agregado correctamente");
+            System.out.println("User successfully added");
             //return conversacionUser.users.add(u);
             sendHiMessage(u);
             return activeConversation.users.add(u);
@@ -94,7 +94,7 @@ public class Connection implements Observer {
         return false;
     }
     private void sendHiMessage(User dest) {
-        System.out.println("Enviando saludo a usuario " + dest.toString());
+        System.out.println("Sending hello to user " + dest.toString());
         String puerto="6740";
         network.send(new NetworkMessage(NetworkMessage.TYPE_HELLO,activeConversation.name,Network.getPort()+""), dest.getAddress(),dest.getPort());
     }
