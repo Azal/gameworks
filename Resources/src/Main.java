@@ -1,5 +1,22 @@
 package Resources.src;
 
+import static org.junit.Assert.fail;
+
+import java.awt.Component;
+import java.awt.Image;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.image.BufferedImage;
+import java.awt.image.PixelGrabber;
+import java.awt.image.RenderedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
 
 public class Main {
 
@@ -24,6 +41,31 @@ public class Main {
 		sound.PlayAsynchronous();
 
 		System.out.println("hola");
+		
+		JFrame f = new JFrame("Load Image Sample");
+        
+        f.addWindowListener(new WindowAdapter(){
+                public void windowClosing(WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+ 
+        ImageFactory iff = new ImageFactory();
+         IImage iim = iff.createImage("assets/images/megaman.gif");
+         iim.FilterGreyScale(1);
+         JLabel picLabel = new JLabel(new ImageIcon(iim.getImageObject()));
+         f.add(picLabel);
+         f.pack();
+        f.setVisible(true);
+        try {
+           
+            File outputfile = new File("saved1.gif");
+            ImageIO.write((RenderedImage) iim.getImageObject(), "gif", outputfile);
+        } catch (IOException e) {
+        }
+        
+        
+        
 	}
 
 }

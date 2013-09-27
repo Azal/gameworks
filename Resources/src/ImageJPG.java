@@ -1,5 +1,7 @@
 package Resources.src;
 
+import java.awt.Image;
+
 
 public class ImageJPG implements IImage{
 
@@ -13,5 +15,17 @@ public class ImageJPG implements IImage{
 	public boolean Rotate() {
 		//rotate
 		return true;
+	}
+
+	@Override
+	public Image getImageObject() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void FilterGreyScale(int option) {
+		// TODO Auto-generated method stub
+		
 	}
 }
