@@ -7,7 +7,7 @@ public class SpriteFactory {
 		
 	}
 	
-	public ISprite createImage(String path) {
+	public ISprite createSprite(String path) {
 		
 		return new Sprite(path);
 		
