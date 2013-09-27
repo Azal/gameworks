@@ -4,14 +4,18 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.JPanel;
+
+/**
+* Class MapPanel
+*  Class which contains the logic associated with the panel that will represent 
+*  the Map in the map editor window.
+*	@version  1
+* @created_by @group1/jarizti1       
+*/
 
 class MapPanel extends JPanel {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -756677306651426444L;
 	public BufferedImage backTile;
 	public int cellPix = 0;

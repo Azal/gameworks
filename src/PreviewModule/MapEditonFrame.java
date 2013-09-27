@@ -14,6 +14,14 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+* Class MapEditonFrame
+*  Class which contains the logic associated with the window displayed to make map editions: 
+*  manage attributes, and add objects to the map.
+*	@version  1
+* @created_by @group1/jarizti1       
+*/
+
 public class MapEditonFrame extends JFrame implements IGameworksWindow {
 
 	private static final long serialVersionUID = 1699801098792119697L;
