@@ -10,7 +10,8 @@ public class ImageJPG implements IImage{
 		filename = path;
 	}
 	
-	public void Rotate() {
+	public boolean Rotate() {
 		//rotate
+		return true;
 	}
 }

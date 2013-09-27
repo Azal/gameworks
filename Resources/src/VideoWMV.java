@@ -7,7 +7,8 @@ public class VideoWMV implements IVideo{
 		
 	}
 	
-	public void Play() {
+	public boolean Play() {
 		//play it.
+		return true;
 	}
 }
