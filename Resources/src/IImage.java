@@ -17,6 +17,7 @@ public interface IImage {
 	public boolean rotate() ;
 	public java.awt.Image getImageObject();
 	public void filterGreyScale(int option);
+	public boolean reloadImage();
 }
 
 
