@@ -48,6 +48,7 @@ public class IImageTest {
 			}
 		}
 		catch(Exception e){fail("testGreyScale");}
+		
 	}
 	@Test
 	public void testReloadImage() {
