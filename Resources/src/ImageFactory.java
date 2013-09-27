@@ -1,7 +1,7 @@
 package Resources.src;
 
 
-public class ImageFactory {
+public class ImageFactory extends Factory {
 
 	public ImageFactory() {
 		
@@ -24,8 +24,5 @@ public class ImageFactory {
 			return null;
 		}
 	}
-	
-	private String GetExtension(String s) {
-		return "jpg";
-	}
+
 }

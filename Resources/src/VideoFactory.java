@@ -1,7 +1,7 @@
 package Resources.src;
 
 
-public class VideoFactory {
+public class VideoFactory extends Factory{
 	
 	public VideoFactory() {
 		
@@ -17,8 +17,6 @@ public class VideoFactory {
 		}
 	}
 	
-	private String GetExtension(String s) {
-		return "wmv";
-	}
+	
 
 }

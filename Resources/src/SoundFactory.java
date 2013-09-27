@@ -1,7 +1,7 @@
 package Resources.src;
 
 
-public class SoundFactory {
+public class SoundFactory extends Factory {
 	
 	public SoundFactory() {
 
@@ -15,17 +15,6 @@ public class SoundFactory {
 		else {
 			return null;
 		}
-	}
-
-	private String GetExtension(String path) {
-		String extension = "";
-		
-		int i = path.lastIndexOf('.');
-		if (i > 0) {
-		    extension = path.substring(i+1);
-		}
-
-		return extension;
 	}
 
 }
