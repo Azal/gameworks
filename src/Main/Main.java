@@ -19,13 +19,12 @@ public class Main {
 
 	/**
 		-Class description goes here.-
-			-Reference to external code-
+			- Game Example
 	 *
 	 *	@version  0.1
-	    @created_by @group8/maxfindel,jpeeblesg
+	    @created_by @group8/nggomez
 	    @update_log
-	    	23/09/2013 - @group8/maxfindel
-	    	dd/mm/yyyy - @groupX/author[,author2,...]          
+	    	26/09/2013 - @group6/nggomez         
 	 */
 
 	/**  
