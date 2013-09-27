@@ -1,4 +1,4 @@
-package src.net;
+package src.Network;
 
 import static org.junit.Assert.*;
 

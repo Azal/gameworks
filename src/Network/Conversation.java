@@ -1,4 +1,4 @@
-package src.net;
+package src.Network;
 
 /*
  * To change this template, choose Tools | Templates

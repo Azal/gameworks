@@ -1,10 +1,9 @@
-package src.net;
+package src.Network;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import src.net.Connection;
 public class Main {
 
 	/**

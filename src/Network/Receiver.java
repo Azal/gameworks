@@ -1,5 +1,5 @@
 
-package src.net;
+package src.Network;
 import java.io.*;
 import java.net.*;
 import java.util.Observable;

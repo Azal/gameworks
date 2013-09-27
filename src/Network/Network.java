@@ -1,4 +1,4 @@
-package src.net;
+package src.Network;
 
 import java.io.FileOutputStream;
 import java.net.*;

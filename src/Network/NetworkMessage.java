@@ -1,5 +1,5 @@
 
-package src.net;
+package src.Network;
 import java.io.Serializable;
 import java.net.InetAddress;
 

@@ -1,4 +1,4 @@
-package src.net;
+package src.Network;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -55,8 +55,8 @@ public class Connection implements Observer {
 	and the normal chat text(TYPE_TEXT) */
     public void update(Observable o, Object message) {
     	
-        src.net.NetworkMessage m = (src.net.NetworkMessage)message;
-        if(m.getType() == src.net.NetworkMessage.TYPE_TEXT){
+        NetworkMessage m = (NetworkMessage)message;
+        if(m.getType() == NetworkMessage.TYPE_TEXT){
             String contenido=m.getContent();
             System.out.print("Says: "+contenido);
             // ui.newMessage(m.getContent(),m.getSender().toString());
