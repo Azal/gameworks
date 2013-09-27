@@ -19,11 +19,5 @@ public class ImageFactoryTest {
 	public static void tearDownAfterClass() throws Exception {
 	}
 
-	@Test
-	public void testGreyScale() {
-		ImageFactory imageFactory = new ImageFactory();
-		IImage imagen = imageFactory.createImage("foto");
-		fail("testGreyScale");
-	}
 
 }
