@@ -15,5 +15,35 @@ package scenery;
 main documentation comment */
 
 public class Map {
-
+	protected MapObject mapObjectGrid[][];
+	protected Character characterGrid[][];
+	protected String spritePath;
+	
+	public MapObjectType getObjectType(int positionX, int positionY){
+		return null;
+	}
+	
+	public Character getCharacter(int positionX, int positionY){
+		return null;
+	}
+	
+	public MapObject getMapObject(int positionX, int positionY){
+		return null;
+	}
+	
+	public void addCharacter(Character character){
+		
+	}
+	
+	public void addMapObject(MapObject mapObject){
+		
+	}
+	
+	public void setSpritePath(String path){
+		
+	}
+	
+	public String getSpritePath(){
+		return null;
+	}
 }
