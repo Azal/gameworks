@@ -81,12 +81,18 @@ public class Connection implements Observer {
             User u = new User(ad,Integer.parseInt("6740"));
             System.out.println("Usuario agregado correctamente");
             //return conversacionUser.users.add(u);
+            sendHiMessage(u);
             return activeConversation.users.add(u);
         }
         catch(Exception e) {
             System.out.println("Error al agregar usuario con ip "+address+"\n"+e.getMessage());
         }
         return false;
+    }
+    private void sendHiMessage(User dest) {
+        System.out.println("Enviando saludo a usuario " + dest.toString());
+        String puerto="6740";
+        network.send(new NetworkMessage(NetworkMessage.TYPE_HELLO,activeConversation.name,Network.getPort()+""), dest.getAddress(),dest.getPort());
     }
     public void sendMessage(String text,String conversacion) {
         if(activeConversation.users.size() == 0)

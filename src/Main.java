@@ -25,9 +25,9 @@ public class Main {
 		String IP = br.readLine();
 		connection.addUser(IP, "6740");
 		while(true){
-			connection.sendMessage("test", "default");
 			System.out.print("Enter String");
 			String s = br.readLine();
+			connection.sendMessage(s, " ");
 			System.out.print(s);
 			System.out.print("Enter Integer:");
 			try{
