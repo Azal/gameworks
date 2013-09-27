@@ -1,11 +1,11 @@
-package search;
+package CharacterBehaviour.src.search;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import search.heuristics.Heuristic;
-import search.tieBreakers.TieBreaker;
+import CharacterBehaviour.src.search.heuristics.Heuristic;
+import CharacterBehaviour.src.search.tieBreakers.TieBreaker;
 
 public class SearcherAgent
 {

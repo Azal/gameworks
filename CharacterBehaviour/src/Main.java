@@ -1,5 +1,7 @@
-import routes.PatrolPath;
-import routes.ShortPath;
+package CharacterBehaviour.src;
+
+import CharacterBehaviour.src.routes.PatrolPath;
+import CharacterBehaviour.src.routes.ShortPath;
 
 
 public class Main {

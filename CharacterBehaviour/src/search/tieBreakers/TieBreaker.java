@@ -1,6 +1,6 @@
-package search.tieBreakers;
+package CharacterBehaviour.src.search.tieBreakers;
 
-import search.AState;
+import CharacterBehaviour.src.search.AState;
 
 public interface TieBreaker
 {
