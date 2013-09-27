@@ -16,8 +16,6 @@ import org.junit.runners.Suite.SuiteClasses;
        
  */
 
-/**  
-main documentation comment */
 
 @RunWith(Suite.class)
 @SuiteClasses({communicatorTest.class, encrypterTest.class,fileTest.class})

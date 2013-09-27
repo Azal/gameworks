@@ -18,8 +18,7 @@ import org.junit.Test;
        
  */
 
-/**  
-main documentation comment */
+
 
 public class fileTest {
 	FileManager file;
