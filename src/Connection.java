@@ -44,7 +44,6 @@ public class Connection implements Observer {
     public void update(Observable o, Object message) {
     	
         src.net.NetworkMessage m = (src.net.NetworkMessage)message;
-        System.out.print(m.getContent());
         if(m.getType() == src.net.NetworkMessage.TYPE_TEXT){
             String contenido=m.getContent();
             System.out.print("Dice: "+contenido);
@@ -60,6 +59,11 @@ public class Connection implements Observer {
         else if(m.getType() == NetworkMessage.TYPE_HELLO) {
             String contenido=m.getContent();
             String[] puertoSplitted=contenido.split("-");
+        	String IP = m.getSender().toString().substring(1);
+        	addUser(IP, " ");
+            //for(int i=0; i<puertoSplitted.length-1; i++){
+            //	System.out.println(puertoSplitted[i]);
+            //}
             //ui.newMessage(m.getContent(), m.getSender().toString(), Integer.parseInt(puertoSplitted[puertoSplitted.length-1]));
             //ui.newMessage(puertoSplitted[0]+"-Conexion Creada",m.getSender().toString()+":"+puertoSplitted[puertoSplitted.length-1]);
             //ui.addAddressBack(m.getSender().toString().substring(1)+":"+puertoSplitted[puertoSplitted.length-1], puertoSplitted[0]);

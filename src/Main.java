@@ -21,21 +21,22 @@ public class Main {
 	public static void main(String[] args) throws IOException { 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		Connection connection=new Connection();
-		System.out.print("Enter IP");
-		String IP = br.readLine();
-		connection.addUser(IP, "6740");
+		System.out.print("If you want to host type 1, if you want to be added type 2:");
+		String chat_type = br.readLine();
+		System.out.println(chat_type);
+		if(chat_type.equals("1")){
+			System.out.print("Enter IP of other user");
+			String IP = br.readLine();
+			connection.addUser(IP, "6740");
+		}
+		else{
+			System.out.println("Waiting");
+		}
 		while(true){
-			System.out.print("Enter String");
+			System.out.print("Enter Message: ");
 			String s = br.readLine();
 			connection.sendMessage(s, " ");
 			System.out.print(s);
-			System.out.print("Enter Integer:");
-			try{
-				int i = Integer.parseInt(br.readLine());
-				System.out.print(i);
-			}catch(NumberFormatException nfe){
-				System.err.println("Invalid Format!");
-			}
 		}
 	}
 }
