@@ -43,11 +43,12 @@ public class SoundWAV extends Thread implements ISound{
 	public boolean playSynchronous() {
 		File soundFile = new File(filename);
         if (!soundFile.exists()) { 
-            return false;
+        	System.err.println("Wave file not found: " + filename);
+        	return false;
         } 
  
         AudioInputStream audioInputStream = null;
-        System.err.println("Wave file not found: " + filename);
+        
         try { 
             audioInputStream = AudioSystem.getAudioInputStream(soundFile);
         } catch (UnsupportedAudioFileException e1) { 
