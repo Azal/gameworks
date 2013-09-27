@@ -21,7 +21,6 @@ public class Main {
 	/**  
 	main for chat documentation comment */
 	public static void main(String[] args) throws IOException { 
-		System.out.println("Hello gameworks!");
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		Connection connection=new Connection();
 		System.out.print("If you want to host type 1, if you want to be added type 2:");
