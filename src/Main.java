@@ -1,4 +1,4 @@
-import PreviewModule.CharacterEditionFrame;
+import PreviewModule.*;
 
 
 
@@ -19,7 +19,7 @@ public class Main {
     main documentation comment */
 	public static void main(String[] args) {
 		System.out.println("Hello gaming world!");
-		CharacterEditionFrame mainWindow = new CharacterEditionFrame();
+		MapEditonFrame mainWindow = new MapEditonFrame();
 		mainWindow.setVisible(true);
 	}
 
