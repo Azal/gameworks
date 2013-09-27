@@ -23,7 +23,6 @@ public class Main {
 		Connection connection=new Connection();
 		System.out.print("If you want to host type 1, if you want to be added type 2:");
 		String chat_type = br.readLine();
-		System.out.println(chat_type);
 		if(chat_type.equals("1")){
 			System.out.print("Enter IP of other user");
 			String IP = br.readLine();
@@ -36,7 +35,7 @@ public class Main {
 			System.out.print("Enter Message: ");
 			String s = br.readLine();
 			connection.sendMessage(s, " ");
-			System.out.print(s);
+			//System.out.print(s);
 		}
 	}
 }

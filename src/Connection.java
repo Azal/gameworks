@@ -10,26 +10,37 @@ import java.util.Observer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 public class Connection implements Observer {
+    /**
+	-Connection via IP to other computers based on events. Now a functional chat.-
+		-Reference to external code:-
+		-Based on the code written by Felipe Cortés Saavedra(PUC)
+	 *
+	 *	@version  -
+	    @created_by @group8/jpeeblesg
+	    @update_log
+	    	27/09/2013 - @group8/jpeeblesg
+	 */
+	
 	Network network;
     private User localUser;
     private Conversation activeConversation;
     private LinkedList<Conversation> conversations;
-	/**
-	 * @param args
-	 */
+    
+    /**  
+	Connection constructor */
 	public Connection(){
         conversations = new LinkedList<Conversation>();
 		conversations.add(new Conversation("Default"));
 		activeConversation=conversations.get(0);
-		System.out.println("Inicializando red");
+		System.out.println("Initiating network");
 		try {
 			network = new Network();
 			network.init();
 			network.addReceiverObserver(this);
-			System.out.println("Red inicializada correctamente");
+			System.out.println("Network successfully initiated");
 		}
 		catch(Exception e) {
-			System.err.println("Error al inicializar red\n" + e.getMessage());
+			System.err.println("Error initiating network\n" + e.getMessage());
 		}
         Runtime.getRuntime().addShutdownHook(new Thread(){
             @Override
@@ -41,6 +52,9 @@ public class Connection implements Observer {
         localUser = new User(Network.getLocalAddress(),Network.getPort());
 	}
     @Override
+    /**  
+	Manages the types of messages and reaction such as the initial connection message(TYPE_HELLO) 
+	and the normal chat text(TYPE_TEXT) */
     public void update(Observable o, Object message) {
     	
         src.net.NetworkMessage m = (src.net.NetworkMessage)message;
@@ -84,23 +98,22 @@ public class Connection implements Observer {
             InetAddress ad = InetAddress.getByName(address);
             User u = new User(ad,Integer.parseInt("6740"));
             System.out.println("User successfully added");
-            //return conversacionUser.users.add(u);
             sendHiMessage(u);
             return activeConversation.users.add(u);
         }
         catch(Exception e) {
-            System.out.println("Error al agregar usuario con ip "+address+"\n"+e.getMessage());
+            System.out.println("Error adding user with ip "+address+"\n"+e.getMessage());
         }
         return false;
     }
     private void sendHiMessage(User dest) {
-        System.out.println("Sending hello to user " + dest.toString());
-        String puerto="6740";
+        System.out.println("Sending invite to user " + dest.toString());
+        String port="6740";
         network.send(new NetworkMessage(NetworkMessage.TYPE_HELLO,activeConversation.name,Network.getPort()+""), dest.getAddress(),dest.getPort());
     }
     public void sendMessage(String text,String conversacion) {
         if(activeConversation.users.size() == 0)
-            System.out.println("No hay usuarios para mandar el mensaje");
+            System.out.println("There are no users to send this message to");
         for(User u : activeConversation.users){
           sendMessage(text,conversacion, u);
         }
