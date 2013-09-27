@@ -19,9 +19,11 @@ public class Main {
     main documentation comment */
 	public static void main(String[] args) {
 		SoundFactory sf = new SoundFactory();
-		
-		ISound sound = sf.createSound("path");
-		sound.Play();
+
+		ISound sound = sf.createSound("assets/sounds/sound_ambience_nature.wav");
+		sound.PlayAsynchronous();
+
+		System.out.println("hola");
 	}
 
 }
