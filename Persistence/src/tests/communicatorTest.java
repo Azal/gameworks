@@ -7,8 +7,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-/**  
-main documentation comment */
+
 
 public class communicatorTest {
 	ModuleCommunicator com;
