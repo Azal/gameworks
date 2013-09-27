@@ -1,19 +1,20 @@
 package Resources.src;
 
-public class SoundMP3 implements ISound{
+
+public class SoundMidi implements ISound {
 	
-	public SoundMP3(String path) {
-
-	}
-
+	
+	private boolean useExternalSynth = false;
+	
 	public boolean PlaySynchronous() {
-		//play it.
+		
 		return true;
 	}
+
 
 	public boolean PlayAsynchronous() {
-		//play it.
+		
 		return true;
 	}
-
+	
 }
