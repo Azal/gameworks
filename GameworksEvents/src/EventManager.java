@@ -11,7 +11,8 @@ import java.util.ArrayList;
    @version  1.0  
    @created_by @group4/Squirrels
    @update_log
- 		26/09/2013 * @group4/Squirrels - Created the class using the Singleton pattern.         
+        26/09/2013 * @group4/Squirrels - Created the class using the Singleton pattern. 
+        27/09/2013 * @group4/Kulppi - Return values in many methods, create event, also add restrictions.
    @todo
    		- Perhaps using Exceptions to check the uniqueness of the identifiers is too much. This could be switched to simple boolean methods.
         *
@@ -53,7 +54,7 @@ public class EventManager {
         // Methods that handle Events
         
         //This method creates a new event with the parameters given, checks that the identifier is unique and adds it to the event list.
-        public void createEvent(String identifier, ArrayList<Restriction> restrictions, ArrayList<Result> results) {
+        public Event createEvent(String identifier, ArrayList<Restriction> restrictions, ArrayList<Result> results) {
            //We need to create the new Event with the parameters given
         	Event newEvent = new Event(identifier, restrictions, results);
         	//Check to see the identifier is unique
@@ -63,6 +64,20 @@ public class EventManager {
         		}
            //Then we add that Event to our list
         	events.add(newEvent);
+
+            //TODO: AGREGAR restriciones al EventManager
+            for(Restriction r_in: this.restrictions){
+                boolean check = true;
+                for(Restriction r: restrictions){
+                    if(r.getIdentifier().equals(r_in.getIdentifier()))
+                        check = false;
+                }
+                //We add it normally
+                if (check)
+                    restrictions.add(newRestriction);
+            }
+
+            return newEvent;
         }
         
         //This get the current status of a certain event
@@ -221,7 +236,7 @@ public class EventManager {
         		if(r.getIdentifier().equals(identifier))
         		{
         			r.check();
-        			return;
+        			return ;
         		}
         			
         	}
@@ -244,12 +259,13 @@ public class EventManager {
         //We can either trigger one event (if all it's restrictions have been completed) or all events that haven't been triggered (or repeating events)
         
         //Trigger one event (will only be triggered if all restrictions have been completed).
-        public void triggerEvent(String identifier)
+        public boolean triggerEvent(String identifier)
         {
         	for(Event e: events){
         		if(e.getIdentifier().equals(identifier))
-         		   e.triggerEvent();
+         		   return e.triggerEvent();
         		}
+            return false
         }
         //Trigger all events
         //The idea is for this method to be called per tick, so that all methods that haven't been triggered yet and have all their restrictions

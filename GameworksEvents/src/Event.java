@@ -8,7 +8,8 @@ It has a list of Restrictions (conditions that must be fulfilled before it can b
 @version  1.0  
 @created_by @group4/Squirrels
 @update_log
-		26/09/2013 * @group4/Squirrels - Created the class.         
+		26/09/2013 * @group4/Squirrels - Created the class. 
+		27/09/2013 * @group4/Kulppi - fix trigger.         
      *
      */
 public class Event {
@@ -153,7 +154,7 @@ public class Event {
 	
 	//This method checks to see if the Event has completed all the Restrictions.
 	//If it has, it executes all the Results.
-	public void triggerEvent()
+	public boolean triggerEvent()
 	{
 		//Check to see if all the restrictions have been completed
 		if(this.isDone() && this.triggerred == false)
@@ -168,7 +169,9 @@ public class Event {
 					results.get(i).execute();	
 				}
 			}
+			return true;
 		}
+		return false;
 	}
 	
 	
