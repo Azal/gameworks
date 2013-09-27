@@ -1,4 +1,4 @@
-package persistenceModule;
+package interfaces;
 
 /**
 -Class description goes here.-
@@ -14,11 +14,13 @@ package persistenceModule;
 /**  
 main documentation comment */
 
-public class SaveGameController {
+public interface Icomunicate {
 	
-	public SaveGameController()
-	{
-		
-	}
+	public boolean send(char module);
+	
+	public String ask(String s, char asktype);
+	
+	public boolean subscribe();
 
+	/**class bottom**/	
 }
