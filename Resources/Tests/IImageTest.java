@@ -3,6 +3,7 @@ package Resources.Tests;
 import static org.junit.Assert.*;
 
 import java.awt.image.PixelGrabber;
+import java.awt.image.BufferedImage;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -41,9 +42,14 @@ public class IImageTest {
 			}
 		}
 		catch(Exception e){fail("testGreyScale");}
-		
-		
-		
 	}
-
+	@Test
+	public void testReloadImage() {
+		ImageFactory imageFactory = new ImageFactory();
+		assertNotNull(imageFactory);
+		IImage iim = imageFactory.createImage("assets/images/megaman.gif");
+		assertNotNull(iim);
+		iim.FilterGreyScale(1);
+		assertTrue(iim.reloadImage());
+	}
 }

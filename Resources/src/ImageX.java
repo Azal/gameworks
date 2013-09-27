@@ -21,13 +21,15 @@ public class ImageX implements IImage{
 		LoadImage();
 
 	}
-	public void LoadImage() {
+	public boolean LoadImage() {
 	       try {
 	           img = ImageIO.read(new File(filename));
 	       } 
 	       catch (IOException e) {
 	    	   img = null;
+	    	   return false;
 	       }
+	       return true;
 
 	}
 	public void FilterGreyScale(int option){
@@ -54,5 +56,10 @@ public class ImageX implements IImage{
 	public Image getImageObject() {
 		// TODO Auto-generated method stub
 		return img;
+	}
+	@Override
+	public boolean reloadImage() {
+		return LoadImage();
+		
 	}
 }

@@ -28,4 +28,10 @@ public class ImageJPG implements IImage{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public boolean reloadImage() {
+		return false;
+		
+	}
 }
