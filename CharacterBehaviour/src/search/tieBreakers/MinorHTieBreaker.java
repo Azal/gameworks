@@ -16,6 +16,6 @@ public class MinorHTieBreaker implements TieBreaker
 	@Override
 	public String toString()
 	{
-		return "Desempatador por menor H";
+		return "TieBreaker by less h";
 	}
 }

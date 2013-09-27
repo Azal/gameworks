@@ -16,6 +16,6 @@ public class MayorHTieBreaker implements TieBreaker
 	@Override
 	public String toString()
 	{
-		return "Desempatador por mayor H";
+		return "TieBreaker by greater H";
 	}
 }

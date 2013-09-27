@@ -16,6 +16,6 @@ public class MinorGTieBreaker implements TieBreaker
 	@Override
 	public String toString()
 	{
-		return "Desempatador por menor G";
+		return "TieBreaker by less G";
 	}
 }

@@ -11,6 +11,6 @@ public class ZeroHeuristic implements Heuristic
 	@Override
 	public String toString()
 	{
-		return "Heuristica del cero";
+		return "Zero Heuristic";
 	}
 }

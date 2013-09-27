@@ -11,6 +11,63 @@ public class BoardGenerator
 		
 	}
 	
+	public Board generateFromIntArray(char[][] input)
+	{
+		AState[][] map = new AState[input.length][input[0].length];
+		
+		for(int rowNum = 0; rowNum < input.length; rowNum++)
+		{
+			for(int colNum = 0; colNum < input[rowNum].length; colNum++)
+			{
+				boolean block = input[rowNum][colNum] == 1;
+				boolean start = input[rowNum][colNum] == 2;
+				boolean goal = input[rowNum][colNum] == 3;
+				
+				map[rowNum][colNum] = new AState(colNum, rowNum, block, start, goal);
+			}
+		}
+		
+		return new Board(map);
+	}
+	
+	public Board generateFromCharArray(char[][] input)
+	{
+		AState[][] map = new AState[input.length][input[0].length];
+		
+		for(int rowNum = 0; rowNum < input.length; rowNum++)
+		{
+			for(int colNum = 0; colNum < input[rowNum].length; colNum++)
+			{
+				boolean block = input[rowNum][colNum] == 'x';
+				boolean start = input[rowNum][colNum] == 's';
+				boolean goal = input[rowNum][colNum] == 'g';
+				
+				map[rowNum][colNum] = new AState(colNum, rowNum, block, start, goal);
+			}
+		}
+		
+		return new Board(map);
+	}
+	
+	public Board generateFromStringArray(String[][] input)
+	{
+		AState[][] map = new AState[input.length][input[0].length];
+		
+		for(int rowNum = 0; rowNum < input.length; rowNum++)
+		{
+			for(int colNum = 0; colNum < input[rowNum].length; colNum++)
+			{
+				boolean block = input[rowNum][colNum].equals("x");
+				boolean start = input[rowNum][colNum].equals("s");
+				boolean goal = input[rowNum][colNum].equals("g");
+				
+				map[rowNum][colNum] = new AState(colNum, rowNum, block, start, goal);
+			}
+		}
+		
+		return new Board(map);
+	}
+	
 	public Board generateFromFile(String path)
 	{
 		try
@@ -43,7 +100,7 @@ public class BoardGenerator
 		}
 		catch(IOException ex)
 		{
-			System.out.print("No existe el archivo ingresado. " + ex.getMessage());
+			System.out.print("The input file doesn't exist " + ex.getMessage());
 		}
 		catch(NumberFormatException ex)
 		{

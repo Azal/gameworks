@@ -18,8 +18,8 @@ public class AState
 	
 	/**
 	 * 
-	 * @param x El número de la columna
-	 * @param y El número de la fila
+	 * @param x Column number
+	 * @param y Row number
 	 */
 	public AState(int x, int y)
 	{
@@ -36,10 +36,10 @@ public class AState
 	
 	/**
 	 * 
-	 * @param x El número de la columna
-	 * @param y El número de la fila
-	 * @param block Si es un obstáculo
-	 * @param goal Si es un estado final o meta
+	 * @param x Column number
+	 * @param y Row number
+	 * @param block if is a block
+	 * @param goal if is the goal
 	 */
 	public AState(int x, int y, boolean block, boolean start, boolean goal)
 	{

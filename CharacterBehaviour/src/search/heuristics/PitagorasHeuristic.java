@@ -12,6 +12,6 @@ public class PitagorasHeuristic implements Heuristic
 	@Override
 	public String toString()
 	{
-		return "Heurística de Pitagoras";
+		return "Pitagoras Heuristic";
 	}
 }

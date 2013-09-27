@@ -6,8 +6,7 @@ import java.util.List;
 public class Board
 {
 	/**
-	 * Acordarse que el primer parámetro corresponde a las filas (osea Y) y el 
-	 * segundo parámetro a las columnas (osea X).
+	 * Remember the first param represent the rows (Y) and the second represent the colums (X)
 	 */
 	private AState [][] map;
 	private AState startState;
@@ -42,7 +41,7 @@ public class Board
 	}
 	
 	/**
-	 * Solo se puede ocupar si los estados son vecinos
+	 * Only use when the states are neightbor
 	 * @param state1
 	 * @param state2
 	 * @return
@@ -59,9 +58,9 @@ public class Board
 	}
 	
 	/**
-	 * Obtiene el AState correspondiente a la posición
-	 * @param x El número de la columna
-	 * @param y El número de la fila
+	 * Get the AState in the position
+	 * @param x Column number
+	 * @param y Row number
 	 * @return
 	 */
 	public AState getState(int x, int y)

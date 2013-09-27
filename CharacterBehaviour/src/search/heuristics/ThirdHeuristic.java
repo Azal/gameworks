@@ -13,6 +13,6 @@ public class ThirdHeuristic implements Heuristic
 	@Override
 	public String toString()
 	{
-		return "Tercera Heurística";
+		return "Third Heuristic";
 	}
 }
