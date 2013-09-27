@@ -1,4 +1,4 @@
-package persistenceModule;
+package module;
 
 /**
 -Class description goes here.-
@@ -14,12 +14,11 @@ package persistenceModule;
 /**  
 main documentation comment */
 
-public class ModulesEventListener {
+public class SaveProjectController {
 	
-	public ModulesEventListener()
-	{
+	public SaveProjectController() {
 		
 	}
 
-	/**class bottom**/	
+	/** class bottom **/
 }

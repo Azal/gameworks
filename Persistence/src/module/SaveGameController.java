@@ -1,4 +1,4 @@
-package persistenceModule;
+package module;
 
 /**
 -Class description goes here.-
@@ -14,12 +14,11 @@ package persistenceModule;
 /**  
 main documentation comment */
 
-public class NetworkPersistence {
-
-	public NetworkPersistence()
+public class SaveGameController {
+	
+	public SaveGameController()
 	{
 		
 	}
-	
-/**class bottom**/	
+
 }

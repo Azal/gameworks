@@ -1,4 +1,4 @@
-package persistenceModule;
+package module;
 import java.io.FileWriter;
 import java.io.IOException;
 

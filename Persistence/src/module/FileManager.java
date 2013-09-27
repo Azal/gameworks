@@ -1,4 +1,4 @@
-package persistenceModule;
+package module;
 import interfaces.Ifile;
 
 /**

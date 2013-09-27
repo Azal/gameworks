@@ -1,6 +1,4 @@
-package persistenceModule;
-
-import java.util.Scanner;
+package module;
 
 /**
 -Class description goes here.-
@@ -16,15 +14,12 @@ import java.util.Scanner;
 /**  
 main documentation comment */
 
-public class main {
-
-	public static void main(String[] args) {
-		
-		Encrypter s = new Encrypter();
-		s.write("tardis");
-		s.read("who");
-		
+public class ModulesEventListener {
+	
+	public ModulesEventListener()
+	{
 		
 	}
 
+	/**class bottom**/	
 }

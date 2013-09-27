@@ -1,4 +1,4 @@
-package persistenceModule;
+package module;
 
 /**
 -Class description goes here.-

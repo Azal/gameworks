@@ -1,11 +1,12 @@
 package tests;
 
 import static org.junit.Assert.*;
+import module.FileManager;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import persistenceModule.ModuleCommunicator;
+
 /**
 -Class description goes here.-
 	-Reference to external code-
@@ -20,12 +21,12 @@ import persistenceModule.ModuleCommunicator;
 /**  
 main documentation comment */
 
-public class communicatorTest {
-	ModuleCommunicator com;
+public class fileTest {
+	FileManager file;
 
 	@Before
 	public void setUp() throws Exception {
-		com = new ModuleCommunicator();
+		file = new FileManager();
 	}
 
 	@After
@@ -33,19 +34,23 @@ public class communicatorTest {
 	}
 
 	@Test
-	public void sendTest() {
-		fail("Not yet implemented");
+	public void isTest() {
+		assertFalse(file.isFile("test"));
 	}
 	
 	@Test
-	public void askTest() {
-		assertNotNull(com.ask("s", '1'));
+	public void findTest() {
+		assertNotNull("test");
 	}
 	
 	
 	@Test
-	public void subscribeTest() {
+	public void newTest() {
 		fail("Not yet implemented");
 	}
+
+
+	
+	/**class bottom**/	
 
 }

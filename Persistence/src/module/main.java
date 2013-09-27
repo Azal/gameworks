@@ -1,4 +1,6 @@
-package persistenceModule;
+package module;
+
+import java.util.Scanner;
 
 /**
 -Class description goes here.-
@@ -14,11 +16,15 @@ package persistenceModule;
 /**  
 main documentation comment */
 
-public class SaveProjectController {
-	
-	public SaveProjectController() {
+public class main {
+
+	public static void main(String[] args) {
+		
+		Encrypter s = new Encrypter();
+		s.write("tardis");
+		s.read("who");
+		
 		
 	}
 
-	/** class bottom **/
 }
