@@ -18,15 +18,16 @@ public class GameThread extends Thread {
 		while(true)
 		{
 			try { Thread.sleep(10); } catch (Exception e) {}
-			update();
-			lastLoopTime = System.currentTimeMillis();
+			if(!game.isPaused()){
+				update();
+				lastLoopTime = System.currentTimeMillis();
+			}
 		}
 	}
 	
 	// Example
 	private void update(){
 		long delta = System.currentTimeMillis() - lastLoopTime;
-		lastLoopTime = System.currentTimeMillis();
 		
 		Graphics2D g = (Graphics2D) game.GetStrategy().getDrawGraphics();
 		g.setColor(Color.black);

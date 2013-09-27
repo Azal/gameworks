@@ -33,6 +33,10 @@ public class Game {
 	private BufferStrategy strategy;
 
 	private long startedAt;
+	
+	private boolean paused = false;
+	private long pausedTime = 0;
+	private long pausedAt = 0;
 
 	private Game(String name, int width, int height)
 	{
@@ -116,7 +120,7 @@ public class Game {
 	}
 
 	public long getGameTime(){
-		return System.currentTimeMillis()-startedAt;
+		return System.currentTimeMillis()-startedAt-pausedTime;
 	}
 
 
@@ -157,5 +161,39 @@ public class Game {
 	public double getMousePositionY()
 	{
 		return getMousePosition().getY();
+	}
+	
+	/**
+	 * Closes the entire program (not only the game windows)
+	 * @author nggomez
+	 */
+	public void Close(){
+		System.exit(0);
+	}
+	
+	/**
+	 * Pauses the game. Note: Remember MULTIPLAYER...
+	 * @author nggomez
+	 */
+	public void Pause(){
+		paused = true;
+		pausedAt = System.currentTimeMillis();
+	}
+	
+	/**
+	 * Resumes the game. Note: Remember MULTIPLAYER...
+	 * @author nggomez
+	 */
+	public void Resume(){
+		paused = false;
+		pausedTime = System.currentTimeMillis() - pausedAt;
+	}
+	
+	/**
+	 * @return true if the game is paused, false if not.
+	 * @author nggomez
+	 */
+	public boolean isPaused(){
+		return paused;
 	}
 }
