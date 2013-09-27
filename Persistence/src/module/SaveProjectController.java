@@ -1,8 +1,7 @@
 package module;
 
 /**
--Class description goes here.-
-	-Reference to external code-
+-Save current state of the project.
  *
  *	@version  0.1
     @author @group7/slakat
@@ -11,12 +10,34 @@ package module;
        
  */
 
-/**  
-main documentation comment */
 
 public class SaveProjectController {
 	
 	public SaveProjectController() {
+		
+	}
+	
+	/**
+	 * Check current state of the project
+	 */
+	public void checkState()
+	{
+		
+	}
+	
+	/**
+	 * Save project
+	 */
+	public void save()
+	{
+		
+	}
+	
+	/**
+	 * Autosave the project
+	 */
+	public void autoSave()
+	{
 		
 	}
 

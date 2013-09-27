@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -23,9 +24,6 @@ import org.junit.runners.Parameterized.Parameters;
     @update_log
        
  */
-
-/**  
-main documentation comment */
 
 public class Encrypter {
 	
@@ -61,7 +59,7 @@ public boolean write(String message){
  
 	try {
  
-		FileWriter file = new FileWriter("files/test.json");
+		FileWriter file = new FileWriter("file"+ File.pathSeparator + "test.json");
 		file.write(obj.toJSONString());
 		file.flush();
 		file.close();
@@ -81,7 +79,7 @@ public boolean read(String route){
 	 
 	try {
  
-		Object obj = parser.parse(new FileReader("files/test.json"));
+		Object obj = parser.parse(new FileReader("file"+ File.pathSeparator + "test.json"));
  
 		JSONObject jsonObject = (JSONObject) obj;
  

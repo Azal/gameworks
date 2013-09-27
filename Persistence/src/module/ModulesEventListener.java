@@ -1,8 +1,7 @@
 package module;
 
 /**
--Class description goes here.-
-	-Reference to external code-
+-Handles communication events
  *
  *	@version  0.1
     @author @group7/slakat
@@ -11,12 +10,19 @@ package module;
        
  */
 
-/**  
-main documentation comment */
-
 public class ModulesEventListener {
 	
 	public ModulesEventListener()
+	{
+		
+	}
+	
+	public void connect()
+	{
+
+	}
+	
+	public void listen()
 	{
 		
 	}

@@ -1,8 +1,7 @@
 package module;
 
 /**
--Class description goes here.-
-	-Reference to external code-
+Check errors and consistency when an existing project is imported
  *
  *	@version  0.1
     @author @group7/slakat
@@ -11,12 +10,26 @@ package module;
        
  */
 
-/**  
-main documentation comment */
 
 public class ImportController {
 	
 	public ImportController()
+	{
+		
+	}
+	
+	/**
+	 * Check integrity of imported files
+	 */
+	public void checkFilesIntegrity()
+	{
+		
+	}
+	
+	/**
+	 * Correct errors in files
+	 */
+	public void correctFies()
 	{
 		
 	}

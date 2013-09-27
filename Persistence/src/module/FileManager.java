@@ -2,8 +2,7 @@ package module;
 import interfaces.Ifile;
 
 /**
--Class description goes here.-
-	-Reference to external code-
+-find and updates files path or create them if don't exists
  *
  *	@version  0.1
     @author @group7/slakat
@@ -11,9 +10,6 @@ import interfaces.Ifile;
     @update_log
        
  */
-
-/**  
-main documentation comment */
 
 public class FileManager implements Ifile  {
 

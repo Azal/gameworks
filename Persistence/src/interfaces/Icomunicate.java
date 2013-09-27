@@ -11,8 +11,6 @@ package interfaces;
        
  */
 
-/**  
-main documentation comment */
 
 public interface Icomunicate {
 	

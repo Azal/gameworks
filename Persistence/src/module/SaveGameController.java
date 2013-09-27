@@ -1,8 +1,7 @@
 package module;
 
 /**
--Class description goes here.-
-	-Reference to external code-
+-Save current state of the game.
  *
  *	@version  0.1
     @author @group7/slakat
@@ -11,8 +10,6 @@ package module;
        
  */
 
-/**  
-main documentation comment */
 
 public class SaveGameController {
 	
@@ -20,5 +17,21 @@ public class SaveGameController {
 	{
 		
 	}
-
+	
+	
+	/**
+	 * Check current state of game
+	 */
+	public void checkState()
+	{
+		
+	}
+	
+	/**
+	 * Save the game
+	 */
+	public void save()
+	{
+		
+	}
 }

@@ -2,8 +2,7 @@ package module;
 import interfaces.Icomunicate;
 
 /**
--Class description goes here.-
-	-Reference to external code-
+-Send and ask information from other modules. They must be subscribed.
  *
  *	@version  0.1
     @author @group7/slakat
@@ -12,8 +11,6 @@ import interfaces.Icomunicate;
        
  */
 
-/**  
-main documentation comment */
 
 public class ModuleCommunicator implements Icomunicate {
 	
@@ -21,17 +18,26 @@ public class ModuleCommunicator implements Icomunicate {
 	
 	}
 	
+	/**
+	 * Send message
+	 */
 	public boolean send(char module) {
 		
 		return false;
 	}
 	
+	/**
+	 * Ask for information
+	 */
 	public String ask(String s, char asktype) {
 		String o = null;
 		return o;
 	
 	}
 	
+	/**
+	 * Subscribe to the communications
+	 */
 	public boolean subscribe() {
 		
 		return false;

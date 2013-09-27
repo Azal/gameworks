@@ -3,8 +3,7 @@ package module;
 import java.util.Scanner;
 
 /**
--Class description goes here.-
-	-Reference to external code-
+-Main for internal use of Persistence Module.
  *
  *	@version  0.1
     @author @group7/slakat
@@ -13,8 +12,6 @@ import java.util.Scanner;
        
  */
 
-/**  
-main documentation comment */
 
 public class main {
 
