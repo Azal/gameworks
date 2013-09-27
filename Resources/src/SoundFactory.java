@@ -17,8 +17,15 @@ public class SoundFactory {
 		}
 	}
 
-	private String GetExtension(String s) {
-		return "wav";
+	private String GetExtension(String path) {
+		String extension = "";
+		
+		int i = path.lastIndexOf('.');
+		if (i > 0) {
+		    extension = path.substring(i+1);
+		}
+
+		return extension;
 	}
 
 }
