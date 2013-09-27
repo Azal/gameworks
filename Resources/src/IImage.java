@@ -8,6 +8,12 @@ import java.awt.image.*;
  */
 
 public interface IImage {
+	
+	/* Esta interfaz representa a todas las distintas clases de imagenes
+	 * que el framework podra manejar. La idea es que, para los que consuman
+	 * el modulo de recursos, manejar distintos tipos de imagenes sea transparente
+	 */
+	
 	public boolean rotate() ;
 	public java.awt.Image getImageObject();
 	public void filterGreyScale(int option);
