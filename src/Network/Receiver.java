@@ -36,7 +36,7 @@ public class Receiver extends Observable implements Runnable  {
                 message.setSender(socket.getInetAddress());
                 message.setReceiver(Network.getLocalAddress());
                 
-                System.out.println("DOWNLOAD");
+                //System.out.println("DOWNLOAD");
                 switch (message.type){
                     case NetworkMessage.TYPE_FILE:
                         

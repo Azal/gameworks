@@ -36,7 +36,7 @@ public class NetworkMessage implements Serializable{
     
     //Crea un objeto networkMessage a partir de un texto recibido
     public static NetworkMessage parse(String message) {
-        System.out.println("Recibiendo mensaje: " + message);
+      //  System.out.println("Recibiendo mensaje: " + message);
         String[] s = message.split("-");
         int t = Integer.parseInt(s[0]);
         String conversation=s[1];

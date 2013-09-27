@@ -28,7 +28,7 @@ public class Main {
 		if(chat_type.equals("1")){
 			System.out.print("Enter IP of other user");
 			String IP = br.readLine();
-			connection.addUser(IP, "6740");
+			connection.addUser(IP, "6740",true);
 		}
 		else{
 			System.out.println("Waiting");

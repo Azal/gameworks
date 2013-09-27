@@ -57,7 +57,7 @@ public class Sender implements Runnable{
               break;
                   
               default:  
-                System.out.println("enviando ##" + m.getString());
+              //  System.out.println("enviando ##" + m.getString());
                 out.writeBytes(m.getString()); 
                 client.close();
               break;

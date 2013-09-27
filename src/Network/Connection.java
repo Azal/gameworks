@@ -54,7 +54,6 @@ public class Connection implements Observer {
 	Manages the types of messages and reaction such as the initial connection message(TYPE_HELLO) 
 	and the normal chat text(TYPE_TEXT) */
     public void update(Observable o, Object message) {
-    	
         NetworkMessage m = (NetworkMessage)message;
         if(m.getType() == NetworkMessage.TYPE_TEXT){
             String contenido=m.getContent();
@@ -72,10 +71,10 @@ public class Connection implements Observer {
             String contenido=m.getContent();
             String[] puertoSplitted=contenido.split("-");
         	String IP = m.getSender().toString().substring(1);
-        	addUser(IP, " ");
+        	addUser(IP, " ",false);
             //for(int i=0; i<puertoSplitted.length-1; i++){
             //	System.out.println(puertoSplitted[i]);
-            //}
+           // }
             //ui.newMessage(m.getContent(), m.getSender().toString(), Integer.parseInt(puertoSplitted[puertoSplitted.length-1]));
             //ui.newMessage(puertoSplitted[0]+"-Conexion Creada",m.getSender().toString()+":"+puertoSplitted[puertoSplitted.length-1]);
             //ui.addAddressBack(m.getSender().toString().substring(1)+":"+puertoSplitted[puertoSplitted.length-1], puertoSplitted[0]);
@@ -91,12 +90,12 @@ public class Connection implements Observer {
         network.send(text,conversacion,dest.getAddress(),dest.getPort());
         System.out.println("Message sent");
     }
-    public boolean addUser(String address,String Group) {
+    public boolean addUser(String address,String Group,boolean firstTime) {
         try {
             InetAddress ad = InetAddress.getByName(address);
             User u = new User(ad,Integer.parseInt("6740"));
             System.out.println("User successfully added");
-            sendHiMessage(u);
+            if(firstTime)sendHiMessage(u);
             return activeConversation.users.add(u);
         }
         catch(Exception e) {
