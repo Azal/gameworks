@@ -2,6 +2,11 @@ package Resources.src;
 
 import java.awt.Image;
 
+/**
+ * @Version 0.1
+ * @created_by @group2/Mauricio Vera
+ *
+ */
 
 public class ImageJPG implements IImage{
 
@@ -12,7 +17,7 @@ public class ImageJPG implements IImage{
 		filename = path;
 	}
 	
-	public boolean Rotate() {
+	public boolean rotate() {
 		//rotate
 		return true;
 	}
@@ -24,7 +29,7 @@ public class ImageJPG implements IImage{
 	}
 
 	@Override
-	public void FilterGreyScale(int option) {
+	public void filterGreyScale(int option) {
 		// TODO Auto-generated method stub
 		
 	}

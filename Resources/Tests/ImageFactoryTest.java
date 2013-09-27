@@ -9,6 +9,12 @@ import org.junit.Test;
 import Resources.src.IImage;
 import Resources.src.ImageFactory;
 
+/**
+ * @Version 0.1
+ * @created_by @group2/Mauricio Vera
+ *
+ */
+
 public class ImageFactoryTest {
 
 	@BeforeClass
