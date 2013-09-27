@@ -1,6 +1,5 @@
 package src;
 
-
 public class Main {
 
 	/**
@@ -14,10 +13,9 @@ public class Main {
 	    	dd/mm/yyyy - @groupX/author[,author2,...]          
 	 */
 
-	/**  
-    main documentation comment */
-	public static void main(String[] args) {
-		System.out.println("Hello gaming world!");
+	/**
+	main documentation comment */
+	public static void main(String[] args) { 
+		System.out.println("Hello gameworks!");
 	}
-
 }
