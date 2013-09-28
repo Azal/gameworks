@@ -28,13 +28,13 @@ public class Main {
 		if(chat_type.equals("1")){
 			System.out.print("Enter IP of other user");
 			String IP = br.readLine();
-			connection.addUser(IP, "6740");
+			connection.addUser(IP, "6740",true);
 		}
 		else{
 			System.out.println("Waiting");
 		}
 		while(true){
-			System.out.print("Enter Message: ");
+			System.out.print("Enter Message: \n");
 			String s = br.readLine();
 			connection.sendMessage(s, " ");
 			//System.out.print(s);
