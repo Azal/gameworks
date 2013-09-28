@@ -1,5 +1,3 @@
-package module;
-
 import java.util.Scanner;
 
 /**

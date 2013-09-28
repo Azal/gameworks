@@ -1,4 +1,3 @@
-package module;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -59,7 +58,7 @@ public boolean write(String message){
  
 	try {
  
-		FileWriter file = new FileWriter("files"+ File.pathSeparator + "test.json");
+		FileWriter file = new FileWriter("files/test.json");
 		file.write(obj.toJSONString());
 		file.flush();
 		file.close();
@@ -79,7 +78,7 @@ public boolean read(String route){
 	 
 	try {
  
-		Object obj = parser.parse(new FileReader("files"+ File.pathSeparator + "test.json"));
+		Object obj = parser.parse(new FileReader("files/test.json"));
  
 		JSONObject jsonObject = (JSONObject) obj;
  
