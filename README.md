@@ -50,6 +50,7 @@ Now, go to your groups branch with:
 ### Teams
 
 * **Git Dictator:** Max Findel
+* **Git Sub-Dictator:** Antti Kulppi
 * **Community:** Nikolas Bravo, Ignacio Carmach
 * **Groups and assignments:**
 	- *Group 1:* Preview 

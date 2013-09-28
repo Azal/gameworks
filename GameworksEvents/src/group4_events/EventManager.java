@@ -1,3 +1,5 @@
+package group4_events;
+
 import java.util.ArrayList;
 
 /**
@@ -65,7 +67,7 @@ public class EventManager {
            //Then we add that Event to our list
         	events.add(newEvent);
 
-                       
+            if(restrictions != null )              
             for(Restriction r: restrictions){
                 boolean check = true;
                 for(Restriction r_in: this.restrictions){
