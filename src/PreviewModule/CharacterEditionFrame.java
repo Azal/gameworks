@@ -53,11 +53,11 @@ public class CharacterEditionFrame extends JFrame implements IGameworksWindow
 		characterEditionFrame = this;
 		initGraphicalInterface();
 		setHandlers();
+		setVisible(true);		//Necessary to be able to open frame from Main
 	}
 	
 	@Override
 	public void initGraphicalInterface() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 640, 480);
 		
 		JLabel lblEditingCharacter = new JLabel("Editing Character");
