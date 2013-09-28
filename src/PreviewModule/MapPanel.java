@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPanel;
 
+import PreviewModule.Placeholders.MapObject;
+
 /**
 * Class MapPanel
 *  Class which contains the logic associated with the panel that will represent 

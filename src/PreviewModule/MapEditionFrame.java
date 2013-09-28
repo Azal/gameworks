@@ -10,12 +10,12 @@ import java.awt.TextField;
 import javax.swing.JSpinner;
 import javax.swing.JLabel;
 
+import PreviewModule.Interfaces.IGameworksWindow;
+import PreviewModule.Placeholders.MapObject;
+
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
-import PreviewModule.Interfaces.*;
-import PreviewModule.Placeholders.MapObject;
 
 /**
 * Class MapEditonFrame
@@ -25,7 +25,7 @@ import PreviewModule.Placeholders.MapObject;
 * @created_by @group1/jarizti1       
 */
 
-public class MapEditonFrame extends JFrame implements IGameworksWindow {
+public class MapEditionFrame extends JFrame implements IGameworksWindow {
 
 	private static final long serialVersionUID = 1699801098792119697L;
 	private MapPanel panel = new MapPanel();
@@ -36,11 +36,10 @@ public class MapEditonFrame extends JFrame implements IGameworksWindow {
 	private Button addObject = new Button("Add Object");
 	private Button save = new Button("Save");
 	
-	public MapEditonFrame() 
+	public MapEditionFrame() 
 	{
 		initGraphicalInterface();
 		setHandlers();
-		setVisible(true);		//Necessary to be able to open frame from Main
 	}
 	
 	@Override
@@ -80,7 +79,7 @@ public class MapEditonFrame extends JFrame implements IGameworksWindow {
 		contentPane.add(save);
 		
 		try {
-			panel.backTile = ImageIO.read(this.getClass().getResource("image/Green tile.png"));
+			panel.backTile = ImageIO.read(this.getClass().getResource("/image/Green tile.png"));
 			panel.cellPix = 32;
 			panel.width = 16;
 			panel.height = 9;

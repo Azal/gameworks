@@ -16,6 +16,8 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 
+import PreviewModule.Interfaces.IGameworksWindow;
+
 /**
 * Class CharacterEditionFrame
 *  Class which contains the logic associated with the window displayed to make character editions: 
@@ -53,11 +55,11 @@ public class CharacterEditionFrame extends JFrame implements IGameworksWindow
 		characterEditionFrame = this;
 		initGraphicalInterface();
 		setHandlers();
+		setVisible(true);		//Necessary to be able to open frame from Main
 	}
 	
 	@Override
 	public void initGraphicalInterface() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 640, 480);
 		
 		JLabel lblEditingCharacter = new JLabel("Editing Character");

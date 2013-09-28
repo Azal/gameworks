@@ -19,7 +19,7 @@ public class Main {
     main documentation comment */
 	public static void main(String[] args) {
 		System.out.println("Hello gaming world!");
-		MapEditonFrame mainWindow = new MapEditonFrame();
+		MainFrame mainWindow = new MainFrame();
 		mainWindow.setVisible(true);
 	}
 
