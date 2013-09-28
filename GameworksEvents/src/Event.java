@@ -78,6 +78,7 @@ public class Event {
 	{
 		//Iterate through the list of restrictions
 		//Check to see if it's empty
+		
 		if(restrictions.size() > 0)
 		{
 			boolean allRestrictionsDone = true;

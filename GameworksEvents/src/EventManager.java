@@ -65,16 +65,16 @@ public class EventManager {
            //Then we add that Event to our list
         	events.add(newEvent);
 
-            //TODO: AGREGAR restriciones al EventManager
-            for(Restriction r_in: this.restrictions){
+                       
+            for(Restriction r: restrictions){
                 boolean check = true;
-                for(Restriction r: restrictions){
-                    if(r.getIdentifier().equals(r_in.getIdentifier()))
+                for(Restriction r_in: this.restrictions){
+                    if(r_in.getIdentifier().equals(r.getIdentifier()))
                         check = false;
                 }
                 //We add it normally
                 if (check)
-                    restrictions.add(newRestriction);
+                    this.restrictions.add(r);
             }
 
             return newEvent;
@@ -265,7 +265,7 @@ public class EventManager {
         		if(e.getIdentifier().equals(identifier))
          		   return e.triggerEvent();
         		}
-            return false
+            return false;
         }
         //Trigger all events
         //The idea is for this method to be called per tick, so that all methods that haven't been triggered yet and have all their restrictions
