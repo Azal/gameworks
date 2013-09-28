@@ -1,4 +1,4 @@
-package PreviewModule;
+package PreviewModule.Placeholders;
 
 import java.awt.image.BufferedImage;
 
