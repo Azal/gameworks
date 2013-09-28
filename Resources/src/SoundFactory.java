@@ -17,6 +17,10 @@ public class SoundFactory extends Factory {
 		if(getExtension(path).equals("wav")) {
 			return new SoundWAV(path);
 		}
+		
+		else if (getExtension(path).equals("mid")){
+			return new SoundMidi(path);
+		}
 
 		else {
 			return null;

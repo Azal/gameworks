@@ -63,6 +63,9 @@ public class Main {
             ImageIO.write((RenderedImage) iim.getImageObject(), "gif", outputfile);
         } catch (IOException e) {
         }
+		
+//		ISound cancionMidi = sf.createSound("assets/sounds/N64_MarioKart64.mid");
+//		cancionMidi.playSynchronous();
         
         
 	}
