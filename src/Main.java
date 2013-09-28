@@ -1,4 +1,5 @@
-import preview.FrameDemo;
+import PreviewModule.*;
+
 
 
 public class Main {
@@ -18,7 +19,8 @@ public class Main {
     main documentation comment */
 	public static void main(String[] args) {
 		System.out.println("Hello gaming world!");
-		FrameDemo.createAndShowGUI();
+		MainFrame mainWindow = new MainFrame();
+		mainWindow.setVisible(true);
 	}
 
 }
