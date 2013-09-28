@@ -80,7 +80,7 @@ public class MapEditonFrame extends JFrame implements IGameworksWindow {
 		contentPane.add(save);
 		
 		try {
-			panel.backTile = ImageIO.read(this.getClass().getResource("image/Green tile.png"));
+			panel.backTile = ImageIO.read(this.getClass().getResource("/image/Green tile.png"));
 			panel.cellPix = 32;
 			panel.width = 16;
 			panel.height = 9;
