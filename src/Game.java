@@ -22,7 +22,8 @@ import javax.swing.SwingUtilities;
 */
 
 /**  
-main documentation comment */
+ * Game
+ */
 
 public class Game {
 
