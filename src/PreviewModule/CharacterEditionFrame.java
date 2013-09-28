@@ -16,6 +16,8 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 
+import PreviewModule.Interfaces.IGameworksWindow;
+
 /**
 * Class CharacterEditionFrame
 *  Class which contains the logic associated with the window displayed to make character editions: 
