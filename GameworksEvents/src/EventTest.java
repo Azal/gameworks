@@ -12,6 +12,8 @@ import java.util.ArrayList;
  * Tests for {@link Event}.
  *
  * @author @group4/Kulppi
+ * @update_log
+ *		26/09/2013 * @group4/kulppi - Created the class and test. 
  */
 public class EventTest {
 
