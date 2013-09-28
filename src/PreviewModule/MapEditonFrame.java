@@ -14,6 +14,9 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import PreviewModule.Interfaces.*;
+import PreviewModule.Placeholders.MapObject;
+
 /**
 * Class MapEditonFrame
 *  Class which contains the logic associated with the window displayed to make map editions: 
@@ -77,7 +80,7 @@ public class MapEditonFrame extends JFrame implements IGameworksWindow {
 		contentPane.add(save);
 		
 		try {
-			panel.backTile = ImageIO.read(this.getClass().getResource("/image/Green tile.png"));
+			panel.backTile = ImageIO.read(this.getClass().getResource("image/Green tile.png"));
 			panel.cellPix = 32;
 			panel.width = 16;
 			panel.height = 9;
