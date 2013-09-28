@@ -113,7 +113,7 @@ public class EventTest {
 		//org.junit.Assert.testAssertNull("EM: Needs Restriction and Event", em.addRestrictionToEvent("Event_1", "Restriction_1") );
 
 
-    	ArrayList<Result> results = new ArrayList<Result>(); 
+		ArrayList<Result> results = new ArrayList<Result>(); 
 		results.add(new Result("r_1") );
 		ArrayList<Restriction> restrictions = new ArrayList<Restriction>(); 
 		restrictions.add(new Restriction("r_1") );
