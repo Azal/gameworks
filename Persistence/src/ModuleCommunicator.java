@@ -1,5 +1,4 @@
-package module;
-import interfaces.Icomunicate;
+
 
 /**
 -Send and ask information from other modules. They must be subscribed.

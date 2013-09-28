@@ -1,4 +1,3 @@
-package interfaces;
 
 /**
 -Class description goes here.-

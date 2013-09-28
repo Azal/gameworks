@@ -1,4 +1,3 @@
-package module;
 
 /**
 Check errors and consistency when an existing project is imported

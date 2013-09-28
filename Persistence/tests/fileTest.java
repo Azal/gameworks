@@ -1,7 +1,7 @@
-package tests;
+package Persistence.tests;
 
 import static org.junit.Assert.*;
-import module.FileManager;
+import Persistence.src.FileManager;
 
 import org.junit.After;
 import org.junit.Before;
