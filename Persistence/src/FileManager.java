@@ -1,5 +1,3 @@
-package module;
-import interfaces.Ifile;
 
 /**
 -find and updates files path or create them if don't exists

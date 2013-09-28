@@ -1,4 +1,4 @@
-package module;
+
 
 /**
 -Guarantees persistence between players and modules on multiplayer mode.

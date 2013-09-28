@@ -1,7 +1,7 @@
-package tests;
+package Persistence.tests;
 
 import static org.junit.Assert.*;
-import module.ModuleCommunicator;
+import Persistence.src.ModuleComunicator;
 
 import org.junit.After;
 import org.junit.Before;
