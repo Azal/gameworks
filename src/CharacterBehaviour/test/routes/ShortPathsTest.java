@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package routes;
+package src.CharacterBehaviour.test.routes;
 
 import static org.junit.Assert.*;
 
@@ -12,7 +12,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import CharacterBehaviour.routes.ShortPath;
+import src.CharacterBehaviour.routes.ShortPath;
 
 /**
  *

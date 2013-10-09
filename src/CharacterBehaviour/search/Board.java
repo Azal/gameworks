@@ -1,4 +1,4 @@
-package CharacterBehaviour.search;
+package src.CharacterBehaviour.search;
 
 import java.util.ArrayList;
 import java.util.List;

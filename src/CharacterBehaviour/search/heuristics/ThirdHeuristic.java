@@ -1,4 +1,4 @@
-package CharacterBehaviour.search.heuristics;
+package src.CharacterBehaviour.search.heuristics;
 
 public class ThirdHeuristic implements Heuristic
 {
