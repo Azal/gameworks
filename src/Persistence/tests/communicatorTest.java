@@ -27,7 +27,7 @@ public class communicatorTest {
 	
 	@Test
 	public void askTest() {
-		assertNotNull(com.ask("s", '1'));
+		assertNotNull(com.ask(0, 1));
 	}
 	
 	

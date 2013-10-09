@@ -1,3 +1,5 @@
+import java.util.Dictionary;
+
 
 
 /**
@@ -17,30 +19,26 @@ public class ModuleCommunicator implements ICommunicate {
 	
 	}
 	
-	/**
-	 * Send message
-	 */
 	public boolean send(char module) {
 		
 		return false;
 	}
-	
-	/**
-	 * Ask for information
-	 */
-	public String ask(String s, char asktype) {
-		String o = null;
-		return o;
-	
-	}
-	
-	/**
-	 * Subscribe to the communications
-	 */
 	public boolean subscribe() {
 		
 		return false;
 		
+	}
+
+	public boolean ask(int module, int asktype) {
+		return false;
+	}
+
+	public boolean save(String tag, String data) {
+		return false;
+	}
+
+	public Dictionary<String, String> load() {
+		return null;
 	}
 
 	
