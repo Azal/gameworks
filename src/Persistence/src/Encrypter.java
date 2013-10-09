@@ -58,7 +58,7 @@ public boolean write(String message){
  
 	try {
  
-		FileWriter file = new FileWriter("files/test.json");
+		FileWriter file = new FileWriter("assets/data/test.json");
 		file.write(obj.toJSONString());
 		file.flush();
 		file.close();
@@ -78,7 +78,7 @@ public boolean read(String route){
 	 
 	try {
  
-		Object obj = parser.parse(new FileReader("files/test.json"));
+		Object obj = parser.parse(new FileReader("assets/Data/test.json"));
  
 		JSONObject jsonObject = (JSONObject) obj;
  

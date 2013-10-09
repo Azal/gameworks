@@ -9,7 +9,7 @@
        
  */
 
-public class FileManager implements Ifile  {
+public class FileManager implements IFile  {
 
 	@Override
 	public boolean isFile(String name) {

@@ -11,7 +11,7 @@ import java.util.Scanner;
  */
 
 
-public class main {
+public class mainPersistence {
 
 	public static void main(String[] args) {
 		
