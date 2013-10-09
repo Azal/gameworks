@@ -11,7 +11,7 @@
  */
 
 
-public class ModuleCommunicator implements Icomunicate {
+public class ModuleCommunicator implements ICommunicate {
 	
 	public ModuleCommunicator(){
 	

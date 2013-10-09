@@ -1,6 +1,5 @@
-package Persistence.tests;
+
 import static org.junit.Assert.*;
-import Persistence.src.Encrypter;
 
 import org.junit.After;
 import org.junit.Before;
