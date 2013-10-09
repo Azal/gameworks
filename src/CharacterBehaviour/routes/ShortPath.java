@@ -1,12 +1,12 @@
-package CharacterBehaviour.src.routes;
+package CharacterBehaviour.routes;
 
 import java.util.List;
 
-import CharacterBehaviour.src.search.AState;
-import CharacterBehaviour.src.search.BoardGenerator;
-import CharacterBehaviour.src.search.SearcherAgent;
-import CharacterBehaviour.src.search.heuristics.ThirdHeuristic;
-import CharacterBehaviour.src.search.tieBreakers.MayorHTieBreaker;
+import CharacterBehaviour.search.AState;
+import CharacterBehaviour.search.BoardGenerator;
+import CharacterBehaviour.search.SearcherAgent;
+import CharacterBehaviour.search.heuristics.ThirdHeuristic;
+import CharacterBehaviour.search.tieBreakers.MayorHTieBreaker;
 
 public class ShortPath
 {

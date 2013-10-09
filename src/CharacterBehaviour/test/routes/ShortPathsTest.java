@@ -4,21 +4,23 @@
  */
 package routes;
 
+import static org.junit.Assert.*;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import routes.PatrolPath;
+
+import CharacterBehaviour.routes.ShortPath;
 
 /**
  *
  * @author Giorgio
  */
-public class PatrolPathTest {
+public class ShortPathsTest {
     
-    public PatrolPathTest() {
+    public ShortPathsTest() {
     }
     
     @BeforeClass
@@ -38,11 +40,11 @@ public class PatrolPathTest {
     }
 
     /**
-     * Test of getPath method, of class PatrolPath.
+     * Test of getPath method, of class ShortPaths.
      */
     @Test
     public void testGetPath() {
-        System.out.println("Test to get patrol path");
+        System.out.println("Test to get shortest path");
         char[][] map = new char[8][];
 		map[0] = new char[] {'o', 'o', 'o', 'o', 's', 'o', 'x', 'o'};
 		map[1] = new char[] {'o', 'o', 'o', 'o', 'x', 'o', 'o', 'o'};
@@ -53,10 +55,8 @@ public class PatrolPathTest {
 		map[6] = new char[] {'o', 'o', 'o', 'o', 'o', 'x', 'g', 'o'};
 		map[7] = new char[] {'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'};
         int[][] expResult = {{4,0},{5,0},{5,1},{5,2},{5,3},{5,4},{4,4},{3,4},
-            {2,4},{1,4},{1,5},{1,6},{2,6},{3,6},{4,6},{4,7},{5,7},{6,7},{6,6},
-            {6,7},{5,7},{4,7},{4,6},{3,6},{2,6},{1,6},{1,5},{1,4},{2,4},{3,4},
-            {4,4},{5,4},{5,3},{5,2},{5,1},{5,0},{4,0}};
-        int[][] result = PatrolPath.getPath(map);
+            {2,4},{1,4},{1,5},{1,6},{2,6},{3,6},{4,6},{4,7},{5,7},{6,7},{6,6}};
+        int[][] result = ShortPath.getPath(map);
         assertNotNull(result);
         assertArrayEquals(expResult, result);
     }

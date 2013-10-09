@@ -1,4 +1,4 @@
-package CharacterBehaviour.src.search.heuristics;
+package CharacterBehaviour.search.heuristics;
 
 public class PitagorasHeuristic implements Heuristic
 {

@@ -1,4 +1,4 @@
-package CharacterBehaviour.src.search;
+package CharacterBehaviour.search;
 
 import java.io.*;
 

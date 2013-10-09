@@ -1,6 +1,6 @@
-package CharacterBehaviour.src.search.tieBreakers;
+package CharacterBehaviour.search.tieBreakers;
 
-import CharacterBehaviour.src.search.AState;
+import CharacterBehaviour.search.AState;
 
 public class MinorHTieBreaker implements TieBreaker 
 {
