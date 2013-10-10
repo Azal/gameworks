@@ -1,31 +1,17 @@
 package PreviewModule;
 
-import java.awt.BorderLayout;
-import java.awt.Button;
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.TextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JSpinner;
-import javax.swing.JTextField;
-import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
-import javax.swing.border.EmptyBorder;
 
-import PreviewModule.Interfaces.*;
-
-
+import PreviewModule.Interfaces.IGameworksWindow;
 
 
 /**
@@ -39,7 +25,7 @@ import PreviewModule.Interfaces.*;
 public class MainFrame extends JFrame implements IGameworksWindow {
 
 	private JPanel spritePanel;
-	private JButton editCharacterBtn;
+	public JButton editCharacterBtn;
 	private JButton editMapBtn;
 	private JButton playTestBtn;
 	
