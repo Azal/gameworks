@@ -9,6 +9,10 @@
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.6"/>
     <property name="source" value="1.6"/>
+    
+    <property name = "junit.build.dir" value = "junitClasses" />
+    <property name = "junit.report.dir" value = "junitReport" />
+    
     <path id="gameworks.classpath">
         <pathelement location="."/>
     </path>
@@ -18,11 +22,18 @@
                 <exclude name="**/*.java"/>
             </fileset>
         </copy>
+        
+        <mkdir dir = "${junit.build.dir}" />
+        <mkdir dir = "${junit.report.dir}" />
+        
     </target>
     <target name="clean">
         <delete>
             <fileset dir="." includes="**/*.class"/>
         </delete>
+        
+        <delete failonerror = "false" dir = "${junit.build.dir}" />
+        <delete failonerror = "false" dir = "${junit.report.dir}" />
     </target>
     <target depends="clean" name="cleanall"/>
     <target depends="build-subprojects,build-project" name="build"/>
@@ -52,5 +63,33 @@
         <java classname="Resources.src.Main" failonerror="true" fork="yes">
             <classpath refid="gameworks.classpath"/>
         </java>
+    </target>
+    
+    <target name = "junit" depends = "init">
+        <javac
+                encoding = "ISO-8859-1"
+                destdir = "${junit.build.dir}"
+                classpathref = "lib.jarfiles"
+                debug = "on"
+                deprecation = "on"
+                optimize = "on">
+            <src path = "${Resources.src}" />
+            <src path = "${Resources.test}" />
+        </javac>
+ 
+        <junit fork="no" printsummary="no" haltonfailure="no" showoutput="true" filtertrace="false">
+        <classpath refid="lib.jarfiles" />
+        <classpath>
+                    <pathelement path = "${java.class.path}" />
+            <pathelement path = "${junit.build.dir}" />
+        </classpath>
+ 
+        <batchtest todir="${junit.report.dir}">
+            <fileset dir="${junit.build.dir}">
+                <include name="org/farng/mp3/AllTestCase.class" />
+            </fileset>
+            <formatter type="xml" />
+        </batchtest>
+    </junit>
     </target>
 </project>

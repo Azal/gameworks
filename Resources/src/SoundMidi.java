@@ -13,7 +13,7 @@ import javax.sound.midi.Sequencer;
 import javax.sound.midi.Transmitter;
 import javax.swing.JOptionPane;
 
-import org.apache.commons.lang3.*;
+//import org.apache.commons.lang3.*;
 
 /**
  * @Version 0.1
@@ -61,7 +61,7 @@ public class SoundMidi implements ISound {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-        JOptionPane.showMessageDialog(null, "Tocando canci—n");
+        JOptionPane.showMessageDialog(null, "Tocando cancion");
 		
 		return true;
 	}
@@ -76,10 +76,10 @@ public class SoundMidi implements ISound {
         for (MidiDevice.Info mdi: MidiSystem.getMidiDeviceInfo()) {
             MidiDevice dev = MidiSystem.getMidiDevice(mdi);
             if (dev.getMaxReceivers() != 0) {
-                String lcName = StringUtils.defaultString(mdi.getName()).toLowerCase(Locale.ENGLISH);
-                if (lcName.contains(useExternalSynth? "usb": "java")) {
-                    return dev;
-                }
+                //String lcName = StringUtils.defaultString(mdi.getName()).toLowerCase(Locale.ENGLISH);
+                //if (lcName.contains(useExternalSynth? "usb": "java")) {
+                //    return dev;
+                //}
             }
         }
         return null;
