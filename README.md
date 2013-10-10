@@ -50,6 +50,7 @@ Now, go to your groups branch with:
 ### Teams
 
 * **Git Dictator:** Max Findel
+* **Git Sub-Dictator:** Antti Kulppi
 * **Community:** Nikolas Bravo, Ignacio Carmach
 * **Groups and assignments:**
 	- *Group 1:* Preview 
@@ -58,8 +59,8 @@ Now, go to your groups branch with:
 	- *Group 4:* Events 
 	- *Group 5:* Scenery creation: maps, characters, items / inanimated objects, story 
 	- *Group 6:* Input/Output 
-	- *Group 7:* Persistency (game state) 
-	- *Group 8:* Connectivity / Network 
+	- ***Group 7:* Persistency (game state)**
+	- *Group 8:* Conectivity / Network
 
 ####Git Branches
 master -> Only for dictator. Always stable.  
