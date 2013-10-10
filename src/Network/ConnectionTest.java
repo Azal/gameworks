@@ -1,4 +1,4 @@
-package src;
+package src.Network;
 
 import static org.junit.Assert.*;
 
@@ -33,7 +33,7 @@ public class ConnectionTest {
 		Connection c = new Connection();
 		assertNotNull(c);
 		assertNotNull(c.network);
-		assertEquals(true, c.addUser("127.0.0.1", "Test"));
+		assertEquals(true, c.addUser("127.0.0.1", "Test",true));
 		//assertNotNull(c);
 		
 		
