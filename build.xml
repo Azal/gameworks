@@ -74,7 +74,7 @@
                 deprecation = "on"
                 optimize = "on">
             <src path = "${Resources.src}" />
-            <src path = "${Resources.test}" />
+            <src path = "${Resources.Tests}" />
         </javac>
  
         <junit fork="no" printsummary="no" haltonfailure="no" showoutput="true" filtertrace="false">
