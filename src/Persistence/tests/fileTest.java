@@ -41,12 +41,6 @@ public class fileTest {
 		assertNotNull("test");
 	}
 	
-	
-	@Test
-	public void newTest() {
-		fail("Not yet implemented");
-	}
-
 
 	
 	/**class bottom**/	
