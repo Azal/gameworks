@@ -269,4 +269,5 @@ public abstract class Character {
 	}
 	
 	//PROBANDO Integracion continua
+	//asdasd
 }
