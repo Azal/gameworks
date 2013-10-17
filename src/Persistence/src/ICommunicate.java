@@ -38,7 +38,7 @@ public interface ICommunicate {
 	 * Save current state of asked module (first ask method must be called)
 	 * 
 	 * @param tag: Class name
-	 * @param data: Information to save. String as "attr1:value1;attr2:value2;..."
+	 * @param data: Information to save. String as JSON
 	 * @return true if saved
 	 */
 	public boolean save(String tag, String data);
@@ -46,7 +46,7 @@ public interface ICommunicate {
 	/**
 	 * Load state from asked module (first ask method must be called)
 	 * 
-	 * @return Dictionary with all the information of the module. Dictionary as "[class name,attributes string],..." 
+	 * @return Dictionary with all the information of the module. Dictionary as "[class name,attributes json],..." 
 	 */
 	public Dictionary<String, String> load();
 	
