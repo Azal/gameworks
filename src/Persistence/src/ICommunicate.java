@@ -38,17 +38,18 @@ public interface ICommunicate {
 	 * Save current state of asked module (first ask method must be called)
 	 * 
 	 * @param tag: Class name
+	 * @param id: class's object id
 	 * @param data: Information to save. String as JSON
 	 * @return true if saved
 	 */
-	public boolean save(String tag, String data);
+	public boolean save(String tag, int id, String data);
 
 	/**
 	 * Load state from asked module (first ask method must be called)
-	 * 
-	 * @return Dictionary with all the information of the module. Dictionary as "[class name,attributes json],..." 
+	 * @param module: module id
+	 * @return Dictionary with all the information of the module. Dictionary pointing to another dictionary, like a tree structure.
 	 */
-	public Dictionary<String, String> load();
+	public Dictionary<String, String> load(int module);
 	
 	
 	

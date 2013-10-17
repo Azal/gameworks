@@ -33,11 +33,11 @@ public class ModuleCommunicator implements ICommunicate {
 		return false;
 	}
 
-	public boolean save(String tag, String data) {
+	public boolean save(String tag, int id, String data) {
 		return false;
 	}
 
-	public Dictionary<String, String> load() {
+	public Dictionary<String, String> load(int module) {
 		return null;
 	}
 
