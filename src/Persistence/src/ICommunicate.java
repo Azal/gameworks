@@ -16,20 +16,6 @@ import java.util.Dictionary;
 public interface ICommunicate {
 	
 	/**
-	 * Send message
-	 */
-	public boolean send(char module);
-	
-	/**
-	 * Identify class and type of object to save
-	 * 
-	 * @param module: Module number
-	 * @param asktype: Type of object
-	 * @return true if correct
-	 */
-	public boolean ask(int module, int asktype);
-	
-	/**
 	 * Subscribe to the communications
 	 */
 	public boolean subscribe();
@@ -37,18 +23,20 @@ public interface ICommunicate {
 	/**
 	 * Save current state of asked module (first ask method must be called)
 	 * 
-	 * @param tag: Class name
-	 * @param data: Information to save. String as "attr1:value1;attr2:value2;..."
+	 * @param module: Module number
+	 * @param className: Class name
+	 * @param id: class's object id
+	 * @param data: Information to save. String as JSON
 	 * @return true if saved
 	 */
-	public boolean save(String tag, String data);
+	public boolean save(int module, String className, int id, String data);
 
 	/**
 	 * Load state from asked module (first ask method must be called)
-	 * 
-	 * @return Dictionary with all the information of the module. Dictionary as "[class name,attributes string],..." 
+	 * @param module: module id
+	 * @return Dictionary with all the information of the module. Dictionary pointing to another dictionary, like a tree structure.
 	 */
-	public Dictionary<String, String> load();
+	public Dictionary<String, String> load(int module);
 	
 	
 	
