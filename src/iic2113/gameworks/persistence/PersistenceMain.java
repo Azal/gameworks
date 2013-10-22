@@ -1,4 +1,5 @@
 package iic2113.gameworks.persistence;
+
 import java.util.Scanner;
 
 import org.json.simple.JSONObject;
@@ -14,7 +15,7 @@ import org.json.simple.JSONObject;
  */
 
 
-public class persistanceMain {
+public class PersistenceMain {
 
 	public static void main(String[] args) {
 		JSONObject json = new JSONObject();
