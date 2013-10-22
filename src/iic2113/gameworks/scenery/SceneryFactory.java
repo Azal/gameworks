@@ -1,4 +1,4 @@
-package iic2113.gameworks.src.scenery;
+package src.iic2113.gameworks.scenery;
 
 /**
 Here reside all methods to create scenery

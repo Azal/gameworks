@@ -1,4 +1,4 @@
-package iic2113.gameworks.src.scenery;
+package src.iic2113.gameworks.scenery;
 
 /**
 Here reside all objects and characters that compose the Map
@@ -10,6 +10,6 @@ Here reside all objects and characters that compose the Map
 	26/09/2013 - @group5/ngbravo,gevalenz,javicabello       
 */
 
-public class Map {
+class Map {
 	
 }
