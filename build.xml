@@ -11,8 +11,8 @@
 	<property name="target" value="1.7" />
 	<property name="source" value="1.7" />
     <property name = "src.dir" value = "src" />
-    <property name = "test.dir" value = "src/Persistence/tests" />
-	<property name = "lib.dir" value = "src/Persistence/libs" />
+    <property name = "test.dir" value = "src/iic2113/gameworks/persistence/tests" />
+	<property name = "lib.dir" value = "libs" />
 
 
 	<property name="junit.build.dir" value="junitClasses" />
@@ -30,7 +30,7 @@
 	<path id="gameworks.classpath">
 		<pathelement location="bin" />
 		<path refid="JUnit 4.libraryclasspath" />
-		<pathelement location="src/Persistence/libs/json-simple-1.1.1.jar" />
+		<pathelement location="libs/json-simple-1.1.1.jar" />
 	</path>
 	<target name="init">
 		<mkdir dir="bin" />
@@ -44,8 +44,8 @@
 				<exclude name="src/PreviewModule/Test/" />
 				<exclude name="GameworksEvents/src/" />
 				<exclude name="src/" />
-				<exclude name="src/Persistence/src/" />
-				<exclude name="src/Persistence/tests/" />
+				<exclude name="src/iic2113/gameworks/persistence" />
+				<exclude name="src/iic2113/gameworks/persistence/tests/" />
 			</fileset>
 		</copy>
 		<copy includeemptydirs="false" todir="bin">
@@ -57,17 +57,17 @@
 			<fileset dir="src">
 				<exclude name="**/*.java" />
 				<exclude name="PreviewModule/Test/" />
-				<exclude name="Persistence/src/" />
-				<exclude name="Persistence/tests/" />
+				<exclude name="iic2113/gameworks/persistence" />
+				<exclude name="iic2113/gameworks/persistence/tests/" />
 			</fileset>
 		</copy>
 		<copy includeemptydirs="false" todir="bin">
-			<fileset dir="src/Persistence/src">
+			<fileset dir="src/iic2113/gameworks/persistence">
 				<exclude name="**/*.java" />
 			</fileset>
 		</copy>
 		<copy includeemptydirs="false" todir="bin">
-			<fileset dir="src/Persistence/tests">
+			<fileset dir="src/iic2113/gameworks/persistence/tests">
 				<exclude name="**/*.java" />
 			</fileset>
 		</copy>
@@ -91,17 +91,17 @@
 			<src path="." />
 			<src path="GameworksEvents/src" />
 			<src path="src" />
-			<src path="src/Persistence/src" />
-			<src path="src/Persistence/tests" />
+			<src path="src/iic2113/gameworks/persistence" />
+			<src path="src/iic2113/gameworks/persistence/tests" />
 			<src path="src/PreviewModule/Test" />
 			<exclude name="src/PreviewModule/Test/" />
 			<exclude name="GameworksEvents/src/" />
 			<exclude name="src/" />
-			<exclude name="src/Persistence/src/" />
-			<exclude name="src/Persistence/tests/" />
+			<exclude name="src/iic2113/gameworks/persistence" />
+			<exclude name="src/iic2113/gameworks/persistence/tests/" />
 			<exclude name="PreviewModule/Test/" />
-			<exclude name="Persistence/src/" />
-			<exclude name="Persistence/tests/" />
+			<exclude name="iic2113/gameworks/persistence" />
+			<exclude name="iic2113/gameworks/persistence/tests/" />
 			<classpath refid="gameworks.classpath" />
 		</javac>
 	</target>
