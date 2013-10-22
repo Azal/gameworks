@@ -79,6 +79,7 @@ public class MapEditionFrame extends JFrame implements IGameworksWindow {
 		save.setBounds(533, 399, 79, 24);
 		contentPane.add(save);
 		
+		//gets the image for the background tiles (placeholder)
 		try {
 			panel.backTile = ImageIO.read(this.getClass().getResource("/image/Green tile.png"));
 			panel.cellPix = 32;
@@ -97,6 +98,7 @@ public class MapEditionFrame extends JFrame implements IGameworksWindow {
 	
 	private class AddObjectHandler extends MouseAdapter {
 		@Override
+		//adds an object to the map (panel)
 		public void mouseClicked(MouseEvent e) {
 			try {
 				MapObject obj = new MapObject();
