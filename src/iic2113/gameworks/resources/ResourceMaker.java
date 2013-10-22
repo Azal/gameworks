@@ -27,6 +27,11 @@ public class ResourceMaker {
 	}
 	
 	
+	/*
+	 * Los siguientes métodos sirven para crear los distintos recursos.
+	 * Para esto se utilizan las distintas fábricas (una para cada tipo). 
+	 */
+	
 	public ISound createSound( String path ){
 		return soundMaker.createSound( path );
 	}
