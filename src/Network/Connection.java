@@ -1,12 +1,9 @@
 package src.Network;
 
-import java.io.IOException;
 import java.net.InetAddress;
 import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 public class Connection implements Observer {
     /**
 	-Connection via IP to other computers based on events. Now a functional chat.-
