@@ -1,4 +1,4 @@
-package PreviewModule;
+package iic2113.gameworks.Preview;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -16,7 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 
-import PreviewModule.Interfaces.IGameworksWindow;
+import iic2113.gameworks.Preview.Interfaces.IGameworksWindow;
 
 /**
 * Class CharacterEditionFrame
@@ -55,7 +55,7 @@ public class CharacterEditionFrame extends JFrame implements IGameworksWindow
 		characterEditionFrame = this;
 		initGraphicalInterface();
 		setHandlers();
-		setVisible(true);		//Necessary to be able to open frame from Main
+		setVisible(true);
 	}
 	
 	@Override

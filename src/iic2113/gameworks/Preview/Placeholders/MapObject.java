@@ -1,4 +1,4 @@
-package PreviewModule.Placeholders;
+package iic2113.gameworks.Preview.Placeholders;
 
 import java.awt.image.BufferedImage;
 
