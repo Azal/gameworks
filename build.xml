@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="gameworks">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../../../../Applications/eclipse"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    
+    <property name = "junit.build.dir" value = "junitClasses" />
+    <property name = "junit.report.dir" value = "junitReport" />
+    
+    <path id="gameworks.classpath">
+        <pathelement location="."/>
+    </path>
+    <target name="init">
+        <copy includeemptydirs="false" todir=".">
+            <fileset dir=".">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        
+        <mkdir dir = "${junit.build.dir}" />
+        <mkdir dir = "${junit.report.dir}" />
+        
+    </target>
+    <target name="clean">
+        <delete>
+            <fileset dir="." includes="**/*.class"/>
+        </delete>
+        
+        <delete failonerror = "false" dir = "${junit.build.dir}" />
+        <delete failonerror = "false" dir = "${junit.report.dir}" />
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="." includeantruntime="false" source="${source}" target="${target}">
+            <src path="."/>
+            <classpath refid="gameworks.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="Main (4)">
+        <java classname="Resources.src.Main" failonerror="true" fork="yes">
+            <classpath refid="gameworks.classpath"/>
+        </java>
+    </target>
+    
+    <target name = "junit" depends = "init">
+        <javac
+                encoding = "ISO-8859-1"
+                destdir = "${junit.build.dir}"
+                classpathref = "lib.jarfiles"
+                debug = "on"
+                deprecation = "on"
+                optimize = "on">
+            <src path = "${Resources.src}" />
+            <src path = "${Resources.Tests}" />
+        </javac>
+ 
+        <junit fork="no" printsummary="no" haltonfailure="no" showoutput="true" filtertrace="false">
+        <classpath refid="lib.jarfiles" />
+        <classpath>
+                    <pathelement path = "${java.class.path}" />
+            <pathelement path = "${junit.build.dir}" />
+        </classpath>
+ 
+        <batchtest todir="${junit.report.dir}">
+            <fileset dir="${junit.build.dir}">
+                <include name="org/farng/mp3/AllTestCase.class" />
+            </fileset>
+            <formatter type="xml" />
+        </batchtest>
+    </junit>
+    </target>
+</project>
