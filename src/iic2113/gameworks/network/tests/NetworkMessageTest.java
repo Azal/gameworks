@@ -1,8 +1,10 @@
-package src.iic2113.gameworks.network;
+package src.iic2113.gameworks.network.tests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import src.iic2113.gameworks.network.NetworkMessage;
 
 public class NetworkMessageTest {
 

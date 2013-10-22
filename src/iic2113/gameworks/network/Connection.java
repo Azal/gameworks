@@ -17,7 +17,7 @@ import java.util.Observer;
  */
 
 public class Connection implements Observer {	
-	Network network;
+	private Network network;
     private User localUser;
     private Conversation activeConversation;
     private LinkedList<Conversation> conversations;
@@ -30,9 +30,9 @@ public class Connection implements Observer {
 		activeConversation=conversations.get(0);
 		System.out.println("Initiating network");
 		try {
-			network = new Network();
-			network.init();
-			network.addReceiverObserver(this);
+			setNetwork(new Network());
+			getNetwork().init();
+			getNetwork().addReceiverObserver(this);
 			System.out.println("Network successfully initiated");
 		}
 		catch(Exception e) {
@@ -73,7 +73,7 @@ public class Connection implements Observer {
     public void sendMessage(String text,String conversacion, User dest) {
         System.out.println("Sending message");
         String puerto=String.valueOf(localUser.getPort());
-        network.send(text,conversacion,dest.getAddress(),dest.getPort());
+        getNetwork().send(text,conversacion,dest.getAddress(),dest.getPort());
         System.out.println("Message sent");
     }
     public boolean addUser(String address,String Group,boolean firstTime) {
@@ -92,7 +92,7 @@ public class Connection implements Observer {
     private void sendHiMessage(User dest) {
         System.out.println("Sending invite to user " + dest.toString());
         String puerto="6740";
-        network.send(new NetworkMessage(NetworkMessage.TYPE_HELLO,activeConversation.name,Network.getPort()+""), dest.getAddress(),dest.getPort());
+        getNetwork().send(new NetworkMessage(NetworkMessage.TYPE_HELLO,activeConversation.name,Network.getPort()+""), dest.getAddress(),dest.getPort());
     }
     public void sendMessage(String text,String conversacion) {
         if(activeConversation.users.size() == 0)
@@ -101,4 +101,10 @@ public class Connection implements Observer {
           sendMessage(text,conversacion, u);
         }
     }
+	public Network getNetwork() {
+		return network;
+	}
+	public void setNetwork(Network network) {
+		this.network = network;
+	}
 }

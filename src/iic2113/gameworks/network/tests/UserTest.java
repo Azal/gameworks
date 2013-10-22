@@ -1,4 +1,4 @@
-package src.iic2113.gameworks.network;
+package src.iic2113.gameworks.network.tests;
 
 import static org.junit.Assert.*;
 

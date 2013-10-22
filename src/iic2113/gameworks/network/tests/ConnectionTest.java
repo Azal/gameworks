@@ -1,4 +1,4 @@
-package src.iic2113.gameworks.network;
+package src.iic2113.gameworks.network.tests;
 
 import static org.junit.Assert.*;
 
@@ -8,6 +8,8 @@ import java.io.PrintStream;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import src.iic2113.gameworks.network.Connection;
 
 public class ConnectionTest {
 	
@@ -32,7 +34,7 @@ public class ConnectionTest {
 		//assertEquals("-","Connection not yet implemented");
 		Connection c = new Connection();
 		assertNotNull(c);
-		assertNotNull(c.network);
+		assertNotNull(c.getNetwork());
 		assertEquals(true, c.addUser("127.0.0.1", "Test", true));
 		//assertNotNull(c);
 		
