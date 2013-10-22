@@ -1,6 +1,6 @@
 
-package events_test;
-import group4_events.*;
+package iic2123.gameworks.history.tests;
+import iic2123.gameworks.history.*;
 
 import static org.junit.Assert.*;
 
