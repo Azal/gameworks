@@ -1,4 +1,4 @@
-package CharacterBehaviour.src.search;
+package src.CharacterBehaviour.search;
 
 public enum Direction
 {

@@ -1,4 +1,4 @@
-package CharacterBehaviour.src.search.heuristics;
+package src.CharacterBehaviour.search.heuristics;
 
 public class ZeroHeuristic implements Heuristic
 {
