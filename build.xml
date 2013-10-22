@@ -3,6 +3,7 @@
               Any modifications will be overwritten.
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
+<<<<<<< HEAD
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="gameworks">
     <property environment="env"/>
     <property name="ECLIPSE_HOME" value="D:/eclipse-SDK-4.2.2-win32-x86_64/eclipse"/>
@@ -11,11 +12,23 @@
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
     <path id="gameworks.classpath">
+=======
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="proyecto_eclipse">
+    <property environment="env"/>
+    <property name="src.link" value="../proyecto/src"/>
+    <property name="ECLIPSE_HOME" value="../../../../../../Applications/eclipse JAVA"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="proyecto_eclipse.classpath">
+>>>>>>> 1f700ba0d04f324a28a7608f7f18fab8d96d1a1f
         <pathelement location="bin"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
         <copy includeemptydirs="false" todir="bin">
+<<<<<<< HEAD
             <fileset dir=".">
                 <exclude name="**/*.java"/>
                 <exclude name="GameworksEvents/src/"/>
@@ -35,6 +48,9 @@
         </copy>
         <copy includeemptydirs="false" todir="bin">
             <fileset dir="Persistence/tests">
+=======
+            <fileset dir="${src.link}">
+>>>>>>> 1f700ba0d04f324a28a7608f7f18fab8d96d1a1f
                 <exclude name="**/*.java"/>
             </fileset>
         </copy>
@@ -48,6 +64,7 @@
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+<<<<<<< HEAD
             <src path="."/>
             <src path="GameworksEvents/src"/>
             <src path="Persistence/src"/>
@@ -56,6 +73,10 @@
             <exclude name="Persistence/tests/"/>
             <exclude name="Persistence/src/"/>
             <classpath refid="gameworks.classpath"/>
+=======
+            <src path="${src.link}"/>
+            <classpath refid="proyecto_eclipse.classpath"/>
+>>>>>>> 1f700ba0d04f324a28a7608f7f18fab8d96d1a1f
         </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
@@ -72,6 +93,7 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
+<<<<<<< HEAD
     <target name="CharacterTest (1)">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
@@ -96,4 +118,15 @@
             <report format="frames" todir="${junit.output.dir}"/>
         </junitreport>
     </target>
+=======
+
+	  <target name="GameworksTest">
+	        <mkdir dir="${junit.output.dir}"/>
+	        <junit fork="yes" printsummary="withOutAndErr">
+	            <formatter type="xml"/>
+	            <test name="GameworksEvents.src.events_test" todir="${junit.output.dir}"/>
+	            <classpath refid="gameworks.classpath"/>
+	        </junit>
+	    </target>
+>>>>>>> 1f700ba0d04f324a28a7608f7f18fab8d96d1a1f
 </project>
