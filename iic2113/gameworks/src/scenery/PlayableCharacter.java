@@ -1,4 +1,4 @@
-package src.Scenery;
+package iic2113.gameworks.src.scenery;
 
 /**
 Class for playable characters. It inherits from Character

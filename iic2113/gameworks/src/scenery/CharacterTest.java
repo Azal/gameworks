@@ -1,4 +1,4 @@
-package src.Scenery;
+package iic2113.gameworks.src.scenery;
 
 import static org.junit.Assert.*;
 

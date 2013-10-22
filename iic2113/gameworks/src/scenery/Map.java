@@ -1,4 +1,4 @@
-package src.Scenery;
+package iic2113.gameworks.src.scenery;
 
 /**
 Here reside all objects and characters that compose the Map

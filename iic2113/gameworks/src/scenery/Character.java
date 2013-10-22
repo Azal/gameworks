@@ -1,4 +1,4 @@
-package src.Scenery;
+package iic2113.gameworks.src.scenery;
 
 /**
 Abstract class for all characters: playable and NPC's

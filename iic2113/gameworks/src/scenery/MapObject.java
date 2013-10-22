@@ -1,4 +1,4 @@
-package src.Scenery;
+package iic2113.gameworks.src.scenery;
 
 /**
 Abstract class for all objects. They may be triggered or not. Ex: treasure chets, rocks, bushes, walls, etc.
