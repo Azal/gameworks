@@ -1,4 +1,4 @@
-package group4_events;
+package iic2123.gameworks.history;
 /**
  A Result is one of the actions an Event performs when it is done.
  The most important part in this element (besides the unique identifier, which is simply used to recognize Results) is

@@ -267,4 +267,7 @@ public abstract class Character {
 	public String getSpritePath(){
 		return spritePath;
 	}
+	
+	//PROBANDO Integracion continua
+	//asdasd
 }
