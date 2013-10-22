@@ -1,24 +1,22 @@
 package src.Network;
 
-import java.io.IOException;
 import java.net.InetAddress;
 import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-public class Connection implements Observer {
-    /**
-	-Connection via IP to other computers based on events. Now a functional chat.-
-		-Reference to external code:-
-		-Based on the code written by Felipe Cortés Saavedra(PUC)
-	 *
-	 *	@version  -
-	    @created_by @group8/jpeeblesg
-	    @update_log
-	    	26/09/2013 - @group8/jpeeblesg
-	 */
-	
+
+/**
+-Connection via IP to other computers based on events. Now a functional chat.-
+	-Reference to external code:-
+	-Based on the code written by Felipe Cortés Saavedra(PUC)
+ *
+ *	@version  -
+    @created_by @group8/jpeeblesg
+    @update_log
+    	26/09/2013 - @group8/jpeeblesg
+ */
+
+public class Connection implements Observer {	
 	Network network;
     private User localUser;
     private Conversation activeConversation;
@@ -58,30 +56,18 @@ public class Connection implements Observer {
         if(m.getType() == NetworkMessage.TYPE_TEXT){
             String contenido=m.getContent();
             System.out.print("Says: "+contenido + "\n");
-            // ui.newMessage(m.getContent(),m.getSender().toString());
         }
-       // else if(m.getType() == NetworkMessage.TYPE_HELLO_RES)
-            // ui.newStatus("Usuario confirmo conexion :" + m.getSender().toString());
         else if(m.getType() == NetworkMessage.TYPE_BYE) {
-            // this.deleteUser(m.getSender());
             System.out.println("User disconnected " + m.getSender().toString());
-           // ui.newStatus("Usuario se desconecto :" + m.getSender().toString());
         }
         else if(m.getType() == NetworkMessage.TYPE_HELLO) {
             String contenido=m.getContent();
             String[] puertoSplitted=contenido.split("-");
         	String IP = m.getSender().toString().substring(1);
         	addUser(IP, " ",false);
-            //for(int i=0; i<puertoSplitted.length-1; i++){
-            //	System.out.println(puertoSplitted[i]);
-           // }
-            //ui.newMessage(m.getContent(), m.getSender().toString(), Integer.parseInt(puertoSplitted[puertoSplitted.length-1]));
-            //ui.newMessage(puertoSplitted[0]+"-Conexion Creada",m.getSender().toString()+":"+puertoSplitted[puertoSplitted.length-1]);
-            //ui.addAddressBack(m.getSender().toString().substring(1)+":"+puertoSplitted[puertoSplitted.length-1], puertoSplitted[0]);
         }
         else if(m.getType()==NetworkMessage.TYPE_READ_IMAGE){
             System.out.print("read image");
-           //  ui.addImage(m.getContent().toString());
         }
     }
     public void sendMessage(String text,String conversacion, User dest) {
