@@ -1,4 +1,4 @@
-package PreviewModule;
+package iic2113.gameworks.Preview;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -10,8 +10,8 @@ import java.awt.TextField;
 import javax.swing.JSpinner;
 import javax.swing.JLabel;
 
-import PreviewModule.Interfaces.IGameworksWindow;
-import PreviewModule.Placeholders.MapObject;
+import iic2113.gameworks.Preview.Interfaces.IGameworksWindow;
+import iic2113.gameworks.Preview.Placeholders.MapObject;
 
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
@@ -40,6 +40,7 @@ public class MapEditionFrame extends JFrame implements IGameworksWindow {
 	{
 		initGraphicalInterface();
 		setHandlers();
+		setVisible(true);
 	}
 	
 	@Override

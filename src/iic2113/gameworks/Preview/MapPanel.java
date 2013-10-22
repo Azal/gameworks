@@ -1,4 +1,4 @@
-package PreviewModule;
+package iic2113.gameworks.Preview;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JPanel;
 
-import PreviewModule.Placeholders.MapObject;
+import iic2113.gameworks.Preview.Placeholders.MapObject;
 
 /**
 * Class MapPanel
