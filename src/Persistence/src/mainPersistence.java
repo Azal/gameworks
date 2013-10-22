@@ -23,9 +23,13 @@ public class mainPersistence {
 		json1.put("hola2", "hola2");
 		json2.put("hola3", "hola3");
 		Encrypter s = new Encrypter();
+		s.write(1, "otrotardis", 0, json);
 		s.write(1, "tardis", 0, json);
 		s.write(1, "tardis", 1, json1);
 		s.read("assets/data/1/");
+		
+		ModuleCommunicator mc = new ModuleCommunicator();
+		mc.load(1);
 		
 		
 	}

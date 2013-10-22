@@ -71,6 +71,7 @@ public class Encrypter {
 		return success;
 	}
 
+	@SuppressWarnings("unchecked")
 	public static JSONObject read(String route) {
 
 		JSONParser parser = new JSONParser();

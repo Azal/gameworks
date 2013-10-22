@@ -1,7 +1,10 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Dictionary;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import org.json.simple.JSONArray;
@@ -61,7 +64,10 @@ public class ModuleCommunicator implements ICommunicate {
 	public Dictionary<String, String> load(int module) {
 		
 		JSONObject json = Encrypter.read("assets/data/" + module + "/");
-		
+		Map map = json;
+		System.out.println();
+	    System.out.println(map);
+	    System.out.println(map.get("otrotardis"));
 		return null;
 	}
 
