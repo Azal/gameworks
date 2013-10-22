@@ -1,15 +1,18 @@
 package src.Network;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-
+/**
+-...-
+ *
+ *	@version  -
+    @created_by @group8/maxfindel
+    @update_log
+    	22/10/2013 - @group8/maxfindel
+    	26/09/2013 - @group8/jpeeblesg
+ */
 
 public class Conversation {
     protected LinkedList<User> users;

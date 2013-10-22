@@ -1,5 +1,5 @@
-
 package src.Network;
+
 import java.io.Serializable;
 import java.net.InetAddress;
 
@@ -24,8 +24,8 @@ public class NetworkMessage implements Serializable{
     int port;
     int senderPort;
     
-    //Cambiar para que despues se puedan mandar otras cosas
-    //Posiblemente por un arreglo de bytes
+    /**  
+	NetworkMessage constructor */
     public NetworkMessage(int t,String conversation, String c) {
         this.type = t;
         this.conversation=conversation;
@@ -34,9 +34,9 @@ public class NetworkMessage implements Serializable{
         sent = false;
     }
     
-    //Crea un objeto networkMessage a partir de un texto recibido
+    /**  
+	Creates a new NetworkMessage basedn on a received text */
     public static NetworkMessage parse(String message) {
-      //  System.out.println("Recibiendo mensaje: " + message);
         String[] s = message.split("-");
         int t = Integer.parseInt(s[0]);
         String conversation=s[1];
@@ -90,9 +90,9 @@ public class NetworkMessage implements Serializable{
         this.type = t;
     }
     
-    
-    //Retorna la representacion final que se manda.
-    //La operacion inversa es parse
+    /**  
+	Returns the final form it is send as.
+	It's inverse operation in parse */
     public String getString() {
         return this.type + "-" +this.conversation + "-" + this.content;
     }
