@@ -3,6 +3,7 @@
               Any modifications will be overwritten.
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
+<<<<<<< HEAD
               as the first entry and export the buildfile again. -->
 <project basedir="." default="build" name="proyecto_eclipse">
     <property environment="env"/>
@@ -24,15 +25,54 @@
     </target>
     <target name="clean">
         <delete dir="bin"/>
+=======
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="gameworks">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../../../../Applications/eclipse"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    
+    <property name = "junit.build.dir" value = "junitClasses" />
+    <property name = "junit.report.dir" value = "junitReport" />
+    
+    <path id="gameworks.classpath">
+        <pathelement location="."/>
+    </path>
+    <target name="init">
+        <copy includeemptydirs="false" todir=".">
+            <fileset dir=".">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        
+        <mkdir dir = "${junit.build.dir}" />
+        <mkdir dir = "${junit.report.dir}" />
+        
+    </target>
+    <target name="clean">
+        <delete>
+            <fileset dir="." includes="**/*.class"/>
+        </delete>
+        
+        <delete failonerror = "false" dir = "${junit.build.dir}" />
+        <delete failonerror = "false" dir = "${junit.report.dir}" />
+>>>>>>> 7b3fa096d6d5c8a85174868619ef4f84c13e4643
     </target>
     <target depends="clean" name="cleanall"/>
     <target depends="build-subprojects,build-project" name="build"/>
     <target name="build-subprojects"/>
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
+<<<<<<< HEAD
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
             <src path="${src.link}"/>
             <classpath refid="proyecto_eclipse.classpath"/>
+=======
+        <javac debug="true" debuglevel="${debuglevel}" destdir="." includeantruntime="false" source="${source}" target="${target}">
+            <src path="."/>
+            <classpath refid="gameworks.classpath"/>
+>>>>>>> 7b3fa096d6d5c8a85174868619ef4f84c13e4643
         </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
@@ -49,6 +89,7 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
+<<<<<<< HEAD
 
 	  <target name="GameworksTest">
 	        <mkdir dir="${junit.output.dir}"/>
@@ -58,4 +99,39 @@
 	            <classpath refid="gameworks.classpath"/>
 	        </junit>
 	    </target>
+=======
+    <target name="Main (4)">
+        <java classname="Resources.src.Main" failonerror="true" fork="yes">
+            <classpath refid="gameworks.classpath"/>
+        </java>
+    </target>
+    
+    <target name = "junit" depends = "init">
+        <javac
+                encoding = "ISO-8859-1"
+                destdir = "${junit.build.dir}"
+                classpathref = "lib.jarfiles"
+                debug = "on"
+                deprecation = "on"
+                optimize = "on">
+            <src path = "${Resources.src}" />
+            <src path = "${Resources.Tests}" />
+        </javac>
+ 
+        <junit fork="no" printsummary="no" haltonfailure="no" showoutput="true" filtertrace="false">
+        <classpath refid="lib.jarfiles" />
+        <classpath>
+                    <pathelement path = "${java.class.path}" />
+            <pathelement path = "${junit.build.dir}" />
+        </classpath>
+ 
+        <batchtest todir="${junit.report.dir}">
+            <fileset dir="${junit.build.dir}">
+                <include name="org/farng/mp3/AllTestCase.class" />
+            </fileset>
+            <formatter type="xml" />
+        </batchtest>
+    </junit>
+    </target>
+>>>>>>> 7b3fa096d6d5c8a85174868619ef4f84c13e4643
 </project>
