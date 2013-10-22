@@ -7,13 +7,16 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import src.iic2113.gameworks.resources.ISound;
+import src.iic2113.gameworks.resources.ResourceMaker;
 import src.iic2113.gameworks.resources.SoundFactory;
 
 
 public class ISoundTest {
 
+	private ResourceMaker rm = new ResourceMaker();
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		
 	}
 
 	@AfterClass
@@ -22,14 +25,12 @@ public class ISoundTest {
 
 	@Test
 	public void loadAndPlayAsynchronousSound() {
-		SoundFactory sf = new SoundFactory();
-		ISound sound = sf.createSound("assets/sounds/sound_ambience_nature.wav");
+		ISound sound = rm.createSound("assets/sounds/sound_ambience_nature.wav");
 		assertTrue(sound.playAsynchronous());
 	}
 	@Test
 	public void loadAndPlaySynchronousSound() {
-		SoundFactory sf = new SoundFactory();
-		ISound sound = sf.createSound("assets/sounds/sound_ambience_nature.wav");
+		ISound sound = rm.createSound("assets/sounds/sound_ambience_nature.wav");
 		assertTrue(sound.playSynchronous());
 	}
 
