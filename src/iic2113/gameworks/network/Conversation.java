@@ -1,4 +1,4 @@
-package src.Network;
+package src.iic2113.gameworks.network;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
