@@ -1,4 +1,4 @@
-package Resources.src;
+package src.iic2113.gameworks.resources;
 import java.awt.image.*;
 
 /**

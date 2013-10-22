@@ -1,4 +1,4 @@
-package Resources.Tests;
+package src.iic2113.gameworks.resources.tests;
 
 /**
  * @Version 0.1
@@ -15,8 +15,9 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import Resources.src.IImage;
-import Resources.src.ImageFactory;
+import src.iic2113.gameworks.resources.IImage;
+import src.iic2113.gameworks.resources.ImageFactory;
+
 
 public class IImageTest {
 

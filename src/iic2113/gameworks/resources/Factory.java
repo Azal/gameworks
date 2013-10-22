@@ -1,8 +1,8 @@
-package Resources.src;
+package src.iic2113.gameworks.resources;
 
 /**
  * @Version 0.1
- * @created_by @group2/Nicol‡s Castro
+ * @created_by @group2/Nicol?s Castro
  *
  */
 
