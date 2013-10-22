@@ -1,12 +1,12 @@
-package PreviewModule.Test;
+package iic2113.gameworks.Preview.Test;
+
+import iic2113.gameworks.Preview.MainFrame;
 
 import org.fest.swing.fixture.FrameFixture;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import PreviewModule.MainFrame;
 
 public class MainFrameTest {
 
