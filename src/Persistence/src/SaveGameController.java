@@ -20,9 +20,9 @@ public class SaveGameController {
 	
 	
 	/**
-	 * Check current state of game
+	 * Show alert message window and save current state to the log
 	 */
-	public void checkState()
+	public void updateLog()
 	{
 		
 	}

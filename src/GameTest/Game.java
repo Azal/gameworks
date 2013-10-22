@@ -1,4 +1,4 @@
-package GameTest;
+package src.GameTest;
 
 import java.awt.Dimension;
 import java.awt.MouseInfo;
@@ -24,6 +24,7 @@ import javax.swing.SwingUtilities;
 /**  
  * Game
  */
+
 
 public class Game {
 

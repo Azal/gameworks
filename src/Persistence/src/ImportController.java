@@ -28,7 +28,7 @@ public class ImportController {
 	/**
 	 * Correct errors in files
 	 */
-	public void correctFies()
+	public void correctFiles()
 	{
 		
 	}
