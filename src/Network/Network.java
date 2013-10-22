@@ -17,7 +17,6 @@ public class Network implements Observer,
     int subnet;
     private static int port;
     private boolean portChosen=false;
-    //private LinkedList<NetworkUser> users;
     
     Sender sender;
     Receiver receiver;
@@ -28,9 +27,7 @@ public class Network implements Observer,
        else if(port<6750){port+=1;}
         }
         localAddress = (Inet4Address)Inet4Address.getLocalHost();
-        
-        //users = new LinkedList<NetworkUser>();
-        
+                
         sender = new Sender();
         receiver = new Receiver(this);
         receiver.addObserver(this);
@@ -92,14 +89,6 @@ public class Network implements Observer,
         sender.send(m,u,port);
     }
     
-    /*
-    public void send(String s) {
-        for(NetworkUser u : users) {
-            this.send(s,u);
-        }
-    }
-    */
-    
     public static InetAddress getLocalAddress() {
         return localAddress;
     }
@@ -112,8 +101,8 @@ public class Network implements Observer,
         receiver.addObserver(o);
     }
     
-    //Observer Interface method. It executes when a message is received.
     @Override
+    //Observer Interface method. It executes when a message is received.
     public void update(Observable obs, Object obj) {
         NetworkMessage message = (NetworkMessage)obj;
         //If we are greeted, we say hi back.
@@ -121,8 +110,6 @@ public class Network implements Observer,
             sender.send(new NetworkMessage(NetworkMessage.TYPE_HELLO_RES,"",Network.getPort()+""), message.sender,message.port);
         System.out.println("mande hola");
         }
-        //if(message.getType() == NetworkMessage.TYPE_HELLO_RES)
-            //System.out.println("ACK " + message.getString() + "--" + message.sender);
     }
     
     

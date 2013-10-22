@@ -4,20 +4,20 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+-Class description goes here.-
+	-Reference to external code-
+*
+*	@version  0.1
+@created_by @group8/maxfindel,jpeeblesg
+@update_log
+	26/09/2013 - @group8/jpeeblesg
+	23/09/2013 - @group8/maxfindel
+	dd/mm/yyyy - @groupX/author[,author2,...]          
+*/
+
 public class Main {
-
-	/**
-		-Class description goes here.-
-			-Reference to external code-
-	 *
-	 *	@version  0.1
-	    @created_by @group8/maxfindel,jpeeblesg
-	    @update_log
-	    	26/09/2013 - @group8/jpeeblesg
-	    	23/09/2013 - @group8/maxfindel
-	    	dd/mm/yyyy - @groupX/author[,author2,...]          
-	 */
-
+	
 	/**  
 	main for chat documentation comment */
 	public static void main(String[] args) throws IOException { 
