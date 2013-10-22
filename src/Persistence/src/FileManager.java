@@ -16,20 +16,21 @@ import javax.swing.plaf.FileChooserUI;
        
  */
 
-public class FileManager implements IFile  {
+public class FileManager {
 
-	List<File> results = null;
 	
-	@Override
 	public boolean isFile(String name) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
+	/**
+	 * Finds a file, if it exists, given a root directory
+	 */
 	public String findFile(File root, String name) {		
 
-		 results = new ArrayList<File>();//Cleans the results list at the beginning
+		//Cleans the results list at the beginning
+		List<File> results = new ArrayList<File>();
 		 
 		if(!root.isDirectory()){
 		    throw new IllegalArgumentException("File root is not a directory");
@@ -43,17 +44,21 @@ public class FileManager implements IFile  {
 		    }
 		    //It compares to the file's name
 		    if(file.getName().matches(name)){
-		      addResult(file);
+		      addResult(file, results);
+		      return results.get(0).getAbsolutePath();
 		    }
 		  }
 		 
-		if(!results.isEmpty())
+		if(!results.isEmpty()){
 			return results.get(0).getAbsolutePath();
-		else
-			return null;
+		}
+			return "End of search";
 	}
 
-	@Override
+
+	/**
+	 * Creates a new file in a given directory, if the directory exists
+	 */
 	public boolean newFile(File path, Object o) {
 		
 		if(!path.isDirectory()){
@@ -65,13 +70,16 @@ public class FileManager implements IFile  {
 	      
 	      try{
 	         // create new file
-	         f = new File((File)o, path.getAbsolutePath());
+	    	  System.out.print("El path es " + path.getPath() + "\n");
+	    	  File f1 = (File)o;
+	    	  System.out.print("El path del object es " + f1.getPath() + "\n");
+	         f = new File(path.getAbsolutePath(), "text.txt");
 	         
 	         // tries to create new file in the system
 	         bool = f.createNewFile();
 	         
 	         // prints
-	         System.out.println("File created: "+bool);
+	         System.out.println("File created: "+ bool);
 	            
 	      }catch(Exception e){
 	         e.printStackTrace();
@@ -83,19 +91,23 @@ public class FileManager implements IFile  {
 		return false;
 	}
 	
-	//Print the path to the found files
-	private void showResults(){
+
+	/**
+	 * Print the path to the found files
+	 */
+	private void showResults(List<File> results){
 	  for(File archivo : results){
 	    System.out.println(archivo.getAbsolutePath());
 	  }
 	}
 	
-	//Add a file to the search findings
-	private void addResult(File file){
+	/**
+	 * Add a file to the search results
+	 */
+	private void addResult(File file, List<File> results){
 	  results.add(file);
-	}
-	
-	
+	  this.showResults(results);
+	}	
 	
 	/**class bottom**/	
 }
