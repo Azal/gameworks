@@ -12,13 +12,30 @@ import java.lang.Thread;
  */
 
 
-public class SaveGameController {
+public class SaveGameController extends Thread{
 	
+	private boolean autosave = False;
+
 	public SaveGameController()
 	{
 		
 	}
-	
+
+	public void run()
+	{
+		while(keepSaving)
+		{
+			int min = 15*60*1000; //every 15 minutes the game will be saved
+			try {
+				Thread.sleep(min);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+	}
+
 	
 	/**
 	 * Show alert message window and save current state to the log
@@ -37,11 +54,12 @@ public class SaveGameController {
 	}
 	
 	public void activateAutoSave(){
-
+		autosave = True;
+		this.run();
 	}
 	
 	public void desactivateAutoSave(){
-		
+		autosave = False;
 	}
 	
 }
