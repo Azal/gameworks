@@ -108,7 +108,6 @@ public class Network implements Observer,Serializable {
         //If we are greeted, we say hi back.
         if(message.getType() == NetworkMessage.TYPE_HELLO){
             sender.send(new NetworkMessage(NetworkMessage.TYPE_HELLO_RES,"",Network.getPort()+""), message.sender,message.port);
-        System.out.println("mande hola");
         }
     }
     

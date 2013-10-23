@@ -18,7 +18,6 @@ import java.util.Observer;
 
 public class Connection implements Observer {	
 	private Network network;
-    private User localUser;
     private GameInstance activeConversation;
     private LinkedList<GameInstance> conversations;
     
@@ -61,10 +60,8 @@ public class Connection implements Observer {
             System.out.println("User disconnected " + m.getSender().toString());
         }
         else if(m.getType() == NetworkMessage.TYPE_HELLO) {
-            String contenido=m.getContent();
-            String[] puertoSplitted=contenido.split("-");
         	String IP = m.getSender().toString().substring(1);
-        	addUser(IP, " ",false);
+        	addUser(IP, " ");
         }
         else if(m.getType()==NetworkMessage.TYPE_READ_IMAGE){
             System.out.print("read image");
@@ -72,16 +69,15 @@ public class Connection implements Observer {
     }
     public void sendMessage(String text,String conversacion, User dest) {
         //System.out.println("Sending message");
-        String puerto=String.valueOf(localUser.getPort());
         getNetwork().send(text,conversacion,dest.getAddress(),dest.getPort());
         //System.out.println("Message sent");
     }
-    public boolean addUser(String address,String Group,boolean firstTime) {
+    public boolean addUser(String address,String Group) {
         try {
             InetAddress ad = InetAddress.getByName(address);
             User u = new User(ad,Integer.parseInt("6740"));
             System.out.println("User successfully added");
-            if(firstTime)sendHiMessage(u);
+            sendHiMessage(u);
             return activeConversation.users.add(u);
         }
         catch(Exception e) {
@@ -91,7 +87,6 @@ public class Connection implements Observer {
     }
     private void sendHiMessage(User dest) {
         System.out.println("Sending invite to user " + dest.toString());
-        String puerto="6740";
         getNetwork().send(new NetworkMessage(NetworkMessage.TYPE_HELLO,activeConversation.name,Network.getPort()+""), dest.getAddress(),dest.getPort());
     }
     public void sendMessage(String text,String conversacion) {
