@@ -18,15 +18,15 @@ import java.util.Observer;
 
 public class Connection implements Observer {	
 	private Network network;
-    private GameInstance activeConversation;
-    private LinkedList<GameInstance> conversations;
+    private GameInstance activeGame;
+    private LinkedList<GameInstance> gameInstances;
     
     /**  
 	Connection constructor */
 	public Connection(){
-        conversations = new LinkedList<GameInstance>();
-		conversations.add(new GameInstance("Default"));
-		activeConversation=conversations.get(0);
+        gameInstances = new LinkedList<GameInstance>();
+		gameInstances.add(new GameInstance("Default"));
+		activeGame=gameInstances.get(0);
 		System.out.println("Initiating network");
 		try {
 			setNetwork(new Network());
@@ -81,7 +81,7 @@ public class Connection implements Observer {
             User u = new User(InetAddress.getByName(splittedAddress[0]),Integer.parseInt(splittedAddress[1]));
             System.out.println("User successfully added");
             if(firstTime)sendHiMessage(u);
-            return activeConversation.users.add(u);
+            return activeGame.users.add(u);
         }
         catch(Exception e) {
             System.out.println("Error adding user with ip "+address+"\n"+e.getMessage());
@@ -90,12 +90,12 @@ public class Connection implements Observer {
     }
     private void sendHiMessage(User dest) {
         System.out.println("Sending invite to user " + dest.toString());
-        getNetwork().send(new NetworkMessage(NetworkMessage.TYPE_HELLO,activeConversation.name,Network.getPort()+""), dest.getAddress(),dest.getPort());
+        getNetwork().send(new NetworkMessage(NetworkMessage.TYPE_HELLO,activeGame.name,Network.getPort()+""), dest.getAddress(),dest.getPort());
     }
     public void sendMessage(String text) {
-        if(activeConversation.users.size() == 0)
+        if(activeGame.users.size() == 0)
             System.out.println("There are no users to send this message to");
-        for(User u : activeConversation.users){
+        for(User u : activeGame.users){
           sendMessage(text,"", u);
         }
     }
