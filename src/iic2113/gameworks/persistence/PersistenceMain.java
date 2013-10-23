@@ -26,13 +26,14 @@ public class PersistenceMain {
 		json.put("hola1", "hola1");
 		json1.put("hola2", "hola2");
 		json2.put("hola3", "hola3");
-		Encrypter.write(1, "otrotardis", 0, json);
-		Encrypter.write(1, "tardis", 0, json);
-		Encrypter.write(1, "tardis", 1, json1);
+		Encrypter.write("preview", "otrotardis", 0, json);
+		Encrypter.write("preview", "tardis", 0, json);
+		Encrypter.write("preview", "tardis", 1, json1);
 		Encrypter.read("assets/data/1/");
 		
 		ModuleCommunicator mc = new ModuleCommunicator();
 		mc.load(1);
+		
 		
 		
 	}

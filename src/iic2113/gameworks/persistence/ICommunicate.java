@@ -1,5 +1,8 @@
 package src.iic2113.gameworks.persistence;
 import java.util.Dictionary;
+import java.util.Map;
+
+import org.json.simple.JSONObject;
 
 
 /**
@@ -30,14 +33,14 @@ public interface ICommunicate {
 	 * @param data: Information to save. String as JSON
 	 * @return true if saved
 	 */
-	public boolean save(int module, String className, int id, String data);
+	public boolean save(String module, String className, int id, String data);
 
 	/**
 	 * Load state from asked module (first ask method must be called)
 	 * @param module: module id
 	 * @return Dictionary with all the information of the module. Dictionary pointing to another dictionary, like a tree structure.
 	 */
-	public Dictionary<String, String> load(int module);
+	public Map<String, Map<Integer,JSONObject>> load(int module);
 	
 	
 	
