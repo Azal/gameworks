@@ -8,7 +8,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 /**
--Send and ask information from other modules. They must be subscribed.
+Keeps a track of all actions that have occurred, and saves them in the log file
  *
  *	@version  0.1
     @author @group7/nomorejim
