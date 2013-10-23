@@ -63,32 +63,36 @@ public class ModuleCommunicator implements ICommunicate {
 		
 		return true;
 	}
-
+	
+	@SuppressWarnings("unchecked")
 	public Map<String, Map<Integer,JSONObject>> load(int module) {
 		
 		JSONObject json = Encrypter.read("assets/data/" + module + "/");
 		Map<String,Map<Integer,JSONObject>> classMap = new HashMap<String,Map<Integer,JSONObject>>();
 		Map<Integer,JSONObject> idsMap = new HashMap<Integer, JSONObject>();
 		System.out.println("ESTO ESTO");
-		System.out.println(json);
-		//System.out.println(json.get("otrotardis"));
-		JSONObject j = (JSONObject) json.clone();
 		
-		Set o = json.keySet();
 		
-		for (Object str : o)
+		Set<String> o = json.keySet();
+		
+		for (String strClass : o)
 		{
-			System.out.println(str.toString());
-			String s = str.toString();
-			j.get("otrotardis");
+			JSONObject j = (JSONObject) json.get(strClass);
+			
+			Set<String> i = j.keySet();
+			
+			for (String strId : i)
+			{
+				idsMap.put(Integer.parseInt(strId),(JSONObject) j.get(strId));
+			}
+			
+			classMap.put(strClass, idsMap);
+			idsMap = new HashMap<Integer, JSONObject>();
+	
 		}
 		
-//		 Iterator<String> iterator = msg.iterator();
-//         while (iterator.hasNext()) {
-//                 System.out.println(iterator.next());
-//         }
-		
-		return null;
+		System.out.println(classMap);
+		return classMap;
 	}
 
 	

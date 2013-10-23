@@ -25,7 +25,7 @@ public class SaveGameController {
 	 */
 	public void updateLog()
 	{
-		
+		//comunicación con eventos para que avise
 	}
 	
 	/**
@@ -33,6 +33,15 @@ public class SaveGameController {
 	 */
 	public void save()
 	{
+		updateLog();
+	}
+	
+	public void activateAutoSave(){
 		
 	}
+	
+	public void desactivateAutoSave(){
+		
+	}
+	
 }
