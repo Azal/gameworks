@@ -44,7 +44,6 @@ public class Connection implements Observer {
             }
         });
         
-        localUser = new User(Network.getLocalAddress(),Network.getPort());
 	}
     @Override
     /**  
