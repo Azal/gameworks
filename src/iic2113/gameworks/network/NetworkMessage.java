@@ -15,7 +15,7 @@ public class NetworkMessage implements Serializable{
     public static final int TYPE_FILE_IN = 7;
     public static final int TYPE_READ_IMAGE = 8;
     
-    String conversation;
+    String gameInstance;
     int type;
     String content;
     boolean sent;
@@ -26,26 +26,26 @@ public class NetworkMessage implements Serializable{
     
     /**  
 	NetworkMessage constructor */
-    public NetworkMessage(int t,String conversation, String c) {
+    public NetworkMessage(int t,String gameInstance, String c) {
         this.type = t;
-        this.conversation=conversation;
+        this.gameInstance=gameInstance;
         this.content = c;
         this.senderPort=Network.getPort();
         sent = false;
     }
     
     /**  
-	Creates a new NetworkMessage basedn on a received text */
+	Creates a new NetworkMessage based on a received text */
     public static NetworkMessage parse(String message) {
         String[] s = message.split("-");
         int t = Integer.parseInt(s[0]);
-        String conversation=s[1];
+        String gameInstance=s[1];
         
-        NetworkMessage res = new NetworkMessage(t,conversation,message.substring(s[0].length()+1));
+        NetworkMessage res = new NetworkMessage(t,gameInstance,message.substring(s[0].length()+1));
         res.setPort(Network.getPort());
         return res;
     }
-    
+    /** The following methods are getters for each of the specified attributes*/
     public String getContent() {
         return this.content;
     }
@@ -94,6 +94,6 @@ public class NetworkMessage implements Serializable{
 	Returns the final form it is send as.
 	It's inverse operation in parse */
     public String getString() {
-        return this.type + "-" +this.conversation + "-" + this.content;
+        return this.type + "-" +this.gameInstance + "-" + this.content;
     }
 }
