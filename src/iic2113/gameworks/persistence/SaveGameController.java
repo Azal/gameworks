@@ -14,7 +14,7 @@ import java.lang.Thread;
 
 public class SaveGameController extends Thread{
 	
-	private boolean autosave = False;
+	private boolean autosave = false;
 
 	public SaveGameController()
 	{
@@ -23,7 +23,7 @@ public class SaveGameController extends Thread{
 
 	public void run()
 	{
-		while(keepSaving)
+		while(autosave)
 		{
 			int min = 15*60*1000; //every 15 minutes the game will be saved
 			try {
@@ -54,12 +54,12 @@ public class SaveGameController extends Thread{
 	}
 	
 	public void activateAutoSave(){
-		autosave = True;
+		autosave = true;
 		this.run();
 	}
 	
 	public void desactivateAutoSave(){
-		autosave = False;
+		autosave = false;
 	}
 	
 }
