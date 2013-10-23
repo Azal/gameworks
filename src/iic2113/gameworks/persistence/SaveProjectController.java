@@ -56,8 +56,8 @@ public class SaveProjectController extends Thread {
 	 */
 	public void autoSave()
 	{
-		this.start();
 		keepSaving =true;
+		this.start();
 	}
 	
 	public void noAutoSave()
