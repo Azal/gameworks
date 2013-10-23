@@ -53,7 +53,7 @@ public class Connection implements Observer {
         NetworkMessage m = (NetworkMessage)message;
         if(m.getType() == NetworkMessage.TYPE_TEXT){
             String contenido=m.getContent();
-            System.out.print("Says: "+contenido + "\n");
+            System.out.print(m.getSender()+"Says: "+contenido + "\n");
         }
         else if(m.getType() == NetworkMessage.TYPE_BYE) {
             System.out.println("User disconnected " + m.getSender().toString());

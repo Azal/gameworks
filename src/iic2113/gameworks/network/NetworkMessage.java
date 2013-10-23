@@ -94,6 +94,6 @@ public class NetworkMessage implements Serializable{
 	Returns the final form it is send as.
 	It's inverse operation in parse */
     public String getString() {
-        return this.type + "-" +this.gameInstance + "-" + this.content;
+        return  this.content;
     }
 }
