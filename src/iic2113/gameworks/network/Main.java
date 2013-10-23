@@ -32,7 +32,7 @@ public class Main {
 			connection.addUser(IP, "6740");
 		}
 		else{
-			System.out.println("Your IP is: "+ Network.getLocalAddress().toString().split("/")[1]+":"+Network.getPort());
+			System.out.println("Your IP is: "+ Network.getIP()+":"+Network.getPort());
 		}
 		while(true){
 			//System.out.print("Enter Message: \n");

@@ -8,7 +8,6 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.io.*;
-import java.io.FileOutputStream;
 
 public class Network implements Observer,Serializable {
     /**Necessary attributes to implement a network: localAddress is a unique Inet4Address for the computer
@@ -77,6 +76,9 @@ public class Network implements Observer,Serializable {
         
         sendThread.start();
         receiveThread.start();
+    }
+    public static String getIP(){
+    	return Network.getLocalAddress().toString().split("/")[1];
     }
     /** Method to send messages to a given game instance*/
     public void send(String s,String gameInstance, InetAddress u, int port) {
