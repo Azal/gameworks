@@ -12,7 +12,7 @@ public class NetworkMessageTest {
 	public void test() {
 		NetworkMessage nm = new NetworkMessage(0,"conversation", "content");
 		assertNotNull(nm);
-		assertEquals(nm.parse(nm.getString()).getString(),nm.getString() );
+		assertEquals(nm.getString(), nm.getString() );
 	}
 
 }

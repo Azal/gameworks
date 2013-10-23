@@ -59,7 +59,7 @@ public class Receiver extends Observable implements Runnable  {
                 
             }
             catch(Exception e) {
-                System.err.println("Error de conexion al recibir mensaje\n"+e.getMessage());
+                System.err.println("Connection error receiving message \n"+e.getMessage());
             }
         }
     }

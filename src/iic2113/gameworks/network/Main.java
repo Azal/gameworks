@@ -35,10 +35,10 @@ public class Main {
 			System.out.println("Your IP is: "+ Network.getFullIP());
 		}
 		while(true){
-			//System.out.print("Enter Message: \n");
 			String s = br.readLine();
-			connection.sendMessage(s);
-			//System.out.print(s);
+			if(!s.equals("")){
+				connection.sendMessage(s);
+			}
 		}
 	}
 }
