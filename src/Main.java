@@ -1,5 +1,8 @@
 package src;
 
+import src.iic2113.gameworks.Preview.MainFrame;
+import src.GameTest.Game;
+
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
@@ -50,10 +53,11 @@ public class Main {
 		-Class description goes here.-
 			-Reference to external code-
 	 *
-	 *	@version  0.1
+	 *	@version  0.2
 	    @created_by @group8/maxfindel,jpeeblesg
 	    @update_log
 	    	23/09/2013 - @group8/maxfindel
+	    	22/10/2013 - @group1/fjsandov
 	    	dd/mm/yyyy - @groupX/author[,author2,...]          
 	 */
 
@@ -62,11 +66,7 @@ public class Main {
 	 * @throws Exception */
 	public static void main(String[] args) throws Exception {
 		System.out.println("Hello gaming world!");
-		// Game Initiation and KeyEvents example:
-		Game game = Game.Create("Test", 800, 400);
-		game.onKeyPress("ENTER", new PauseGameAction("Pausing Game [ENTER]"));
-		game.onKeyPress("ESCAPE", new CloseGameAction("Closing game [ESC]"));
-		game.Init();
+		MainFrame mainFrame = new MainFrame();
 	}
 
 }

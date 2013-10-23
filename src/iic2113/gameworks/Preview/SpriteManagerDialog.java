@@ -1,4 +1,4 @@
-package PreviewModule;
+package iic2113.gameworks.Preview;
 
 import java.awt.BorderLayout;
 import java.awt.Button;
