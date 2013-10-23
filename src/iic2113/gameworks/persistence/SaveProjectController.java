@@ -26,6 +26,8 @@ public class SaveProjectController extends Thread {
 		{
 			int min =5*60*1000;
 			try {
+				checkState();
+				save();
 				Thread.sleep(min);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block

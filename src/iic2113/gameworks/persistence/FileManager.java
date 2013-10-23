@@ -110,5 +110,5 @@ public class FileManager {
 	  this.showResults(results);
 	}	
 	
-	/**class bottom**/	
+	/** bottom class **/	
 }

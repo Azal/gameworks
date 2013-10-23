@@ -27,6 +27,7 @@ public class SaveGameController extends Thread{
 		{
 			int min = 15*60*1000; //every 15 minutes the game will be saved
 			try {
+				save();
 				Thread.sleep(min);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
