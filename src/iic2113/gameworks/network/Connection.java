@@ -96,7 +96,7 @@ public class Connection implements Observer {
         if(activeConversation.users.size() == 0)
             System.out.println("There are no users to send this message to");
         for(User u : activeConversation.users){
-          sendMessage(text,"gameInstance", u);
+          sendMessage(text,"", u);
         }
     }
 	public Network getNetwork() {
