@@ -17,10 +17,13 @@ import org.junit.Test;
 
 import src.iic2113.gameworks.resources.IImage;
 import src.iic2113.gameworks.resources.ImageFactory;
+import src.iic2113.gameworks.resources.ResourceMaker;
 
 
 public class IImageTest {
-
+	
+	private ResourceMaker rm = new ResourceMaker();
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -31,8 +34,7 @@ public class IImageTest {
 
 	@Test
 	public void testFilterGreyScale() {
-		ImageFactory imageFactory = new ImageFactory();
-		IImage iim = imageFactory.createImage("assets/images/megaman.gif");
+		IImage iim = rm.createImage("assets/images/megaman.gif");
 		iim.filterGreyScale(1);
 		try{
 			PixelGrabber grab1 = new PixelGrabber(iim.getImageObject(), 0, 0, -1, -1, true);
