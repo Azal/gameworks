@@ -60,7 +60,8 @@ public class Connection implements Observer {
         }
         else if(m.getType() == NetworkMessage.TYPE_HELLO) {
         	String IP = m.getSender().toString().substring(1);
-        	addUser(IP, " ");
+        	
+        	addUser(IP+":"+m.getPort());
         }
         else if(m.getType()==NetworkMessage.TYPE_READ_IMAGE){
             System.out.print("read image");
@@ -71,10 +72,10 @@ public class Connection implements Observer {
         getNetwork().send(text,conversacion,dest.getAddress(),dest.getPort());
         //System.out.println("Message sent");
     }
-    public boolean addUser(String address,String Group) {
+    public boolean addUser(String address) {
         try {
-            InetAddress ad = InetAddress.getByName(address);
-            User u = new User(ad,Integer.parseInt("6740"));
+        	String[] splittedAddress=address.split(":");
+            User u = new User(InetAddress.getByName(splittedAddress[0]),Integer.parseInt(splittedAddress[1]));
             System.out.println("User successfully added");
             sendHiMessage(u);
             return activeConversation.users.add(u);

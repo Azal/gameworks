@@ -29,10 +29,10 @@ public class Main {
 		if(chat_type.equals("2")){
 			System.out.print("Enter IP of other user");
 			String IP = br.readLine();
-			connection.addUser(IP, "6740");
+			connection.addUser(IP);
 		}
 		else{
-			System.out.println("Your IP is: "+ Network.getIP()+":"+Network.getPort());
+			System.out.println("Your IP is: "+ Network.getFullIP());
 		}
 		while(true){
 			//System.out.print("Enter Message: \n");

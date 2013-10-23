@@ -80,6 +80,10 @@ public class Network implements Observer,Serializable {
     public static String getIP(){
     	return Network.getLocalAddress().toString().split("/")[1];
     }
+    public static String getFullIP()
+    {
+    	return Network.getIP()+":"+Network.getPort();
+    }
     /** Method to send messages to a given game instance*/
     public void send(String s,String gameInstance, InetAddress u, int port) {
         int d = s.indexOf("@PATH:") == -1 ? NetworkMessage.TYPE_TEXT : NetworkMessage.TYPE_FILE;
