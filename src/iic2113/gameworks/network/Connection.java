@@ -67,9 +67,9 @@ public class Connection implements Observer {
             System.out.print("read image");
         }
     }
-    public void sendMessage(String text, User dest) {
+    public void sendMessage(String text,String conversacion, User dest) {
         //System.out.println("Sending message");
-        getNetwork().send(text,"gameInstance",dest.getAddress(),dest.getPort());
+        getNetwork().send(text,conversacion,dest.getAddress(),dest.getPort());
         //System.out.println("Message sent");
     }
     public boolean addUser(String address) {
@@ -89,11 +89,11 @@ public class Connection implements Observer {
         System.out.println("Sending invite to user " + dest.toString());
         getNetwork().send(new NetworkMessage(NetworkMessage.TYPE_HELLO,activeConversation.name,Network.getPort()+""), dest.getAddress(),dest.getPort());
     }
-    public void sendMessage(String text,String conversacion) {
+    public void sendMessage(String text) {
         if(activeConversation.users.size() == 0)
             System.out.println("There are no users to send this message to");
         for(User u : activeConversation.users){
-          sendMessage(text,conversacion, u);
+          sendMessage(text,"gameInstance", u);
         }
     }
 	public Network getNetwork() {
