@@ -19,14 +19,14 @@ import java.util.Observer;
 public class Connection implements Observer {	
 	private Network network;
     private User localUser;
-    private Conversation activeConversation;
-    private LinkedList<Conversation> conversations;
+    private GameInstance activeConversation;
+    private LinkedList<GameInstance> conversations;
     
     /**  
 	Connection constructor */
 	public Connection(){
-        conversations = new LinkedList<Conversation>();
-		conversations.add(new Conversation("Default"));
+        conversations = new LinkedList<GameInstance>();
+		conversations.add(new GameInstance("Default"));
 		activeConversation=conversations.get(0);
 		System.out.println("Initiating network");
 		try {
@@ -71,10 +71,10 @@ public class Connection implements Observer {
         }
     }
     public void sendMessage(String text,String conversacion, User dest) {
-        System.out.println("Sending message");
+        //System.out.println("Sending message");
         String puerto=String.valueOf(localUser.getPort());
         getNetwork().send(text,conversacion,dest.getAddress(),dest.getPort());
-        System.out.println("Message sent");
+        //System.out.println("Message sent");
     }
     public boolean addUser(String address,String Group,boolean firstTime) {
         try {

@@ -3,6 +3,7 @@ package src.iic2113.gameworks.network;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.InetAddress;
 
 /**
 -Class description goes here.-
@@ -23,18 +24,18 @@ public class Main {
 	public static void main(String[] args) throws IOException { 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		Connection connection=new Connection();
-		System.out.print("If you want to host type 1, if you want to be added type 2:");
+		System.out.print("If you want to host type 1, if you want to join a game type 2:");
 		String chat_type = br.readLine();
-		if(chat_type.equals("1")){
+		if(chat_type.equals("2")){
 			System.out.print("Enter IP of other user");
 			String IP = br.readLine();
 			connection.addUser(IP, "6740",true);
 		}
 		else{
-			System.out.println("Waiting");
+			System.out.println("Your IP is: "+ Network.getLocalAddress().toString().split("/")[1]+":"+Network.getPort());
 		}
 		while(true){
-			System.out.print("Enter Message: \n");
+			//System.out.print("Enter Message: \n");
 			String s = br.readLine();
 			connection.sendMessage(s, " ");
 			//System.out.print(s);

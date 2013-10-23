@@ -14,15 +14,15 @@ import java.util.List;
     	26/09/2013 - @group8/jpeeblesg
  */
 
-public class Conversation {
+public class GameInstance {
     protected LinkedList<User> users;
     protected String name;
-    protected String conversacionTotal;
+    protected String messages;
     protected List<String> IPs;
 
-    public Conversation(String name){
+    public GameInstance(String name){
        IPs=new ArrayList<String>();
-       conversacionTotal="";
+       messages="";
        users = new LinkedList<User>();
        this.name=name;
     }

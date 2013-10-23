@@ -7,11 +7,9 @@ import java.util.Observable;
 public class Receiver extends Observable implements Runnable  {
     
     private ServerSocket server;
-    private Network network;
     
-    public Receiver(Network n) throws Exception{
-        server = new ServerSocket(Network.getPort());
-        this.network = n;
+    public Receiver(int port) throws Exception{
+        server = new ServerSocket(port);
     }
     
 
