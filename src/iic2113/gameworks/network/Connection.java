@@ -67,9 +67,9 @@ public class Connection implements Observer {
             System.out.print("read image");
         }
     }
-    public void sendMessage(String text,String conversacion, User dest) {
+    public void sendMessage(String text, User dest) {
         //System.out.println("Sending message");
-        getNetwork().send(text,conversacion,dest.getAddress(),dest.getPort());
+        getNetwork().send(text,"gameInstance",dest.getAddress(),dest.getPort());
         //System.out.println("Message sent");
     }
     public boolean addUser(String address) {

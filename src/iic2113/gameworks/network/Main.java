@@ -37,7 +37,7 @@ public class Main {
 		while(true){
 			//System.out.print("Enter Message: \n");
 			String s = br.readLine();
-			connection.sendMessage(s, " ");
+			connection.sendMessage(s);
 			//System.out.print(s);
 		}
 	}
