@@ -7,13 +7,19 @@ Support internet connection between different devices(computers) to allow multip
 
 
 ### Description:
-We will start by creating low-level socket connection between computers to allow chat in java, based on a 1-host-to-many-players where anyone can host a ‘game’. This will be followed by a real-time display and movement(for this we need other groups work). More details will come with time.  
+We started by creating low-level socket connection between computers that allows chat in java, based on a 1-host-to-many-players architecture where anyone can host a ‘game’. To start it just run the Main.java in this folder. 
 
-For now we should add generic methods that will receive and return certain type of objects. Clients will send serialized and minimized information about their input (clicks, keyboard keys) which will be queued and interpreted by the server. The server will return in response a single event to all clients with the result of all of their actions.
-We’ll work with a game hosted by one computer, which means that every player in a game will have to communicate to the in order to send messages to the other players in game.
+We created a method called **---** to send events with data. *Players* should send serialized and minimized information about their input (clicks, keyboard keys) which should be queued and interpreted by the *Admin*.  
 
-### Public Interfaces: 
-...
+We’ll work with a game hosted by one computer, which means that every *Player* in a game will have to communicate to the *Admin* in order to send messages to the other players in game. This will be decided at the beginning of each game.
 
-### Members
-...
+### Instructions & Public Interfaces: 
+Start by creating an instance of the class *Network*
+	
+	...
+	
+
+### Members of Group 8
+Max Findel  
+John Peebles  
+Eduardo Ramírez  
