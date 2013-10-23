@@ -1,5 +1,5 @@
 package src.iic2113.gameworks.persistence;
-
+import java.lang.Thread;
 
 /**
 -Save current state of the game.
@@ -37,7 +37,7 @@ public class SaveGameController {
 	}
 	
 	public void activateAutoSave(){
-		
+
 	}
 	
 	public void desactivateAutoSave(){
