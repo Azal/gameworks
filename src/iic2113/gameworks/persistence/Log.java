@@ -27,7 +27,16 @@ public class Log{
 	}
 
 	public void saveToLog(String action){
-
+		/*FileWriter fStream;
+        try {
+            fStream = new FileWriter("recallPresision.txt", true);
+            fStream.append("queryID=" + queryID + "         " + "recall=" + recall + "           Pres=" + presision);
+            fStream.append(System.getProperty("line.separator"));
+            fStream.flush();
+            fStream.close();
+        } catch (IOException ex) {
+            Logger.getLogger(query.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
 
 	}
 
