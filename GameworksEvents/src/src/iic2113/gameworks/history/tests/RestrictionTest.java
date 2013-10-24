@@ -1,5 +1,4 @@
 package src.iic2113.gameworks.history.tests;
-import src.iic2113.gameworks.history.*;
 
 
 import static org.junit.Assert.*;
@@ -7,6 +6,9 @@ import static org.junit.Assert.*;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import src.iic2113.gameworks.history.*;
+
 import java.util.ArrayList;
 
 
