@@ -1,3 +1,4 @@
+package src.iic2113.gameworks.persistence;
 
 /**
 Check errors and consistency when an existing project is imported
