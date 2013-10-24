@@ -1,4 +1,4 @@
-package src.CharacterBehaviour.search;
+package src.iic2113.gameworks.characterBehaviour.search;
 
 public class AState
 {

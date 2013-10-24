@@ -1,12 +1,12 @@
-package src.CharacterBehaviour.routes;
+package src.iic2113.gameworks.characterBehaviour.routes;
 
 import java.util.List;
 
-import src.CharacterBehaviour.search.AState;
-import src.CharacterBehaviour.search.BoardGenerator;
-import src.CharacterBehaviour.search.SearcherAgent;
-import src.CharacterBehaviour.search.heuristics.ThirdHeuristic;
-import src.CharacterBehaviour.search.tieBreakers.MayorHTieBreaker;
+import src.iic2113.gameworks.characterBehaviour.search.AState;
+import src.iic2113.gameworks.characterBehaviour.search.BoardGenerator;
+import src.iic2113.gameworks.characterBehaviour.search.SearcherAgent;
+import src.iic2113.gameworks.characterBehaviour.search.heuristics.ThirdHeuristic;
+import src.iic2113.gameworks.characterBehaviour.search.tieBreakers.MayorHTieBreaker;
 
 public class PatrolPath
 {
