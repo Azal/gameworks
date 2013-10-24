@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.json.simple.JSONObject;
 
-import src.iic2113.gameworks.persistence.Encrypter;
+import iic2113.gameworks.persistence.Encrypter;
 
 /**
  * 

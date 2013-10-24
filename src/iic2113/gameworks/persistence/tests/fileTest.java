@@ -5,7 +5,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import src.iic2113.gameworks.persistence.FileManager;
+import iic2113.gameworks.persistence.FileManager;
 
 /**
 -Class description goes here.-
