@@ -48,11 +48,13 @@
 				<exclude name="src/iic2113/gameworks/persistence/tests/" />
 			</fileset>
 		</copy>
+		<!--
 		<copy includeemptydirs="false" todir="bin">
 			<fileset dir="GameworksEvents/src">
 				<exclude name="**/*.java" />
 			</fileset>
 		</copy>
+		-->
 		<copy includeemptydirs="false" todir="bin">
 			<fileset dir="src">
 				<exclude name="**/*.java" />
@@ -61,6 +63,7 @@
 				<exclude name="iic2113/gameworks/persistence/tests/" />
 			</fileset>
 		</copy>
+		
 		<copy includeemptydirs="false" todir="bin">
 			<fileset dir="src/iic2113/gameworks/persistence">
 				<exclude name="**/*.java" />
