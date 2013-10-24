@@ -1,5 +1,5 @@
-package src.iic2113.gameworks.persistence;
-
+package iic2113.gameworks.persistence;
+import java.lang.Thread;
 
 /**
 -Save current state of the game.
@@ -12,20 +12,38 @@ package src.iic2113.gameworks.persistence;
  */
 
 
-public class SaveGameController {
+public class SaveGameController extends Thread{
 	
+	private boolean autosave = false;
+
 	public SaveGameController()
 	{
 		
 	}
-	
+
+	public void run()
+	{
+		while(autosave)
+		{
+			int min = 15*60*1000; //every 15 minutes the game will be saved
+			try {
+				save();
+				Thread.sleep(min);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+	}
+
 	
 	/**
 	 * Show alert message window and save current state to the log
 	 */
 	public void updateLog()
 	{
-		
+		//comunicación con eventos para que avise
 	}
 	
 	/**
@@ -33,6 +51,16 @@ public class SaveGameController {
 	 */
 	public void save()
 	{
-		
+		updateLog();
 	}
+	
+	public void activateAutoSave(){
+		autosave = true;
+		this.run();
+	}
+	
+	public void desactivateAutoSave(){
+		autosave = false;
+	}
+	
 }

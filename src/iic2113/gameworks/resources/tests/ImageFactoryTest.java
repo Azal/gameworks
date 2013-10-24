@@ -1,4 +1,4 @@
-package src.iic2113.gameworks.resources.tests;
+package iic2113.gameworks.resources.tests;
 
 import static org.junit.Assert.*;
 
@@ -6,8 +6,8 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import src.iic2113.gameworks.resources.IImage;
-import src.iic2113.gameworks.resources.ImageFactory;
+import iic2113.gameworks.resources.IImage;
+import iic2113.gameworks.resources.ImageFactory;
 
 
 /**

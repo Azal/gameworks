@@ -1,4 +1,4 @@
-package src.iic2113.gameworks.persistence.tests;
+package iic2113.gameworks.persistence.tests;
 
 import static org.junit.Assert.*;
 
@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import src.iic2113.gameworks.persistence.ModuleCommunicator;
+import iic2113.gameworks.persistence.ModuleCommunicator;
 
 
 
