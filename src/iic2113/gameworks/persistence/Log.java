@@ -1,4 +1,4 @@
-package src.iic2113.gameworks.persistence;
+package icc2113.gameworks.persistence;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -23,14 +23,24 @@ public class Log{
 	public Log(){
 		//add the folder, create it if it doen't exists
 		path = "";
-		date = getDate();
+		date = getFormatedDate();
 	}
 
 	public void saveToLog(String action){
 
+		FileWriter fStream;
+        try {
+            fStream = new FileWriter(".log", true);
+            fStream.append("queryID=" + queryID + "         " + "recall=" + recall + "           Pres=" + presision);
+            fStream.append(System.getProperty("line.separator"));
+            fStream.flush();
+            fStream.close();
+        } catch (IOException ex) {
+            Logger.getLogger(query.class.getName()).log(Level.SEVERE, null, ex);
+        }
 	}
 
-	public String getDate(){
+	public String getFormatedDate(){
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
 		return dateFormat.format(date);
