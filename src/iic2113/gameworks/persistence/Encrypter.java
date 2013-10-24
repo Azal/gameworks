@@ -54,11 +54,13 @@ public class Encrypter {
 		// read();
 
 		try {
-			DESKeySpec keySpec = new DESKeySpec("IIC21137".getBytes("UTF8")); 
+			DESKeySpec keySpec = new DESKeySpec("IIC21137".getBytes("UTF8"));
 			SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES");
 			key = keyFactory.generateSecret(keySpec);
 			ecipher = Cipher.getInstance("DES");
-		} catch (NoSuchAlgorithmException | NoSuchPaddingException | InvalidKeyException | UnsupportedEncodingException | InvalidKeySpecException e) {
+		} catch (NoSuchAlgorithmException | NoSuchPaddingException
+				| InvalidKeyException | UnsupportedEncodingException
+				| InvalidKeySpecException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -74,7 +76,7 @@ public class Encrypter {
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public static boolean write(String module, String className, int id,
+	public boolean write(String module, String className, int id,
 			JSONObject json) {
 
 		boolean success = false;
@@ -90,6 +92,7 @@ public class Encrypter {
 			}
 
 			FileWriter writer = new FileWriter(file);
+			//writer.write(encrypt(json.toJSONString()));
 			writer.write(json.toJSONString());
 			writer.flush();
 			writer.close();
@@ -104,7 +107,7 @@ public class Encrypter {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static JSONObject read(String route) {
+	public JSONObject read(String route) {
 
 		JSONParser parser = new JSONParser();
 		JSONObject finalJson = new JSONObject();
@@ -167,7 +170,7 @@ public class Encrypter {
 	public String encrypt(String str) {
 
 		try {
-			
+
 			ecipher.init(Cipher.ENCRYPT_MODE, key);
 			byte[] utf8 = str.getBytes("UTF8");
 			byte[] enc = ecipher.doFinal(utf8);
@@ -183,15 +186,15 @@ public class Encrypter {
 	}
 
 	public String decrypt(String str) {
-		
+
 		try {
-			
+
 			ecipher.init(Cipher.DECRYPT_MODE, key, ecipher.getParameters());
 			byte[] dec = new sun.misc.BASE64Decoder().decodeBuffer(str);
 			byte[] utf8 = ecipher.doFinal(dec);
-			
+
 			return new String(utf8, "UTF8");
-			
+
 		} catch (InvalidKeyException | IllegalBlockSizeException
 				| BadPaddingException | IOException
 				| InvalidAlgorithmParameterException e) {

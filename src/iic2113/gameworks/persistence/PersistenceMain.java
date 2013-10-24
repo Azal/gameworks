@@ -21,22 +21,23 @@ public class PersistenceMain {
 		json.put("hola1", "hola1");
 		json1.put("hola2", "hola2");
 		json2.put("hola3", "hola3");
-		Encrypter.write("preview", "otrotardis", 0, json);
-		Encrypter.write("preview", "tardis", 0, json);
-		Encrypter.write("preview", "tardis", 1, json1);
-		Encrypter.read("assets/data/preview/");
+
+		Encrypter encrypter = new Encrypter();
+		encrypter.write("preview", "otrotardis", 0, json);
+		encrypter.write("preview", "tardis", 0, json);
+		encrypter.write("preview", "tardis", 1, json1);
+		//encrypter.read("assets/data/preview/");
 		
-		JSONObject jo = new JSONObject(Encrypter.read("assets/data/preview/"));
+		/*JSONObject jo = new JSONObject(encrypter.read("assets/data/preview/"));
 		
-		Encrypter enc = new Encrypter();
 		// Encrypt
-		String encrypted = enc.encrypt(jo.toJSONString());
+		String encrypted = encrypter.encrypt(jo.toJSONString());
 		System.out.println(encrypted);
 
 		// Decrypt
-		String decrypted = enc.decrypt(encrypted);
+		String decrypted = encrypter.decrypt(encrypted);
 		System.out.println(decrypted);
-
+		 */
 		// ModuleCommunicator mc = new ModuleCommunicator();
 		// mc.load(1);
 
