@@ -16,7 +16,7 @@ Here reside all MapObjects and MapCharacters that compose the Map
 
 class Map {
 	
-	//protected List<MapCharacter> characters; 
+	protected List<MapCharacter> characters; 
 	protected List<MapObject> objects; 
 	protected MapObject grid[][];
 	
@@ -25,7 +25,7 @@ class Map {
 	 * Constructor by default dimensions 20 x 20
 	 */
 	public Map(){
-		//characters = new ArrayList<MapCharacter>();
+		characters = new ArrayList<MapCharacter>();
 		objects = new ArrayList<MapObject>();
 		grid = new MapObject[20][20];
 		//recursos ver path de imagen del mapa
@@ -37,26 +37,26 @@ class Map {
 	 * @param m dimension of the Y coordinate of the map
 	 */
 	public Map( int n, int m){
-		//characters = new ArrayList<MapCharacter>();
+		characters = new ArrayList<MapCharacter>();
 		objects = new ArrayList<MapObject>();
 		grid = new MapObject[n][m];
 		//recursos ver path de imagen del mapa
 	}
 
-//	/**
-//	 * Method to add MapCharacter to the map
-//	 * @param c MapCharacter to add
-//	 * @return true if the MapCharacter was added and false if it wasn't added because there is another 
-//	 * mapObject in the same position
-//	 */
-//	public boolean addMapCharacter( MapCharacter c){
-//		if(grid[c.getX()] == null && grid[c.getY()] == null){
-//			characters.add(c);
-//			grid[c.getX()][c.getY()] = c;
-//			return true;
-//		}
-//		return false;
-//	}
+	/**
+	 * Method to add MapCharacter to the map
+	 * @param c MapCharacter to add
+	 * @return true if the MapCharacter was added and false if it wasn't added because there is another 
+	 * mapObject in the same position
+	 */
+	public boolean addMapCharacter( MapCharacter c){
+		if(grid[c.getX()] == null && grid[c.getY()] == null){
+			characters.add(c);
+			grid[c.getX()][c.getY()] = c;
+			return true;
+		}
+		return false;
+	}
 	
 	/**
 	 * Method to add MapObject to the map
@@ -83,28 +83,28 @@ class Map {
 		return grid[x][y];		
 	}
 	
-//	/**
-//	 * Method to delete MapCharacter to the map
-//	 * @param c MapCharacter to delete
-//	 * @return true if the MapCharacter was deleted and false if the MapCharacter doesnt exist
-//	 */
-//	public boolean deleteMapCharacter( MapCharacter c){
-//		grid[c.getX()][c.getY()] = null;
-//		return characters.remove(c);
-//	}
-//	
-//	/**
-//	 * Method to delete MapCharacter to the map
-//	 * @param x position in the map
-//	 * @param y position in the map
-//	 * @return true if the MapCharacter was deleted and false if the position is empty
-//	 */
-//	public boolean deleteMapCharacter( int x, int y){
-//		MapCharacter c = (MapCharacter)checkPosition(x,y);
-//		if(c == null)
-//			return false;
-//		return deleteMapCharacter(c);
-//	}
+	/**
+	 * Method to delete MapCharacter to the map
+	 * @param c MapCharacter to delete
+	 * @return true if the MapCharacter was deleted and false if the MapCharacter doesnt exist
+	 */
+	public boolean deleteMapCharacter( MapCharacter c){
+		grid[c.getX()][c.getY()] = null;
+		return characters.remove(c);
+	}
+	
+	/**
+	 * Method to delete MapCharacter to the map
+	 * @param x position in the map
+	 * @param y position in the map
+	 * @return true if the MapCharacter was deleted and false if the position is empty
+	 */
+	public boolean deleteMapCharacter( int x, int y){
+		MapCharacter c = (MapCharacter)checkPosition(x,y);
+		if(c == null)
+			return false;
+		return deleteMapCharacter(c);
+	}
 	
 	/**
 	 * Method to delete MapObject to the map
