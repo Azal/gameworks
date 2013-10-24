@@ -1,4 +1,4 @@
-package src.iic2113.gameworks.network;
+package iic2113.gameworks.network;
 
 /*
  * To change this template, choose Tools | Templates

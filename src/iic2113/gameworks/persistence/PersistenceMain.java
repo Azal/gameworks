@@ -1,20 +1,19 @@
 package iic2113.gameworks.persistence;
 
-import java.util.Scanner;
-
 import org.json.simple.JSONObject;
+<<<<<<< HEAD
 import iic2113.gameworks.persistence.*;
+=======
+>>>>>>> d93aa56b96071e6a2b417c7b67a2fb49b6b717fd
 
 /**
--Main for internal use of Persistence Module.
- *
- *	@version  0.1
-    @author @group7/slakat
-    @since 26/09/2013 - @group7/slakat
-    @update_log
-       
+ * -Main for internal use of Persistence Module.
+ * 
+ * @version 0.1
+ * @author @group7/slakat
+ * @since 26/09/2013 - @group7/slakat
+ * @update_log
  */
-
 
 public class PersistenceMain {
 
@@ -26,16 +25,26 @@ public class PersistenceMain {
 		json.put("hola1", "hola1");
 		json1.put("hola2", "hola2");
 		json2.put("hola3", "hola3");
-		Encrypter.write("preview", "otrotardis", 0, json);
-		Encrypter.write("preview", "tardis", 0, json);
-		Encrypter.write("preview", "tardis", 1, json1);
-		Encrypter.read("assets/data/1/");
+
+		Encrypter encrypter = new Encrypter();
+		encrypter.write("preview", "otrotardis", 0, json);
+		encrypter.write("preview", "tardis", 0, json);
+		encrypter.write("preview", "tardis", 1, json1);
+		//encrypter.read("assets/data/preview/");
 		
-		ModuleCommunicator mc = new ModuleCommunicator();
-		mc.load(1);
+		/*JSONObject jo = new JSONObject(encrypter.read("assets/data/preview/"));
 		
-		
-		
+		// Encrypt
+		String encrypted = encrypter.encrypt(jo.toJSONString());
+		System.out.println(encrypted);
+
+		// Decrypt
+		String decrypted = encrypter.decrypt(encrypted);
+		System.out.println(decrypted);
+		 */
+		// ModuleCommunicator mc = new ModuleCommunicator();
+		// mc.load(1);
+
 	}
 
 }
