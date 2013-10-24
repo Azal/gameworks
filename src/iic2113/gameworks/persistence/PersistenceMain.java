@@ -1,4 +1,4 @@
-package src.iic2113.gameworks.persistence;
+package iic2113.gameworks.persistence;
 
 import java.util.Scanner;
 

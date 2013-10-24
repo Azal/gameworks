@@ -1,8 +1,8 @@
-package src.iic2113.gameworks.resources.tests;
+package iic2113.gameworks.resources.tests;
 
 import java.lang.reflect.Method;
 
-import src.iic2113.gameworks.resources.*;
+import iic2113.gameworks.resources.*;
 import static org.junit.Assert.*;
 
 import org.junit.AfterClass;

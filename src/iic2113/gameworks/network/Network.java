@@ -1,4 +1,4 @@
-package src.iic2113.gameworks.network;
+package iic2113.gameworks.network;
 
 import java.io.FileOutputStream;
 import java.net.*;
