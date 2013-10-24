@@ -29,7 +29,7 @@ public class PersistenceMain {
 		Encrypter.write("preview", "otrotardis", 0, json);
 		Encrypter.write("preview", "tardis", 0, json);
 		Encrypter.write("preview", "tardis", 1, json1);
-		Encrypter.read("assets/data/1/");
+		Encrypter.read("assets/data/preview/");
 		
 		ModuleCommunicator mc = new ModuleCommunicator();
 		mc.load(1);

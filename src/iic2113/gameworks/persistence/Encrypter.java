@@ -126,6 +126,7 @@ public class Encrypter {
 				}
 			}
 		}
+		
 		finalJson.put(actual_class, subfinalJson);
 		System.out.println(finalJson);
 		return finalJson;
