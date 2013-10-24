@@ -1,5 +1,5 @@
-package src.iic2113.gameworks.history.tests;
-import src.iic2113.gameworks.history.*;
+package iic2113.gameworks.history.tests;
+import iic2113.gameworks.history.*;
 
 
 import static org.junit.Assert.*;

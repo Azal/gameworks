@@ -1,4 +1,4 @@
-package src.iic2113.gameworks.history;
+package iic2113.gameworks.history;
 /**
  A Restriction is one of the conditions that must be completed before an Event can be marked as done.
  One Restriction can appear in more than one Event, so that when it is completed, more than one Event can be triggered.
