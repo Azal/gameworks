@@ -1,4 +1,4 @@
-package src.Scenery;
+package Scenery;
 
 /**
 Here reside all objects and characters that compose the Map

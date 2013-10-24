@@ -1,4 +1,4 @@
-package src.Scenery;
+package Scenery;
 
 /**
 Class for NPC's. It inherits is behavior from Character

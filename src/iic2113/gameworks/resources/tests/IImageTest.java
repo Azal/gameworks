@@ -32,7 +32,7 @@ public class IImageTest {
 	@Test
 	public void testFilterGreyScale() {
 		ImageFactory imageFactory = new ImageFactory();
-		IImage iim = imageFactory.createImage("assets/images/megaman.gif");
+		IImage iim = imageFactory.createImage("/images/megaman.gif");
 		iim.filterGreyScale(1);
 		try{
 			PixelGrabber grab1 = new PixelGrabber(iim.getImageObject(), 0, 0, -1, -1, true);
@@ -55,7 +55,7 @@ public class IImageTest {
 	public void testReloadImage() {
 		ImageFactory imageFactory = new ImageFactory();
 		assertNotNull(imageFactory);
-		IImage iim = imageFactory.createImage("assets/images/megaman.gif");
+		IImage iim = imageFactory.createImage("/images/megaman.gif");
 		assertNotNull(iim);
 		iim.filterGreyScale(1);
 		assertTrue(iim.reloadImage());

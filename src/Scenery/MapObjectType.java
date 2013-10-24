@@ -1,4 +1,4 @@
-package src.Scenery;
+package Scenery;
 
 /**
 Enum for 'MapObjectType getObjectType(int,int)' in Map to differenciate characters, mapObjects and empty spaces

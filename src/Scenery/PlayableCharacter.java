@@ -1,4 +1,4 @@
-package src.Scenery;
+package Scenery;
 
 /**
 Class for playable characters. It inherits from Character
