@@ -28,6 +28,7 @@ import java.awt.event.MouseEvent;
 public class MapEditionFrame extends JFrame implements IGameworksWindow {
 
 	private static final long serialVersionUID = 1699801098792119697L;
+	private static MapEditionFrame mapEditionFrame = null;
 	private MapPanel panel = new MapPanel();
 	private JPanel contentPane;
 	private TextField filepath = new TextField();
@@ -36,11 +37,19 @@ public class MapEditionFrame extends JFrame implements IGameworksWindow {
 	private Button addObject = new Button("Add Object");
 	private Button save = new Button("Save");
 	
-	public MapEditionFrame() 
+	private MapEditionFrame() 
 	{
 		initGraphicalInterface();
 		setHandlers();
 		setVisible(true);
+	}
+	
+	public static MapEditionFrame getInstance() {
+		if(mapEditionFrame == null) {
+			mapEditionFrame = new MapEditionFrame();
+		}
+		mapEditionFrame.setVisible(true);
+		return mapEditionFrame;
 	}
 	
 	@Override
@@ -56,7 +65,7 @@ public class MapEditionFrame extends JFrame implements IGameworksWindow {
 		addObject.setBounds(316, 304, 79, 24);
 		contentPane.add(addObject);
 		
-		filepath.setText("/image/exp32.png");
+		filepath.setText("/images/exp32.png");
 		filepath.setBounds(20, 304, 122, 24);
 		contentPane.add(filepath);
 		
@@ -81,7 +90,7 @@ public class MapEditionFrame extends JFrame implements IGameworksWindow {
 		
 		//gets the image for the background tiles (placeholder)
 		try {
-			panel.backTile = ImageIO.read(this.getClass().getResource("/image/Green tile.png"));
+			panel.backTile = ImageIO.read(this.getClass().getResource("/images/Green tile.png"));
 			panel.cellPix = 32;
 			panel.width = 16;
 			panel.height = 9;
