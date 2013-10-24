@@ -1,4 +1,4 @@
-package src.Scenery;
+package Scenery;
 
 /**
 Here reside all methods to create scenery

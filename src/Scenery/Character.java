@@ -1,4 +1,4 @@
-package src.Scenery;
+package Scenery;
 
 /**
 Abstract class for all characters: playable and NPC's
@@ -267,4 +267,7 @@ public abstract class Character {
 	public String getSpritePath(){
 		return spritePath;
 	}
+	
+	//PROBANDO Integracion continua
+	//asdasd
 }
