@@ -1,4 +1,4 @@
-package src.iic2113.gameworks.characterBehaviour.search;
+package iic2113.gameworks.characterBehaviour.search;
 
 import java.io.*;
 

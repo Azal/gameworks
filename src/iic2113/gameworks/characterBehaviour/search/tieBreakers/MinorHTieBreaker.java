@@ -1,6 +1,6 @@
-package src.iic2113.gameworks.characterBehaviour.search.tieBreakers;
+package iic2113.gameworks.characterBehaviour.search.tieBreakers;
 
-import src.iic2113.gameworks.characterBehaviour.search.AState;
+import iic2113.gameworks.characterBehaviour.search.AState;
 
 public class MinorHTieBreaker implements TieBreaker 
 {

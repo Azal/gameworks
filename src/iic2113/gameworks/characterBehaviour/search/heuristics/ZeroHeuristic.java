@@ -1,4 +1,4 @@
-package src.iic2113.gameworks.characterBehaviour.search.heuristics;
+package iic2113.gameworks.characterBehaviour.search.heuristics;
 
 public class ZeroHeuristic implements Heuristic
 {

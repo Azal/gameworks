@@ -1,11 +1,11 @@
-package src.iic2113.gameworks.characterBehaviour.search;
+package iic2113.gameworks.characterBehaviour.search;
+
+import iic2113.gameworks.characterBehaviour.search.heuristics.Heuristic;
+import iic2113.gameworks.characterBehaviour.search.tieBreakers.TieBreaker;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-
-import src.iic2113.gameworks.characterBehaviour.search.heuristics.Heuristic;
-import src.iic2113.gameworks.characterBehaviour.search.tieBreakers.TieBreaker;
 
 public class SearcherAgent
 {
