@@ -37,7 +37,7 @@ public class Main {
 	public static void main(String[] args) {
 		SoundFactory sf = new SoundFactory();
 
-		ISound sound = sf.createSound("assets/sounds/sound_ambience_nature.wav");
+		ISound sound = sf.createSound("/sounds/sound_ambience_nature.wav");
 		sound.playAsynchronous();
 
 		System.out.println("hola");
@@ -51,7 +51,7 @@ public class Main {
             });
  
         ImageFactory iff = new ImageFactory();
-         IImage iim = iff.createImage("assets/images/megaman.gif");
+         IImage iim = iff.createImage("/images/megaman.gif");
          iim.filterGreyScale(1);
          JLabel picLabel = new JLabel(new ImageIcon(iim.getImageObject()));
          f.add(picLabel);
@@ -64,7 +64,7 @@ public class Main {
         } catch (IOException e) {
         }
 		
-//		ISound cancionMidi = sf.createSound("assets/sounds/N64_MarioKart64.mid");
+//		ISound cancionMidi = sf.createSound("/sounds/N64_MarioKart64.mid");
 //		cancionMidi.playSynchronous();
         
         
