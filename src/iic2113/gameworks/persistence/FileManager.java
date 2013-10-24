@@ -1,5 +1,8 @@
 package iic2113.gameworks.persistence;
+
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,78 +20,89 @@ import javax.swing.plaf.FileChooserUI;
 
 public class FileManager {
 
-	static boolean isFile(String name) {
-		// TODO Auto-generated method stub
-		return false;
+
+	/**
+	 * Returns a boolean whether the file exists or not
+	 * @param casterModule Contains the Module that is casting the static method
+	 * @param name Is the title of the file to find
+	 */
+	static boolean isFile(String casterModule, String name) {
+		
+		if (findFile(casterModule, name) != "") {
+			return true;
+		} else
+			return false;
 	}
 
 	/**
-	 * Finds a file, if it exists, given a root directory
+	 * Finds a file, if it exists, given a root directory, and it returns the
+	 * content of it
+	 * @param casterModule Contains the Module that is casting the static method
+	 * @param name Is the title of the file to find
+	 * @param results Stores the folders where a file with the title name
 	 */
-	static String findFile(File root, String name) {
+	static String findFile(String casterModule, String name) {
 
-		// Cleans the results list at the beginning
 		List<File> results = new ArrayList<File>();
+		String result = "";
+
+		File root = new File(casterModule);
 
 		if (!root.isDirectory()) {
-			throw new IllegalArgumentException("File root is not a directory");
+			System.out.print("File " + root.getPath()
+					+ " is not a directory");
 		}
-		File[] files = root.listFiles();
-		for (int i = 0; i < files.length; i++) {
-			File file = files[i];
-			// if is directory, it starts to search in this directory
-			if (file.isDirectory()) {
-				findFile(file, name);
+		try {
+			File[] files = root.listFiles();
+			for (int i = 0; i < files.length; i++) {
+				File file = files[i];
+				// if is directory, it starts to search in this directory
+				if (file.isDirectory()) {
+					result = findFile(file.getPath(), name);
+				}
+				// It compares to the file's name
+				if (file.getName().matches(name)) {
+					addResult(file, results);
+					if(!results.isEmpty())
+						result = results.get(0).getPath();
+					}
 			}
-			// It compares to the file's name
-			if (file.getName().matches(name)) {
-				addResult(file, results);
-				return results.get(0).getAbsolutePath();
-			}
+		} catch (Exception e) {
 		}
-
-		if (!results.isEmpty()) {
-			return results.get(0).getAbsolutePath();
-		}
-		return "End of search";
+		return result;
 	}
 
 	/**
 	 * Creates a new file in a given directory, if the directory exists
+	 * @param path Is the path where the new file is going to be created
+	 * @param o Is the object to save in the directory given by path
 	 */
 	static boolean newFile(String path, Object o) {
 
 		File newpath = new File(path);
 
 		if (!newpath.isDirectory()) {
-			// throw new
-			// IllegalArgumentException("File root is not a directory");
-			newpath.mkdir();
-			System.out.print("Entro al if");
+
+			// Creates new directory if it doesn't exists
+			newpath.mkdirs();
 		}
 
-		else {
+		File f = null;
+		boolean bool;
 
-			File f = null;
-			boolean bool;
+		try {
+			// create new file
+			File f1 = (File) o;
+			f = new File(newpath.getAbsolutePath(), f1.getName());
 
-			try {
-				// create new file
-				System.out.print("El path es " + newpath.getPath() + "\n");
-				File f1 = (File) o;
-				// System.out.print("El path del object es " + f1.getPath() +
-				// "\n");
-				f = new File(newpath.getPath(), "text.txt");
+			// tries to create new file in the system
+			bool = f.createNewFile();
 
-				// tries to create new file in the system
-				bool = f.createNewFile();
+			// prints
+			System.out.println("File created: " + bool);
 
-				// prints
-				System.out.println("File created: " + bool);
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 
 		return false;
@@ -99,7 +113,7 @@ public class FileManager {
 	 */
 	private static void showResults(List<File> results) {
 		for (File archivo : results) {
-			System.out.println(archivo.getAbsolutePath());
+			System.out.println(archivo.getPath());
 		}
 	}
 
@@ -108,8 +122,27 @@ public class FileManager {
 	 */
 	private static void addResult(File file, List<File> results) {
 		results.add(file);
-		showResults(results);
 	}
 
-	/** bottom class **/
+	/**
+	 * Reads a file given a filePath
+	 */
+	public static String readFile(String filePath) {
+		
+		String content = null;
+		File file = new File(filePath);
+		try {
+			FileReader reader = new FileReader(file);
+			char[] chars = new char[(int) file.length()];
+			reader.read(chars);
+			content = new String(chars);
+			reader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return content;
+
+	}
+
+	/** class bottom **/
 }

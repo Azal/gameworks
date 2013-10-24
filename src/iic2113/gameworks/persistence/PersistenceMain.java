@@ -3,7 +3,7 @@ package iic2113.gameworks.persistence;
 import java.util.Scanner;
 
 import org.json.simple.JSONObject;
-import src.iic2113.gameworks.persistence.*;
+import iic2113.gameworks.persistence.*;
 
 /**
 -Main for internal use of Persistence Module.
