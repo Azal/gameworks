@@ -1,10 +1,7 @@
 package iic2113.gameworks.persistence;
 
 import org.json.simple.JSONObject;
-<<<<<<< HEAD
 import iic2113.gameworks.persistence.*;
-=======
->>>>>>> d93aa56b96071e6a2b417c7b67a2fb49b6b717fd
 
 /**
  * -Main for internal use of Persistence Module.
