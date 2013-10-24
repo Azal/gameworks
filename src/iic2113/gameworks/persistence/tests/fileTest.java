@@ -32,11 +32,7 @@ public class fileTest {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public void isTest() {
-		assertFalse(file.isFile("test"));
-	}
-	
+		
 	@Test
 	public void findTest() {
 		assertNotNull("test");
