@@ -1,7 +1,10 @@
 package iic2113.gameworks.scenery;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
-Here reside all objects and characters that compose the Map
+Here reside all MapObjects and MapCharacters that compose the Map
  	-Reference to external code-
 *
 *	@version  0.1
@@ -10,6 +13,122 @@ Here reside all objects and characters that compose the Map
 	26/09/2013 - @group5/ngbravo,gevalenz,javicabello,vibaseta      
 */
 
+
 class Map {
 	
+	//protected List<MapCharacter> characters; 
+	protected List<MapObject> objects; 
+	protected MapObject grid[][];
+	
+	
+	/**
+	 * Constructor by default dimensions 20 x 20
+	 */
+	public Map(){
+		//characters = new ArrayList<MapCharacter>();
+		objects = new ArrayList<MapObject>();
+		grid = new MapObject[20][20];
+		//recursos ver path de imagen del mapa
+	}
+	
+	/**
+	 * Constructor
+	 * @param n dimension of the X coordinate of the map
+	 * @param m dimension of the Y coordinate of the map
+	 */
+	public Map( int n, int m){
+		//characters = new ArrayList<MapCharacter>();
+		objects = new ArrayList<MapObject>();
+		grid = new MapObject[n][m];
+		//recursos ver path de imagen del mapa
+	}
+
+//	/**
+//	 * Method to add MapCharacter to the map
+//	 * @param c MapCharacter to add
+//	 * @return true if the MapCharacter was added and false if it wasn't added because there is another 
+//	 * mapObject in the same position
+//	 */
+//	public boolean addMapCharacter( MapCharacter c){
+//		if(grid[c.getX()] == null && grid[c.getY()] == null){
+//			characters.add(c);
+//			grid[c.getX()][c.getY()] = c;
+//			return true;
+//		}
+//		return false;
+//	}
+	
+	/**
+	 * Method to add MapObject to the map
+	 * @param o MapObject to add
+	 * @return true if the MapObject was added and false if it wasn't added because there is another 
+	 * mapObject in the same position
+	 */
+	public boolean addMapObject( MapObject o){
+		if(grid[o.getX()] == null && grid[o.getY()] == null){
+			objects.add(o);
+			grid[o.getX()][o.getY()] = o;
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * Method to check if a position in the map is occupied
+	 * @param x position in the map
+	 * @param y position in the map
+	 * @return the mapObject in the given position
+	 */
+	public MapObject checkPosition(int x, int y){
+		return grid[x][y];		
+	}
+	
+//	/**
+//	 * Method to delete MapCharacter to the map
+//	 * @param c MapCharacter to delete
+//	 * @return true if the MapCharacter was deleted and false if the MapCharacter doesnt exist
+//	 */
+//	public boolean deleteMapCharacter( MapCharacter c){
+//		grid[c.getX()][c.getY()] = null;
+//		return characters.remove(c);
+//	}
+//	
+//	/**
+//	 * Method to delete MapCharacter to the map
+//	 * @param x position in the map
+//	 * @param y position in the map
+//	 * @return true if the MapCharacter was deleted and false if the position is empty
+//	 */
+//	public boolean deleteMapCharacter( int x, int y){
+//		MapCharacter c = (MapCharacter)checkPosition(x,y);
+//		if(c == null)
+//			return false;
+//		return deleteMapCharacter(c);
+//	}
+	
+	/**
+	 * Method to delete MapObject to the map
+	 * @param o MapObject to delete
+	 * @return true if the MapObject was deleted and false if the MapObject doesnt exist
+	 */
+	public boolean deleteMapObject( MapObject o){
+		grid[o.getX()][o.getY()] = null;
+		return objects.remove(o);
+	}
+	
+	/**
+	 * Method to delete MapObject to the map
+	 * @param x position in the map
+	 * @param y position in the map
+	 * @return true if the MapObject was deleted and false if the position is empty
+	 */
+	public boolean deleteMapObject( int x, int y){
+		MapObject o = checkPosition(x,y);
+		if(o == null)
+			return false;
+		return deleteMapObject(o);
+	}
+	
 }
+
+
