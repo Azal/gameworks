@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 package GameTest;
+=======
+package src.GameTest;
+>>>>>>> 8daae461a5c46e3add1f47149206e262fa872274
 
 import java.awt.Dimension;
 import java.awt.MouseInfo;

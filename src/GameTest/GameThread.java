@@ -1,4 +1,4 @@
-package GameTest;
+package src.GameTest;
 
 import java.awt.Color;
 import java.awt.Graphics2D;

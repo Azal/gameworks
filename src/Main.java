@@ -1,5 +1,8 @@
 package src;
 
+import src.iic2113.gameworks.Preview.MainFrame;
+import src.GameTest.Game;
+
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import iic2113.gameworks.Preview.MainFrame;
