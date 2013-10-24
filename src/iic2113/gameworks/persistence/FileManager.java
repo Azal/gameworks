@@ -1,4 +1,4 @@
-package icc2113.gameworks.persistence;
+package iic2113.gameworks.persistence;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ import javax.swing.plaf.FileChooserUI;
 
 public class FileManager {
 
-	public boolean isFile(String name) {
+	static boolean isFile(String name) {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -25,7 +25,7 @@ public class FileManager {
 	/**
 	 * Finds a file, if it exists, given a root directory
 	 */
-	public String findFile(File root, String name) {
+	static String findFile(File root, String name) {
 
 		// Cleans the results list at the beginning
 		List<File> results = new ArrayList<File>();
@@ -56,7 +56,7 @@ public class FileManager {
 	/**
 	 * Creates a new file in a given directory, if the directory exists
 	 */
-	public boolean newFile(String path, Object o) {
+	static boolean newFile(String path, Object o) {
 
 		File newpath = new File(path);
 
@@ -97,7 +97,7 @@ public class FileManager {
 	/**
 	 * Print the path to the found files
 	 */
-	private void showResults(List<File> results) {
+	private static void showResults(List<File> results) {
 		for (File archivo : results) {
 			System.out.println(archivo.getAbsolutePath());
 		}
@@ -106,9 +106,9 @@ public class FileManager {
 	/**
 	 * Add a file to the search results
 	 */
-	private void addResult(File file, List<File> results) {
+	private static void addResult(File file, List<File> results) {
 		results.add(file);
-		this.showResults(results);
+		showResults(results);
 	}
 
 	/** bottom class **/
