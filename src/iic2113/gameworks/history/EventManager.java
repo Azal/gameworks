@@ -1,4 +1,4 @@
-package group4_events;
+package iic2123.gameworks.history;
 
 import java.util.ArrayList;
 

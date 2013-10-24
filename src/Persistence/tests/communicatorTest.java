@@ -1,7 +1,6 @@
-package Persistence.tests;
+
 
 import static org.junit.Assert.*;
-import Persistence.src.ModuleComunicator;
 
 import org.junit.After;
 import org.junit.Before;
@@ -28,7 +27,7 @@ public class communicatorTest {
 	
 	@Test
 	public void askTest() {
-		assertNotNull(com.ask("s", '1'));
+		assertNotNull(com.ask(0, 1));
 	}
 	
 	

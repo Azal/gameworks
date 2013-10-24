@@ -1,5 +1,5 @@
 
-public interface Ifile {
+public interface IFile {
 	
 	
 	public boolean isFile(String name);
