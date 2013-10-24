@@ -7,6 +7,7 @@ import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -26,6 +27,7 @@ import org.json.*;
 
 
 public class ModuleCommunicator implements ICommunicate {
+	enum Modules { story, resources, characterBehaviour, preview, scenery, persistence, network }
 	
 	public ModuleCommunicator(){
 	
@@ -35,7 +37,7 @@ public class ModuleCommunicator implements ICommunicate {
 		return false;
 		
 	}
-	public boolean save(int module, String className, int id, String data) {
+	public boolean save(String module, String className, int id, String data) {
 		
 		/*String parsedData = "";
 		while(data.indexOf("\"") != -1)
@@ -61,15 +63,36 @@ public class ModuleCommunicator implements ICommunicate {
 		
 		return true;
 	}
-
-	public Dictionary<String, String> load(int module) {
+	
+	@SuppressWarnings("unchecked")
+	public Map<String, Map<Integer,JSONObject>> load(int module) {
 		
 		JSONObject json = Encrypter.read("assets/data/" + module + "/");
-		Map map = json;
-		System.out.println();
-	    System.out.println(map);
-	    System.out.println(map.get("otrotardis"));
-		return null;
+		Map<String,Map<Integer,JSONObject>> classMap = new HashMap<String,Map<Integer,JSONObject>>();
+		Map<Integer,JSONObject> idsMap = new HashMap<Integer, JSONObject>();
+		System.out.println("ESTO ESTO");
+		
+		
+		Set<String> o = json.keySet();
+		
+		for (String strClass : o)
+		{
+			JSONObject j = (JSONObject) json.get(strClass);
+			
+			Set<String> i = j.keySet();
+			
+			for (String strId : i)
+			{
+				idsMap.put(Integer.parseInt(strId),(JSONObject) j.get(strId));
+			}
+			
+			classMap.put(strClass, idsMap);
+			idsMap = new HashMap<Integer, JSONObject>();
+	
+		}
+		
+		System.out.println(classMap);
+		return classMap;
 	}
 
 	

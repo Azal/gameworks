@@ -1,4 +1,4 @@
-package iic2113.gameworks.persistence;
+package src.iic2113.gameworks.persistence;
 
 
 /**
@@ -12,10 +12,29 @@ package iic2113.gameworks.persistence;
  */
 
 
-public class SaveProjectController {
+public class SaveProjectController extends Thread {
+	
+	private boolean keepSaving = false;
 	
 	public SaveProjectController() {
 		
+	}
+	
+	public void run()
+	{
+		while(keepSaving)
+		{
+			int min =5*60*1000;
+			try {
+				checkState();
+				save();
+				Thread.sleep(min);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
 	}
 	
 	/**
@@ -39,7 +58,13 @@ public class SaveProjectController {
 	 */
 	public void autoSave()
 	{
-		
+		keepSaving =true;
+		this.start();
+	}
+	
+	public void noAutoSave()
+	{
+		keepSaving = false;
 	}
 
 	/** class bottom **/

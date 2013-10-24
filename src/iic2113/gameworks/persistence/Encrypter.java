@@ -43,7 +43,7 @@ public class Encrypter {
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public static boolean write(int module, String className, int id,
+	public static boolean write(String module, String className, int id,
 			JSONObject json) {
 
 		boolean success = false;

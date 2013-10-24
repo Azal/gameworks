@@ -3,6 +3,7 @@ package src.iic2113.gameworks.persistence;
 import java.util.Scanner;
 
 import org.json.simple.JSONObject;
+import src.iic2113.gameworks.persistence.*;
 
 /**
 -Main for internal use of Persistence Module.
@@ -17,6 +18,7 @@ import org.json.simple.JSONObject;
 
 public class PersistenceMain {
 
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		JSONObject json = new JSONObject();
 		JSONObject json1 = new JSONObject();
@@ -24,14 +26,14 @@ public class PersistenceMain {
 		json.put("hola1", "hola1");
 		json1.put("hola2", "hola2");
 		json2.put("hola3", "hola3");
-		Encrypter s = new Encrypter();
-		s.write(1, "otrotardis", 0, json);
-		s.write(1, "tardis", 0, json);
-		s.write(1, "tardis", 1, json1);
-		s.read("assets/data/1/");
+		Encrypter.write("preview", "otrotardis", 0, json);
+		Encrypter.write("preview", "tardis", 0, json);
+		Encrypter.write("preview", "tardis", 1, json1);
+		Encrypter.read("assets/data/1/");
 		
 		ModuleCommunicator mc = new ModuleCommunicator();
 		mc.load(1);
+		
 		
 		
 	}
