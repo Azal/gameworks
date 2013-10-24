@@ -1,4 +1,4 @@
-package src.iic2113.gameworks.network.tests;
+package iic2113.gameworks.network.tests;
 
 
 import static org.junit.Assert.*;
@@ -7,7 +7,7 @@ import java.net.Inet4Address;
 
 import org.junit.Test;
 
-import src.iic2113.gameworks.network.Network;
+import iic2113.gameworks.network.Network;
 
 public class NetworkTest {
 

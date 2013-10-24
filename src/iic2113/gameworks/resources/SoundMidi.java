@@ -1,4 +1,4 @@
-package src.iic2113.gameworks.resources;
+package iic2113.gameworks.resources;
 
 import java.io.*;
 import java.util.Locale;
