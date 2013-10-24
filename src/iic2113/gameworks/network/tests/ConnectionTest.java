@@ -35,8 +35,7 @@ public class ConnectionTest {
 		Connection c = new Connection();
 		assertNotNull(c);
 		assertNotNull(c.getNetwork());
-		assertEquals(true, c.addUser("127.0.0.1", "Test", true));
-		//assertNotNull(c);
+		assertEquals(true, c.newUser("192.168.1.1:6740"));
 		
 		
 	}

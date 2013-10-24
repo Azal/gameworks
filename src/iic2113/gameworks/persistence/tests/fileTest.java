@@ -1,10 +1,11 @@
-
-
+package src.iic2113.gameworks.persistence.tests;
 import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import src.iic2113.gameworks.persistence.FileManager;
 
 /**
 -Class description goes here.-
@@ -41,12 +42,6 @@ public class fileTest {
 		assertNotNull("test");
 	}
 	
-	
-	@Test
-	public void newTest() {
-		fail("Not yet implemented");
-	}
-
 
 	
 	/**class bottom**/	
