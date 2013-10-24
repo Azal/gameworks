@@ -1,13 +1,13 @@
 package iic2113.gameworks.Preview;
 
 
+import iic2113.gameworks.Preview.Interfaces.IGameworksWindow;
+
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,29 +15,36 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import GameTest.Game;
-import iic2113.gameworks.Preview.Interfaces.IGameworksWindow;
 
 
 /**
 * Class MainFrame
 *  Class which contains the logic associated with the window displayed to the main interface.
 *  From this window the user must be able to select any action to perform.
-*	@version  0.1
+*	@version  0.2
 * @created_by @group1/meacuna      
 */
 
 public class MainFrame extends JFrame implements IGameworksWindow {
 
+	private static final long serialVersionUID = 1L;
+	private static MainFrame mainFrame = null;
 	private JPanel spritePanel;
 	public JButton editCharacterBtn;
 	private JButton editMapBtn;
 	private JButton playTestBtn;
 	
-	public MainFrame() 
-	{
+	private MainFrame() {
 		initGraphicalInterface();
 		setHandlers();
-		setVisible(true);
+	}
+	
+	public static MainFrame getInstance() {
+		if(mainFrame == null) {
+			mainFrame = new MainFrame();
+		}
+		mainFrame.setVisible(true);
+		return mainFrame;
 	}
 	
 	@Override
@@ -92,12 +99,11 @@ public class MainFrame extends JFrame implements IGameworksWindow {
 		editMapBtn.addMouseListener(new OpenMapEditionFrame());
 		playTestBtn.addMouseListener(new OpenPlayTest());
 	}
-	
-	
+		
 	private class OpenCharacterEditionFrame extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			CharacterEditionFrame characterEditionFrame = new CharacterEditionFrame();
+			CharacterEditionFrame characterEditionFrame = CharacterEditionFrame.getInstance();
 		}
 	}
 	
@@ -106,60 +112,21 @@ public class MainFrame extends JFrame implements IGameworksWindow {
 		public void mouseClicked(MouseEvent e) {
 			try {
 				Game game = Game.Create("Test", 800, 400);
-				game.onKeyPress("ENTER", new PauseGameAction("Pausing Game [ENTER]"));
-				game.onKeyPress("ESCAPE", new CloseGameAction("Closing game [ESC]"));
 				game.Init();
 			} catch (Exception e1) {
 				e1.printStackTrace();
-			}		
-		}
-		
-		@SuppressWarnings("serial")
-		private class PauseGameAction extends AbstractAction {
-			String toPrint;
-		    public PauseGameAction(String toPrint) {
-		    	this.toPrint = toPrint;
-		    }
-		    public void actionPerformed(ActionEvent e) {
-		    	System.out.println(toPrint);
-		    	try {
-					Game game = Game.GetGame();
-					if(game.isPaused())
-						game.Resume();
-					else
-						game.Pause();
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-		    }
-		}
-
-		@SuppressWarnings("serial")
-		private class CloseGameAction extends AbstractAction {
-			String toPrint;
-		    public CloseGameAction(String toPrint) {
-		    	this.toPrint = toPrint;
-		    }
-		    public void actionPerformed(ActionEvent e) {
-		    	System.out.println(toPrint);
-		    	try {
-					Game game = Game.GetGame();
-					game.Close();
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-		    }
+			}
+			/*
+			   Game game = Game.Create();
+			   game.Init();
+			 */
 		}
 	}
 	
 	private class OpenMapEditionFrame extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			MapEditionFrame mapEditionFrame = new MapEditionFrame();
+			MapEditionFrame mapEditionFrame = MapEditionFrame.getInstance();
 		}
 	}
-	
-
 }

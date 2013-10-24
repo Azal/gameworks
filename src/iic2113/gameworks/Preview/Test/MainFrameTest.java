@@ -34,7 +34,7 @@ public class MainFrameTest {
 	public void testButtons() {
 		//window.label("lblGameWorksInterface").requireText("GameWorks Interface");
 		//window.button("editCharacterBtn").click();
-		MainFrame frame = new MainFrame();
+		MainFrame frame = MainFrame.getInstance();
 		Assert.assertEquals(frame.editCharacterBtn.getText(), "Edit Character");
 	}
 }

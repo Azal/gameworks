@@ -64,7 +64,7 @@ public class Main {
 	 * @throws Exception */
 	public static void main(String[] args) throws Exception {
 		System.out.println("Hello gaming world!");
-		MainFrame mainFrame = new MainFrame();
+		MainFrame mainFrame = MainFrame.getInstance();
 	}
 
 }

@@ -29,15 +29,15 @@ import iic2113.gameworks.Preview.Interfaces.IGameworksWindow;
 public class CharacterEditionFrame extends JFrame implements IGameworksWindow
 {
 	private static final long serialVersionUID = -7491192988502147491L;
-	CharacterEditionFrame characterEditionFrame;
+	private static CharacterEditionFrame characterEditionFrame = null;
 	
 	private JList<Object> attributesList;
 	private JTextField stringName;
 	private JTextField stringValue;
-	private JButton saveAttrString;	
+	private JButton saveAttrString;
 	private JTextField numericName;
 	private JSpinner numericValue;
-	private JButton saveAttrNumeric;	
+	private JButton saveAttrNumeric;
 	private JTextField booleanName;
 	private JCheckBox booleanValue;
 	private JButton saveAttrBoolean;
@@ -50,14 +50,20 @@ public class CharacterEditionFrame extends JFrame implements IGameworksWindow
 
 	private JButton saveBtn;
 	
-	public CharacterEditionFrame() 
+	private CharacterEditionFrame() 
 	{
-		characterEditionFrame = this;
 		initGraphicalInterface();
 		setHandlers();
-		setVisible(true);
 	}
 	
+	public static CharacterEditionFrame getInstance() {
+		if(characterEditionFrame == null) {
+			characterEditionFrame = new CharacterEditionFrame();
+		}
+		characterEditionFrame.setVisible(true);
+		return characterEditionFrame;
+	}
+		
 	@Override
 	public void initGraphicalInterface() {
 		setBounds(100, 100, 640, 480);
