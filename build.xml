@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="gameworks">
+	<property environment="env" />
+	<property name="ECLIPSE_HOME" value="../../../Applications/eclipse" />
+	<property name="debuglevel" value="source,lines,vars" />
+	<property name="target" value="1.7" />
+	<property name="source" value="1.7" />
+    <property name = "src.dir" value = "src" />
+    <property name = "test.dir" value = "src/iic2113/gameworks/persistence/tests" />
+	<property name = "lib.dir" value = "libs" />
+
+
+	<property name="junit.build.dir" value="junitClasses" />
+	<property name="junit.report.dir" value="junitReport" />
+
+	<path id = "lib.jarfiles">
+	        <fileset dir = "${lib.dir}" includes = "**/*.jar" />
+	    </path>
+
+	
+	<path id="JUnit 4.libraryclasspath">
+		<pathelement location="${ECLIPSE_HOME}/plugins/org.junit_4.10.0.v4_10_0_v20120426-0900/junit.jar" />
+		<pathelement location="${ECLIPSE_HOME}/plugins/org.hamcrest.core_1.1.0.v20090501071000.jar" />
+	</path>
+	<path id="gameworks.classpath">
+		<pathelement location="bin" />
+		<path refid="JUnit 4.libraryclasspath" />
+		<pathelement location="libs/json-simple-1.1.1.jar" />
+	</path>
+	<target name="init">
+		<mkdir dir="bin" />
+		
+		<mkdir dir="${junit.build.dir}" />
+		<mkdir dir="${junit.report.dir}" />
+		
+		<copy includeemptydirs="false" todir="bin">
+			<fileset dir=".">
+				<exclude name="**/*.java" />
+				<exclude name="src/PreviewModule/Test/" />
+				<exclude name="GameworksEvents/src/" />
+				<exclude name="src/" />
+				<exclude name="src/iic2113/gameworks/persistence" />
+				<exclude name="src/iic2113/gameworks/persistence/tests/" />
+			</fileset>
+		</copy>
+		<!--
+		<copy includeemptydirs="false" todir="bin">
+			<fileset dir="GameworksEvents/src">
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+		-->
+		<copy includeemptydirs="false" todir="bin">
+			<fileset dir="src">
+				<exclude name="**/*.java" />
+				<exclude name="PreviewModule/Test/" />
+				<exclude name="iic2113/gameworks/persistence" />
+				<exclude name="iic2113/gameworks/persistence/tests/" />
+			</fileset>
+		</copy>
+		
+		<copy includeemptydirs="false" todir="bin">
+			<fileset dir="src/iic2113/gameworks/persistence">
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+		<copy includeemptydirs="false" todir="bin">
+			<fileset dir="src/iic2113/gameworks/persistence/tests">
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+		<copy includeemptydirs="false" todir="bin">
+			<fileset dir="src/PreviewModule/Test">
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+	</target>
+	<target name="clean">
+		<delete dir="bin" />
+        <delete failonerror = "false" dir = "${junit.build.dir}" />
+        <delete failonerror = "false" dir = "${junit.report.dir}" />
+	</target>
+	<target depends="clean" name="cleanall" />
+	<target depends="build-subprojects,build-project" name="build" />
+	<target name="build-subprojects" />
+	<target depends="init" name="build-project">
+		<echo message="${ant.project.name}: ${ant.file}" />
+		<javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+			<src path="." />
+			<src path="GameworksEvents/src" />
+			<src path="src" />
+			<src path="src/iic2113/gameworks/persistence" />
+			<src path="src/iic2113/gameworks/persistence/tests" />
+			<src path="src/PreviewModule/Test" />
+			<exclude name="src/PreviewModule/Test/" />
+			<exclude name="GameworksEvents/src/" />
+			<exclude name="src/" />
+			<exclude name="src/iic2113/gameworks/persistence" />
+			<exclude name="src/iic2113/gameworks/persistence/tests/" />
+			<exclude name="PreviewModule/Test/" />
+			<exclude name="iic2113/gameworks/persistence" />
+			<exclude name="iic2113/gameworks/persistence/tests/" />
+			<classpath refid="gameworks.classpath" />
+		</javac>
+	</target>
+	<target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects" />
+	<target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+		<copy todir="${ant.library.dir}">
+			<fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar" />
+		</copy>
+		<unzip dest="${ant.library.dir}">
+			<patternset includes="jdtCompilerAdapter.jar" />
+			<fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar" />
+		</unzip>
+	</target>
+	<target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+		<property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter" />
+		<antcall target="build" />
+	</target>
+	<target name="Main">
+		<java classname="module.main" failonerror="true" fork="yes">
+			<classpath refid="gameworks.classpath" />
+		</java>
+	</target>
+
+	<target name="junit" depends="init">
+		<javac encoding="ISO-8859-1" destdir="${junit.build.dir}" classpathref="lib.jarfiles" debug="on" deprecation="on" optimize="on">
+			<src path="${src.dir}" />
+			<src path="${test.dir}" />
+		</javac>
+
+		<junit fork="no" printsummary="no" haltonfailure="no" showoutput="true" filtertrace="false">
+			<classpath refid="lib.jarfiles" />
+			<classpath>
+				<pathelement path="${java.class.path}" />
+				<pathelement path="${junit.build.dir}" />
+			</classpath>
+
+			<batchtest todir="${junit.report.dir}">
+				<fileset dir="${junit.build.dir}">
+					<include name="org/farng/mp3/AllTestCase.class" />
+				</fileset>
+				<formatter type="xml" />
+			</batchtest>
+		</junit>
+	</target>
+</project>
