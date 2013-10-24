@@ -1,4 +1,4 @@
-package src.iic2113.gameworks.resources;
+package iic2113.gameworks.resources;
 
 import static org.junit.Assert.fail;
 

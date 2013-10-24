@@ -1,5 +1,5 @@
+package iic2113.gameworks.network;
 
-package src.iic2113.gameworks.network;
 import java.io.*;
 import java.net.*;
 import java.util.Observable;
