@@ -69,6 +69,22 @@ abstract class Sprite {
 		position[1]=posY;
 		return position;
 	}
+	
+	/**
+	 * Get the x position of the Sprite
+	 * @return int position x
+	 */
+	int getX(){
+		return posX;
+	}
+	
+	/**
+	 * Get the y position of the Sprite
+	 * @return int position y
+	 */
+	int getY(){
+		return posY;
+	}
 
 	/**
 	 * Setter for positions
