@@ -54,9 +54,11 @@ public class Encrypter {
 		// read();
 
 		try {
-			key = KeyGenerator.getInstance("DES").generateKey();
+			DESKeySpec keySpec = new DESKeySpec("IIC21137".getBytes("UTF8")); 
+			SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DES");
+			key = keyFactory.generateSecret(keySpec);
 			ecipher = Cipher.getInstance("DES");
-		} catch (NoSuchAlgorithmException | NoSuchPaddingException e) {
+		} catch (NoSuchAlgorithmException | NoSuchPaddingException | InvalidKeyException | UnsupportedEncodingException | InvalidKeySpecException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

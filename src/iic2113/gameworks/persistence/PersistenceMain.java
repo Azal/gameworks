@@ -1,23 +1,6 @@
 package iic2113.gameworks.persistence;
 
-import java.io.UnsupportedEncodingException;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.Scanner;
-
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.KeyGenerator;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.SecretKey;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.DESKeySpec;
-
 import org.json.simple.JSONObject;
-import iic2113.gameworks.persistence.*;
 
 /**
  * -Main for internal use of Persistence Module.
@@ -43,9 +26,11 @@ public class PersistenceMain {
 		Encrypter.write("preview", "tardis", 1, json1);
 		Encrypter.read("assets/data/preview/");
 		
+		JSONObject jo = new JSONObject(Encrypter.read("assets/data/preview/"));
+		
 		Encrypter enc = new Encrypter();
 		// Encrypt
-		String encrypted = enc.encrypt("Hola como estas, esto es una prueba {},:");
+		String encrypted = enc.encrypt(jo.toJSONString());
 		System.out.println(encrypted);
 
 		// Decrypt
