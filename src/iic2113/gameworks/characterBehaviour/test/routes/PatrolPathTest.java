@@ -2,9 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package src.iic2113.gameworks.characterBehaviour.test.routes;
+package iic2113.gameworks.characterBehaviour.test.routes;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -12,7 +13,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import src.iic2113.gameworks.characterBehaviour.routes.PatrolPath;
+import iic2113.gameworks.characterBehaviour.routes.PatrolPath;
 
 /**
  *
