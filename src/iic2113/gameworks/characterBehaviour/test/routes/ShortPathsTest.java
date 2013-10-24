@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package src.CharacterBehaviour.test.routes;
+package src.iic2113.gameworks.characterBehaviour.test.routes;
 
 import static org.junit.Assert.*;
 
@@ -12,7 +12,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import src.CharacterBehaviour.routes.ShortPath;
+import src.iic2113.gameworks.characterBehaviour.routes.ShortPath;
 
 /**
  *

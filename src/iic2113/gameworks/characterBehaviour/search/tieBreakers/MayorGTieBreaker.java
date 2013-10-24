@@ -1,6 +1,6 @@
-package src.CharacterBehaviour.search.tieBreakers;
+package src.iic2113.gameworks.characterBehaviour.search.tieBreakers;
 
-import src.CharacterBehaviour.search.AState;
+import src.iic2113.gameworks.characterBehaviour.search.AState;
 
 public class MayorGTieBreaker implements TieBreaker
 {
