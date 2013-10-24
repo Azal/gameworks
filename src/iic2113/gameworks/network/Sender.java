@@ -1,4 +1,4 @@
-package src.iic2113.gameworks.network;
+package iic2113.gameworks.network;
 
 import java.net.*;
 import java.io.*;
@@ -41,7 +41,7 @@ public class Sender implements Runnable{
                  //  address= "/Users/anttikulppi/Documents/Trabajo/Brainshots/rails data.txt";
                   // address= "/Users/anttikulppi/Pictures/d.jpg";
                    File f = new File(address );
-                   NetworkMessage m2 = new NetworkMessage(NetworkMessage.TYPE_FILE, m.conversation, f.getName()  );
+                   NetworkMessage m2 = new NetworkMessage(NetworkMessage.TYPE_FILE, m.gameInstance, f.getName()  );
                    
                    System.out.println(m2.content);                   
                    System.out.println("FILE START SEND");

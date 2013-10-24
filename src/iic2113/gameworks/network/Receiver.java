@@ -1,5 +1,5 @@
+package iic2113.gameworks.network;
 
-package src.iic2113.gameworks.network;
 import java.io.*;
 import java.net.*;
 import java.util.Observable;
@@ -7,11 +7,9 @@ import java.util.Observable;
 public class Receiver extends Observable implements Runnable  {
     
     private ServerSocket server;
-    private Network network;
     
-    public Receiver(Network n) throws Exception{
-        server = new ServerSocket(Network.getPort());
-        this.network = n;
+    public Receiver(int port) throws Exception{
+        server = new ServerSocket(port);
     }
     
 
@@ -61,7 +59,7 @@ public class Receiver extends Observable implements Runnable  {
                 
             }
             catch(Exception e) {
-                System.err.println("Error de conexion al recibir mensaje\n"+e.getMessage());
+                System.err.println("Connection error receiving message \n"+e.getMessage());
             }
         }
     }

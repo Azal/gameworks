@@ -1,4 +1,4 @@
-package src.iic2113.gameworks.network;
+package iic2113.gameworks.network;
 
 import java.net.InetAddress;
 import java.util.LinkedList;
@@ -18,16 +18,15 @@ import java.util.Observer;
 
 public class Connection implements Observer {	
 	private Network network;
-    private User localUser;
-    private Conversation activeConversation;
-    private LinkedList<Conversation> conversations;
+    private GameInstance activeGame;
+    private LinkedList<GameInstance> gameInstances;
     
     /**  
 	Connection constructor */
 	public Connection(){
-        conversations = new LinkedList<Conversation>();
-		conversations.add(new Conversation("Default"));
-		activeConversation=conversations.get(0);
+        gameInstances = new LinkedList<GameInstance>();
+		gameInstances.add(new GameInstance("Default"));
+		activeGame=gameInstances.get(0);
 		System.out.println("Initiating network");
 		try {
 			setNetwork(new Network());
@@ -45,7 +44,6 @@ public class Connection implements Observer {
             }
         });
         
-        localUser = new User(Network.getLocalAddress(),Network.getPort());
 	}
     @Override
     /**  
@@ -55,34 +53,35 @@ public class Connection implements Observer {
         NetworkMessage m = (NetworkMessage)message;
         if(m.getType() == NetworkMessage.TYPE_TEXT){
             String contenido=m.getContent();
-            System.out.print("Says: "+contenido + "\n");
+            System.out.print(m.getSender().toString().substring(1)+" says: "+contenido + "\n");
         }
         else if(m.getType() == NetworkMessage.TYPE_BYE) {
             System.out.println("User disconnected " + m.getSender().toString());
         }
         else if(m.getType() == NetworkMessage.TYPE_HELLO) {
-            String contenido=m.getContent();
-            String[] puertoSplitted=contenido.split("-");
         	String IP = m.getSender().toString().substring(1);
-        	addUser(IP, " ",false);
+        	
+        	addUser(IP+":"+m.getPort(),false);
         }
         else if(m.getType()==NetworkMessage.TYPE_READ_IMAGE){
             System.out.print("read image");
         }
     }
     public void sendMessage(String text,String conversacion, User dest) {
-        System.out.println("Sending message");
-        String puerto=String.valueOf(localUser.getPort());
+        //System.out.println("Sending message");
         getNetwork().send(text,conversacion,dest.getAddress(),dest.getPort());
-        System.out.println("Message sent");
+        //System.out.println("Message sent");
     }
-    public boolean addUser(String address,String Group,boolean firstTime) {
+    public void newUser(String address){
+    	addUser(address,true);
+    }
+    public boolean addUser(String address,boolean firstTime) {
         try {
-            InetAddress ad = InetAddress.getByName(address);
-            User u = new User(ad,Integer.parseInt("6740"));
+        	String[] splittedAddress=address.split(":");
+            User u = new User(InetAddress.getByName(splittedAddress[0]),Integer.parseInt(splittedAddress[1]));
             System.out.println("User successfully added");
             if(firstTime)sendHiMessage(u);
-            return activeConversation.users.add(u);
+            return activeGame.users.add(u);
         }
         catch(Exception e) {
             System.out.println("Error adding user with ip "+address+"\n"+e.getMessage());
@@ -91,14 +90,13 @@ public class Connection implements Observer {
     }
     private void sendHiMessage(User dest) {
         System.out.println("Sending invite to user " + dest.toString());
-        String puerto="6740";
-        getNetwork().send(new NetworkMessage(NetworkMessage.TYPE_HELLO,activeConversation.name,Network.getPort()+""), dest.getAddress(),dest.getPort());
+        getNetwork().send(new NetworkMessage(NetworkMessage.TYPE_HELLO,activeGame.name,Network.getPort()+""), dest.getAddress(),dest.getPort());
     }
-    public void sendMessage(String text,String conversacion) {
-        if(activeConversation.users.size() == 0)
+    public void sendMessage(String text) {
+        if(activeGame.users.size() == 0)
             System.out.println("There are no users to send this message to");
-        for(User u : activeConversation.users){
-          sendMessage(text,conversacion, u);
+        for(User u : activeGame.users){
+          sendMessage(text,"", u);
         }
     }
 	public Network getNetwork() {

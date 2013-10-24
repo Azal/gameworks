@@ -1,4 +1,6 @@
-package src.iic2113.gameworks.resources;
+package iic2113.gameworks.resources;
+
+
 
 /**
  * @Version 0.1
