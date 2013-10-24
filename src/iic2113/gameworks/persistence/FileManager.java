@@ -60,21 +60,27 @@ public class FileManager {
 	/**
 	 * Creates a new file in a given directory, if the directory exists
 	 */
-	public boolean newFile(File path, Object o) {
+public boolean newFile(String path, Object o) {
 		
-		if(!path.isDirectory()){
-		    throw new IllegalArgumentException("File root is not a directory");
+		File newpath = new File(path);
+		
+		if(!newpath.isDirectory()){
+		    //throw new IllegalArgumentException("File root is not a directory");
+		    newpath.mkdir();
+		    System.out.print("Entro al if");
 		 }
+		
+		else{
 		
 		File f = null;
 		boolean bool;
 	      
 	      try{
 	         // create new file
-	    	  System.out.print("El path es " + path.getPath() + "\n");
+	    	  System.out.print("El path es " + newpath.getPath() + "\n");
 	    	  File f1 = (File)o;
-	    	  System.out.print("El path del object es " + f1.getPath() + "\n");
-	         f = new File(path.getAbsolutePath(), "text.txt");
+	    	  //System.out.print("El path del object es " + f1.getPath() + "\n");
+	         f = new File(newpath.getPath(), "text.txt");
 	         
 	         // tries to create new file in the system
 	         bool = f.createNewFile();
@@ -85,7 +91,7 @@ public class FileManager {
 	      }catch(Exception e){
 	         e.printStackTrace();
 	      }
-			
+		}
 		
 		
 		
