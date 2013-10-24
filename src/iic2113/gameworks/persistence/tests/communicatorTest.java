@@ -1,4 +1,4 @@
-package src.iic2113.gameworks.persistence.tests;
+package iic2113.gameworks.persistence.tests;
 
 import static org.junit.Assert.*;
 
