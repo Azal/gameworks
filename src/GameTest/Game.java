@@ -1,4 +1,4 @@
-package src.GameTest;
+package GameTest;
 
 import java.awt.Dimension;
 import java.awt.MouseInfo;
