@@ -19,9 +19,22 @@ Here reside all MapObjects and MapCharacters that compose the Map
 
 class Map {
 	
+	/**
+	 * List for all MapCharacters
+	 */
 	protected List<MapCharacter> characters; 
+	/**
+	 * List for all non-character MapObjects
+	 */
 	protected List<MapObject> objects; 
+	/**
+	 * Grid that represents the map. It has every object in the map, 
+	 * where it's position in the matrix is the same as it's position in the map
+	 */
 	protected MapObject grid[][];
+	/**
+	 * JLabel for the Sprite of this Map.
+	 */
 	protected JLabel mapSprite;
 	
 	
