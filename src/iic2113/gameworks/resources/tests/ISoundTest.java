@@ -28,17 +28,17 @@ public class ISoundTest {
 	public static void tearDownAfterClass() throws Exception {
 	}
 
-//	@Test
-//	public void loadAndPlayAsynchronousSound() {
-//		ISound sound = rm.createSound("res/sounds/sound_ambience_nature.wav");
-//		assertTrue(sound.playAsynchronous());
-//	}
-//	@Test
-//	public void loadAndPlaySynchronousSound() {
-//		ISound sound = rm.createSound("res/sounds/sound_ambience_nature.wav");
-//		assertTrue(sound.playSynchronous());
-//	}
-//	
+	@Test
+	public void loadAndPlayAsynchronousSound() {
+		ISound sound = rm.createSound("res/sounds/sound_ambience_nature.wav");
+		assertTrue(sound.playAsynchronous());
+	}
+	@Test
+	public void loadAndPlaySynchronousSound() {
+		ISound sound = rm.createSound("res/sounds/sound_ambience_nature.wav");
+		assertTrue(sound.playSynchronous());
+	}
+	
 	@Test
 	public void loadAndPlayMp3() {
 		ISound sound = rm.createSound("res/sounds/Zelda.mp3");
