@@ -12,7 +12,7 @@ Here reside all methods to create scenery
 	22/10/2013 - @group5/ngbravo,gevalenz,javicabello,vibaseta    
  */
 
-public class MapCharacter extends MapObject{
+class MapCharacter extends MapObject{
 
 	public MapCharacter(int id) {
 		super(id);

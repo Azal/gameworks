@@ -14,7 +14,7 @@ Interface for all Sprite classes
 	24/10/2013 - @group5/ngbravo,gevalenz,javicabello,vibaseta      
  */
 
-interface ISprite {
+public interface ISprite {
 
 	/**
 	 * Getter for the Sprite JLabel
