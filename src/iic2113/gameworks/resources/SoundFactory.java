@@ -24,6 +24,7 @@ public class SoundFactory extends Factory {
 		
 		else if( getExtension(path).equals("mp3")){
 			return new SoundMP3(path);
+			
 		}
 
 		else {

@@ -8,6 +8,8 @@ import org.junit.Test;
 
 
 
+
+
 import iic2113.gameworks.resources.ResourceMaker;
 import iic2113.gameworks.resources.ISound;
 import iic2113.gameworks.resources.SoundFactory;
@@ -26,21 +28,27 @@ public class ISoundTest {
 	public static void tearDownAfterClass() throws Exception {
 	}
 
-	@Test
-	public void loadAndPlayAsynchronousSound() {
-		ISound sound = rm.createSound("res/sounds/sound_ambience_nature.wav");
-		assertTrue(sound.playAsynchronous());
-	}
-	@Test
-	public void loadAndPlaySynchronousSound() {
-		ISound sound = rm.createSound("res/sounds/sound_ambience_nature.wav");
-		assertTrue(sound.playSynchronous());
-	}
-	
+//	@Test
+//	public void loadAndPlayAsynchronousSound() {
+//		ISound sound = rm.createSound("res/sounds/sound_ambience_nature.wav");
+//		assertTrue(sound.playAsynchronous());
+//	}
+//	@Test
+//	public void loadAndPlaySynchronousSound() {
+//		ISound sound = rm.createSound("res/sounds/sound_ambience_nature.wav");
+//		assertTrue(sound.playSynchronous());
+//	}
+//	
 	@Test
 	public void loadAndPlayMp3() {
 		ISound sound = rm.createSound("res/sounds/Zelda.mp3");
-		assertTrue(sound.playSynchronous());
+		assertTrue(sound.playAsynchronous());
+		try {
+			Thread.currentThread().sleep(20000);
+		} catch (InterruptedException e) {
+			
+			e.printStackTrace();
+		}
 	}
 
 }

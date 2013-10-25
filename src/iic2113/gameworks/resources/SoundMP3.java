@@ -40,19 +40,21 @@ public class SoundMP3 implements ISound{
 	}
 
 	public boolean playSynchronous() {
-		try{
-			Player player = Manager.createPlayer(new MediaLocator(new File(path).toURI().toURL()));
-			player.start();
-		}
-		catch(Exception ex){
-			ex.printStackTrace();
-		}
 		
 		return true;
 	}
 
 	public boolean playAsynchronous() {
-		//play it.
+		try{
+			MediaLocator ml = new MediaLocator(new File(path).toURI().toURL());
+			Player player = Manager.createPlayer(ml);
+			player.start();
+		}
+		catch(Exception ex){
+			ex.printStackTrace();
+			return false;
+		}
+		
 		return true;
 	}
 
