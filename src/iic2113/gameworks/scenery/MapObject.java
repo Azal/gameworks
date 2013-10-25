@@ -30,7 +30,7 @@ class MapObject implements iSprite{
 
 	/**
 	 * Set the sprite path
-	 * @param spritePath
+	 * @param JLabel spritePath
 	 */
 	public void setSpritePath(JLabel spritePath){
 		this.spritePath=spritePath;

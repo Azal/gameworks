@@ -21,7 +21,7 @@ class Map {
 	protected List<MapCharacter> characters; 
 	protected List<MapObject> objects; 
 	protected MapObject grid[][];
-	protected JLabel mapPath;
+	protected JLabel mapSprite;
 	
 	
 	/**
@@ -47,19 +47,19 @@ class Map {
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Get the sprite path
+	 * @return JLabel mapSprite
 	 */
 	public JLabel getSpritePath(){
-		return mapPath;
+		return mapSprite;
 	}
 
 	/**
-	 * 
-	 * @param mapPath
+	 * Set the sprite path
+	 * @param JLabel mapSprite
 	 */
-	public void setSpritePath(JLabel mapPath){
-		this.mapPath=mapPath;
+	public void setSpritePath(JLabel mapSprite){
+		this.mapSprite=mapSprite;
 	}
 
 	/**
