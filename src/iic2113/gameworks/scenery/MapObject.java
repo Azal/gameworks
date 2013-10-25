@@ -13,7 +13,7 @@ All characters and object inherit from this class
 	22/10/2013 - @group5/ngbravo,gevalenz,javicabello,vibaseta      
  */
 
-class MapObject implements ISprite{
+public class MapObject implements ISprite{
 
 	/**
 	 * ID for the MapObject

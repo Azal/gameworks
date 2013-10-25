@@ -1,7 +1,5 @@
 package iic2113.gameworks.scenery;
 
-import javax.swing.JLabel;
-
 /**
 Here reside all methods to create scenery
  	-Reference to external code: javax.swing.JLabel-
@@ -12,7 +10,7 @@ Here reside all methods to create scenery
 	22/10/2013 - @group5/ngbravo,gevalenz,javicabello,vibaseta    
  */
 
-class MapCharacter extends MapObject{
+public class MapCharacter extends MapObject{
 
 	public MapCharacter(int id) {
 		super(id);
@@ -44,4 +42,6 @@ class MapCharacter extends MapObject{
 	}
 
 
+	//AGREGAR ATRIBUTO DE COMPORTAMIENTO!!!!!!!!!!
+	
 }

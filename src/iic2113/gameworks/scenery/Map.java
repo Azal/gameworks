@@ -17,7 +17,7 @@ Here reside all MapObjects and MapCharacters that compose the Map
 */
 
 
-class Map {
+public class Map {
 	
 	/**
 	 * List for all MapCharacters
