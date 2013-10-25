@@ -1,5 +1,9 @@
 package iic2113.gameworks.scenery;
 
+import java.util.List;
+
+import javax.swing.JLabel;
+
 /**
 Here reside all methods to create scenery
  	-Reference to external code-
@@ -16,22 +20,18 @@ public abstract class SceneryFactory {
 
 	/**
 	 * Method to create a default map
-	 * @return the map
 	 */
-	public static Map createMap(){
+	public static void createMap(){
 		map = new Map();
-		return map;
 	}
 
 	/**
 	 * Method to create a map
 	 * @param xDim dimension of the X coordinate of the map
 	 * @param yDim dimension of the Y coordinate of the map
-	 * @return the map
 	 */
-	public static Map createMap(int xDim, int yDim){
+	public static void createMap(int xDim, int yDim){
 		map = new Map(xDim,yDim);
-		return map;
 	}
 
 	/**
@@ -44,23 +44,69 @@ public abstract class SceneryFactory {
 
 
 	/**
+
 	 * Save the current map
 	 * @return true if the map was saved correctly
 	 */
-	public static boolean saveMap(){
-		//PERSISTENCIA SAVE MAP
+	public static boolean saveMap(String path){
+		//PERSISTENCIA SAVE MAPs
 		return true;
 	}
 
 
 	/**
 	 * Get a saved map
-	 * @param int id of the map
-	 * @return the map
+	 * @param string path to the map
 	 */
-	public static Map getMap(int id){
+	public static void useSavedMap(String path){
 		//PERSISTENCIA GET MAP
-		return map;
+		//map = 
+	}
+	
+	/**
+	 * Method to delete the current map
+	 */
+	public static void deleteCurrentMap(){
+		map = null;
+	}
+	
+	/**
+	 * Method to delete a saved map
+	 * @param String path of the map to delete
+	 */
+	public static void deleteSavedMap(String path){
+		Map aux = map;
+		useSavedMap(path);
+		deleteCurrentMap();
+		map = aux;
+	}
+
+	/**
+	 * Set sprite of the current map
+	 * @param JLabel mapSprite
+	 */
+	public static void setMapSprite(String path){
+		//PEDIR A ALGUIEN
+		//JLabel x = persistencia
+		//map.setSpritePath(x);
+	}
+
+	/**
+	 * Get sprite of the current map
+	 * @return JLabel mapSprite
+	 */
+	public static JLabel getMapSprite(){
+		return map.getSpritePath();
+	}
+
+	/**
+	 * Get size of the current map
+	 * @return int[] with x dimension and y dimension of the map
+	 */
+	public static int[] getMapSize(){
+		//return map.getSize();
+		int i[] = new int[2]; 
+		return i;
 	}
 
 	/**
@@ -69,19 +115,56 @@ public abstract class SceneryFactory {
 	 */
 	public static MapObject createMapObject(){
 		MapObject o = new MapObject();
-		o.setPosition(-1,-1);
 		map.addMapObject(o);
-		return o;
+		return o; //RETURN QUE?
 	}
 
+	/**
+	 * Get map objects of the current map
+	 * @return List of map objects as ISprites
+	 */
+//	public static List<iSprite> getMapObjects(){
+//		return map.getObjects()
+//	}
+	
 	/**
 	 * Method to create a default map character
 	 * @return the character
 	 */
 	public static MapCharacter createMapCharacter(){
-		return new MapCharacter();
+		return new MapCharacter(); //RETURN SPRITE O QUE?
+	}
+	
+	/**
+	 * Method to add a new parameter to a character
+	 * @param int character id
+	 * @param String parameter name to add
+	 * @param String value of the new parameter
+	 * @param Enum parameter type
+	 */
+	public static void setParameter(int id, String paramName, String value, Enum type){
+		//MapObject tmp = map.getMapObjectsById(id);
+	}
+	
+	
+	/**
+	 * Method to change a value parameter of a character
+	 * @param int character id
+	 * @param String parameter name to change
+	 * @param String new value of the parameter
+	 */
+	public static void editParameter(int id, String paramName, String value){
+		
 	}
 
+	/**
+	 * Method to delete a parameter from a character
+	 * @param int character id
+	 * @param String parameter name to delete
+	 */
+	public static void deleteParameter(int id, String paramName){
+	
+	}
 
 
 }
