@@ -187,6 +187,10 @@ public abstract class SceneryFactory {
 			tmp.deleteParameter(paramName);
 	}
 	
+	/**
+	 * Generates a new ID
+	 * @return The new ID
+	 */
 	protected static int getNextId(){
 		return nextId++;
 	}

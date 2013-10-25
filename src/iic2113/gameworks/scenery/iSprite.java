@@ -60,11 +60,27 @@ public interface ISprite {
 	 */
 	int getId();
 	
+	/**
+	 * Getter for all String parameters
+	 * @return The HashMap with all String parameters
+	 */
 	HashMap<String, String> getStringParameters();
 	
-	HashMap<String, Integer> getIntParameters();
+	/**
+	 * Getter for all Integer parameters
+	 * @return The HashMap with all Integer parameters
+	 */
+	HashMap<String, Integer> getIntegerParameters();
 	
+	/**
+	 * Getter for all Double parameters
+	 * @return The HashMap with all Double parameters
+	 */
 	HashMap<String, Double> getDoubleParameters();
 	
+	/**
+	 * Getter for all Boolean parameters
+	 * @return The HashMap with all Boolean parameters
+	 */
 	HashMap<String, Boolean> getBooleanParameters();
 }

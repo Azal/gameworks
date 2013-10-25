@@ -143,7 +143,7 @@ public class Map {
 	 * Method to delete MapObject to the map
 	 * @param x position in the map
 	 * @param y position in the map
-	 * @return true if the MapObject was deleted and false if the position is empty
+	 * @return true if the MapObject was deleted and false if the grid position is empty
 	 */
 	public boolean deleteMapObject( int x, int y){
 		MapObject o = checkPosition(x,y);
@@ -152,6 +152,11 @@ public class Map {
 		return deleteMapObject(o);
 	}
 	
+	/**
+	 * Gets the size of the Map
+	 * @return A int array of length 2. In [0] you will find the length in the x-axis, 
+	 * and in [1] the length in the y-axis
+	 */
 	public int[] getSize(){
 		int[] size = new int[2];
 		size [0] = grid.length;
@@ -159,6 +164,13 @@ public class Map {
 		return size;
 	}
 	
+	/**
+	 * Places a MapCharacter of a given id, in the grid in (x,y)
+	 * @param id The ID of the MapCharacter
+	 * @param x The new x-axis coordinate
+	 * @param y The new y-axis coordinate
+	 * @return true if the placement was successful, false otherwise
+	 */
 	public boolean setPositionCharacter(int id, int x, int y){
 		if (grid[x][y]==null){
 			for(MapCharacter c : characters){
@@ -174,6 +186,13 @@ public class Map {
 		return false;
 	}
 	
+	/**
+	 * Places a MapObject of a given id, in the grid in (x,y)
+	 * @param id The ID of the MapObject
+	 * @param x The new x-axis coordinate
+	 * @param y The new y-axis coordinate
+	 * @return true if the placement was successful, false otherwise
+	 */
 	public boolean setPositionObject(int id, int x, int y){
 		if (grid[x][y] == null){
 			for(MapObject o : objects){
@@ -189,6 +208,11 @@ public class Map {
 		return false;
 	}
 	
+	/**
+	 * Gets a MapObject with it's id
+	 * @param id The id of the MapObject
+	 * @return The MapObject
+	 */
 	public MapObject getObjectById(int id){
 		for(MapObject o : objects){
 			if(o.getId() == id){
@@ -204,10 +228,18 @@ public class Map {
 		return null;
 	}
 
-	public void setSprite(JLabel sprite){
-		mapSprite = sprite;
+	/**
+	 * Sets the JLabel Sprite for the Map
+	 * @param JLableSprite The JLable for the new Sprite
+	 */
+	public void setSprite(JLabel JLableSprite){
+		mapSprite = JLableSprite;
 	}
 
+	/**
+	 * Gets all objects and characters
+	 * @return A list of all Object's and Character's Sprites
+	 */
 	public List<ISprite> getObjects(){
 		List<ISprite> mapObjects = new ArrayList<ISprite>();
 		for(MapObject o : objects){

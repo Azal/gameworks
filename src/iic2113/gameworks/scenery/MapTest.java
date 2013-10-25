@@ -4,33 +4,43 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/**
+Test class for Map class
+ 	-Reference to external code-
+ *
+ *	@version  0.1
+ *  @created_by @group5/gevalenz,javicabello,ngbravo,vibaseta
+ *  @update_log
+	22/10/2013 - @group5/ngbravo,gevalenz,javicabello,vibaseta      
+ */
+
 public class MapTest {
 
 	@Test
 	public void testMapConstructorByDefault() {
 		try {
-		      new Map();
+			new Map();
 		} catch (Exception e) {
-		      fail(e.getMessage());
+			fail(e.getMessage());
 		}
 	}
 
 	@Test
 	public void testMapConstructorWithParamsIntInt() {
 		try {
-		      new Map(0,0);
-		      new Map(10,10);
+			new Map(0,0);
+			new Map(10,10);
 		} catch (Exception e) {
-		      fail(e.getMessage());
+			fail(e.getMessage());
 		}
 	}
-	
+
 	@Test (expected = IllegalArgumentException.class)
 	public void testMapConstructorWithNegativeParamsIntInt() {
 		try {
-		      new Map(-10, 10);
-		      new Map(10, -10);
-		      new Map(-10, 10);
+			new Map(-10, 10);
+			new Map(10, -10);
+			new Map(-10, 10);
 		} catch (Exception e) {
 			throw new IllegalArgumentException("Constructor integers should be positive");
 		}
@@ -46,7 +56,7 @@ public class MapTest {
 				map.addMapCharacter(ch);
 			}
 		} catch (Exception e) {
-		      fail(e.getMessage());
+			fail(e.getMessage());
 		}
 	}
 
@@ -60,25 +70,27 @@ public class MapTest {
 				map.addMapObject(ch);
 			}
 		} catch (Exception e) {
-		      fail(e.getMessage());
+			fail(e.getMessage());
 		}
 	}
 
 	@Test
 	public void testCheckPosition() {
-//		try {
-//			Map map = new Map();
-//			MapObject ch = new MapCharacter();
-//			if(map.checkPosition(0, 0) == null){
-//				ch.setPosition(0,0);
-//				map.addMapObject(ch);
-//			}
-//			if( map.checkPosition(0, 0) == null){
-//				
-//			}
-//		} catch (Exception e) {
-//		      fail(e.getMessage());
-//		}
+/*
+		try {
+			Map map = new Map();
+			MapObject ch = new MapCharacter();
+			if(map.checkPosition(0, 0) == null){
+				ch.setPosition(0,0);
+				map.addMapObject(ch);
+			}
+			if( map.checkPosition(0, 0) == null){
+
+			}
+		} catch (Exception e) {
+			fail(e.getMessage());
+		}
+*/
 	}
 
 	@Test
@@ -103,12 +115,12 @@ public class MapTest {
 
 	@Test
 	public void testDeleteMapObjectMapObject() {
-		
+
 	}
 
 	@Test
 	public void testDeleteMapObjectIntInt() {
-		
+
 	}
 
 }

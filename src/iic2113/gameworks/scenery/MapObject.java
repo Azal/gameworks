@@ -5,7 +5,7 @@ import javax.swing.JLabel;
 
 /**
 All characters and object inherit from this class
- 	-Reference to external code: java.util.HashMap, javax.swing.JLabel-
+ 	-Reference to external code-
  *
  *	@version  0.1
  *  @created_by @group5/gevalenz,javicabello,ngbravo,vibaseta
@@ -47,7 +47,7 @@ public class MapObject implements ISprite{
 	 * HashMap/Dictionary for all Double type parameters for this MapObject
 	 */
 	protected HashMap<String,Double> doubleParameters;
-	
+
 	public MapObject(int id){
 		posX = -1;
 		posY = -1;
@@ -56,10 +56,10 @@ public class MapObject implements ISprite{
 		intParameters = new HashMap<String, Integer>();
 		booleanParameters = new HashMap<String, Boolean>();
 		doubleParameters = new HashMap<String, Double>();
-		
+
 		//Falta pedir sprite por defecto
 	}
-	
+
 	/**
 	 * Adds a new String parameter of given name and value
 	 * @param name Name (key) for the new String parameter
@@ -131,7 +131,7 @@ public class MapObject implements ISprite{
 	public double getDoubleParameter(String name){
 		return doubleParameters.get(name);
 	}
-	
+
 	public void deleteParameter(String name){
 		if(stringParameters.containsKey(name))
 			stringParameters.remove(name);
@@ -142,7 +142,7 @@ public class MapObject implements ISprite{
 		else if(booleanParameters.containsKey(name))
 			booleanParameters.remove(name);
 	}
-	
+
 	/**
 	 * Get the sprite path
 	 * @return JLabel spirtePath
@@ -206,21 +206,37 @@ public class MapObject implements ISprite{
 		posY=positionY;
 	}
 
+	/**
+	 * Getter for all String parameters
+	 * @return The HashMap with all String parameters
+	 */
 	@Override
 	public HashMap<String, String> getStringParameters() {
 		return (HashMap<String, String>) stringParameters.clone();	
 	}
 
+	/**
+	 * Getter for all Integer parameters
+	 * @return The HashMap with all Integer parameters
+	 */
 	@Override
-	public HashMap<String, Integer> getIntParameters() {
+	public HashMap<String, Integer> getIntegerParameters() {
 		return (HashMap<String, Integer>) intParameters.clone();
 	}
 
+	/**
+	 * Getter for all Double parameters
+	 * @return The HashMap with all Double parameters
+	 */
 	@Override
 	public HashMap<String, Double> getDoubleParameters() {
 		return (HashMap<String, Double>) doubleParameters.clone();
 	}
 
+	/**
+	 * Getter for all Boolean parameters
+	 * @return The HashMap with all Boolean parameters
+	 */
 	@Override
 	public HashMap<String, Boolean> getBooleanParameters() {
 		return (HashMap<String, Boolean>) booleanParameters.clone();

@@ -2,7 +2,7 @@ package iic2113.gameworks.scenery;
 
 /**
 Here reside all methods to create scenery
- 	-Reference to external code: javax.swing.JLabel-
+ 	-Reference to external code-
  *
  *	@version  0.1
  *  @created_by @group5/gevalenz,javicabello,ngbravo,vibaseta
