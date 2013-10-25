@@ -1,5 +1,7 @@
 package iic2113.gameworks.scenery;
 
+import java.util.HashMap;
+
 import javax.swing.JLabel;
 
 /**
@@ -57,4 +59,12 @@ interface ISprite {
 	 * @return The Sprite ID
 	 */
 	int getId();
+	
+	HashMap<String, String> getStringParameters();
+	
+	HashMap<String, Integer> getIntParameters();
+	
+	HashMap<String, Double> getDoubleParameters();
+	
+	HashMap<String, Boolean> getBooleanParameters();
 }

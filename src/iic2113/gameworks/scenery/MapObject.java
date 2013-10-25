@@ -60,26 +60,13 @@ class MapObject implements ISprite{
 		//Falta pedir sprite por defecto
 	}
 	
-	public MapObject(int id, int posX, int posY){
-		this.posX = posX;
-		this.posY = posY;
-		this.id = id;
-		stringParameters = new HashMap<String, String>();
-		intParameters = new HashMap<String, Integer>();
-		booleanParameters = new HashMap<String, Boolean>();
-		doubleParameters = new HashMap<String, Double>();
-		
-		//Falta pedir sprite por defecto
-	}
-	
 	/**
 	 * Adds a new String parameter of given name and value
 	 * @param name Name (key) for the new String parameter
 	 * @param value The String value
 	 */
 	public void addStringParameter(String name, String value){
-		if(!stringParameters.containsKey(name))
-			stringParameters.put(name, value);
+		stringParameters.put(name, value);
 	}
 
 	/**
@@ -88,8 +75,7 @@ class MapObject implements ISprite{
 	 * @param value The Integer value
 	 */
 	public void addIntParameter(String name, int value){
-		if(!intParameters.containsKey(name))
-			intParameters.put(name, value);
+		intParameters.put(name, value);
 	}
 
 	/**
@@ -97,9 +83,8 @@ class MapObject implements ISprite{
 	 * @param name Name (key) for the new Boolean parameter
 	 * @param value The Boolean value
 	 */
-	public void addBooleanParameter(String name, boolean value){
-		if(!booleanParameters.containsKey(name))
-			booleanParameters.put(name, value);
+	public void addParameter(String name, boolean value){
+		booleanParameters.put(name, value);
 	}
 
 	/**
@@ -107,9 +92,8 @@ class MapObject implements ISprite{
 	 * @param name Name (key) for the new Double parameter
 	 * @param value The Double value
 	 */
-	public void addDoubleParameter(String name, double value){
-		if(!doubleParameters.containsKey(name))
-			doubleParameters.put(name, value);
+	public void addParameter(String name, double value){
+		doubleParameters.put(name, value);
 	}
 
 	/**
@@ -157,20 +141,6 @@ class MapObject implements ISprite{
 			doubleParameters.remove(name);
 		else if(booleanParameters.containsKey(name))
 			booleanParameters.remove(name);
-	}
-	
-	public void editParameter(String name, String value){
-		if(stringParameters.containsKey(name))
-			stringParameters.put(name, value);
-		else if(intParameters.containsKey(name)){
-			intParameters.put(name, Integer.parseInt(value));
-		}
-		else if(doubleParameters.containsKey(name)){
-			doubleParameters.put(name, Double.parseDouble(value));
-		}
-		else if(booleanParameters.containsKey(name)){
-			booleanParameters.put(name, Boolean.parseBoolean(value));
-		}
 	}
 	
 	/**
@@ -234,6 +204,26 @@ class MapObject implements ISprite{
 	public void setPosition(int positionX, int positionY){
 		posX=positionX;
 		posY=positionY;
+	}
+
+	@Override
+	public HashMap<String, String> getStringParameters() {
+		return (HashMap<String, String>) stringParameters.clone();	
+	}
+
+	@Override
+	public HashMap<String, Integer> getIntParameters() {
+		return (HashMap<String, Integer>) intParameters.clone();
+	}
+
+	@Override
+	public HashMap<String, Double> getDoubleParameters() {
+		return (HashMap<String, Double>) doubleParameters.clone();
+	}
+
+	@Override
+	public HashMap<String, Boolean> getBooleanParameters() {
+		return (HashMap<String, Boolean>) booleanParameters.clone();
 	}
 
 
