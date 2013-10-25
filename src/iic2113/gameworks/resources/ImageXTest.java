@@ -18,7 +18,7 @@ public class ImageXTest {
 
 	@Test
 	public void testLoadImageGif() {
-		ImageX imagen = new ImageX("assets/images/megaman.gif");
+		ImageX imagen = new ImageX("/images/megaman.gif");
 		assertNotNull(imagen);
 		assertNotNull(imagen.getImageObject());
 	}

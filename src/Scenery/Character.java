@@ -1,4 +1,4 @@
-package src.Scenery;
+package Scenery;
 
 /**
 Abstract class for all characters: playable and NPC's

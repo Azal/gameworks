@@ -1,11 +1,11 @@
-package src.iic2113.gameworks.persistence.tests;
+package iic2113.gameworks.persistence.tests;
 import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import src.iic2113.gameworks.persistence.FileManager;
+import iic2113.gameworks.persistence.FileManager;
 
 /**
 -Class description goes here.-
@@ -32,11 +32,7 @@ public class fileTest {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public void isTest() {
-		assertFalse(file.isFile("test"));
-	}
-	
+		
 	@Test
 	public void findTest() {
 		assertNotNull("test");

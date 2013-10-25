@@ -1,12 +1,12 @@
-package src.iic2113.gameworks.characterBehaviour.routes;
+package iic2113.gameworks.characterBehaviour.routes;
 
 import java.util.List;
 
-import src.iic2113.gameworks.characterBehaviour.search.AState;
-import src.iic2113.gameworks.characterBehaviour.search.BoardGenerator;
-import src.iic2113.gameworks.characterBehaviour.search.SearcherAgent;
-import src.iic2113.gameworks.characterBehaviour.search.heuristics.ThirdHeuristic;
-import src.iic2113.gameworks.characterBehaviour.search.tieBreakers.MayorHTieBreaker;
+import iic2113.gameworks.characterBehaviour.search.AState;
+import iic2113.gameworks.characterBehaviour.search.BoardGenerator;
+import iic2113.gameworks.characterBehaviour.search.SearcherAgent;
+import iic2113.gameworks.characterBehaviour.search.heuristics.ThirdHeuristic;
+import iic2113.gameworks.characterBehaviour.search.tieBreakers.MayorHTieBreaker;
 
 public class ShortPath
 {

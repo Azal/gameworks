@@ -40,7 +40,7 @@ public class SoundFactoryTest {
 			e.printStackTrace();
 		}*/
 		
-		//assertEquals("Mensaje de prueba", tester.GetExtension("/gameworks/assets/sounds/sound_ambience_nature.wav"), "wav");
+		//assertEquals("Mensaje de prueba", tester.GetExtension("/sounds/sound_ambience_nature.wav"), "wav");
 		fail("No implementado todavia");
 	}
 

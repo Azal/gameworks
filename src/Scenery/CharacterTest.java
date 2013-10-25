@@ -1,4 +1,4 @@
-package src.Scenery;
+package Scenery;
 
 import static org.junit.Assert.*;
 

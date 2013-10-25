@@ -58,7 +58,7 @@ public class IImageTest {
 	public void testReloadImage() {
 		ImageFactory imageFactory = new ImageFactory();
 		assertNotNull(imageFactory);
-		IImage iim = imageFactory.createImage("assets/images/megaman.gif");
+		IImage iim = imageFactory.createImage("/images/megaman.gif");
 		assertNotNull(iim);
 		iim.filterGreyScale(1);
 		assertTrue(iim.reloadImage());
