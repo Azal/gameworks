@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -30,7 +31,7 @@ public class MainFrame extends JFrame implements IGameworksWindow {
 
 	private static final long serialVersionUID = 1L;
 	private static MainFrame mainFrame = null;
-	private JPanel spritePanel;
+	private JLabel test;
 	public JButton editCharacterBtn;
 	private JButton editMapBtn;
 	private JButton playTestBtn;
@@ -59,23 +60,22 @@ public class MainFrame extends JFrame implements IGameworksWindow {
 		lblGameWorksInterface.setFont(new Font("Tahoma", Font.BOLD, 20));
 		getContentPane().add(lblGameWorksInterface);
 		
-		spritePanel = new JPanel();
-		spritePanel.setBounds(30, 130, 140, 123);
-		spritePanel.setBackground(Color.ORANGE);
 		getContentPane().setLayout(null);
-		getContentPane().add(spritePanel);
 		
-		spritePanel = new JPanel();
-		spritePanel.setBounds(220, 130, 140, 123);
-		spritePanel.setBackground(Color.GREEN);
-		getContentPane().setLayout(null);
-		getContentPane().add(spritePanel);
+		ImageIcon image = new ImageIcon(getClass().getResource("/images/character.png"));
+		test = new JLabel(image);
+		test.setBounds(30, 130, 140, 123);
+		getContentPane().add(test);
 		
-		spritePanel = new JPanel();
-		spritePanel.setBounds(410, 130, 140, 123);
-		spritePanel.setBackground(Color.BLUE);
-		getContentPane().setLayout(null);
-		getContentPane().add(spritePanel);
+		image = new ImageIcon(getClass().getResource("/images/mapa.jpg"));
+		test = new JLabel(image);
+		test.setBounds(220, 130, 140, 123);
+		getContentPane().add(test);
+		
+		image = new ImageIcon(getClass().getResource("/images/play.jpg"));
+		test = new JLabel(image);
+		test.setBounds(410, 130, 140, 123);
+		getContentPane().add(test);
 		
 		editCharacterBtn = new JButton("Edit Character");
 		editCharacterBtn.setBounds(30, 300, 140, 49);
