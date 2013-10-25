@@ -97,18 +97,16 @@ public abstract class SceneryFactory {
 	 * @return int[] with x dimension and y dimension of the map
 	 */
 	public static int[] getMapSize(){
-		//return map.getSize();
-		int i[] = new int[2]; 
-		return i;
+		return map.getSize();
 	}
 
 	/**
 	 * Get map objects of the current map
 	 * @return List of map objects as ISprites
 	 */
-//	public static List<ISprite> getMapObjects(){
-//		return map.getObjects()
-//	}
+	public static List<ISprite> getMapObjects(){
+		return map.getObjects();
+	}
 	
 	/**
 	 * Method to create a default map object
@@ -135,8 +133,9 @@ public abstract class SceneryFactory {
 	 * @param String value of the new parameter
 	 */
 	public static void setParameter(int id, String paramName, boolean value){
-//		MapObject tmp = map.getMapObjectsById(id);
-//		tmp.addParameter(paramName, value);
+		MapObject tmp = map.getObjectById(id);
+		if(tmp != null)
+			tmp.addParameter(paramName, value);
 	}
 	
 	/**
@@ -146,8 +145,9 @@ public abstract class SceneryFactory {
 	 * @param String value of the new parameter
 	 */
 	public static void setParameter(int id, String paramName, double  value){
-//		MapObject tmp = map.getMapObjectsById(id);
-//		tmp.addParameter(paramName, value);
+		MapObject tmp = map.getObjectById(id);
+		if(tmp != null)
+			tmp.addParameter(paramName, value);
 	}
 	
 	/**
@@ -157,8 +157,9 @@ public abstract class SceneryFactory {
 	 * @param String value of the new parameter
 	 */
 	public static void setParameter(int id, String paramName, int value){
-//		MapObject tmp = map.getMapObjectsById(id);
-//		tmp.addParameter(paramName, value);
+		MapObject tmp = map.getObjectById(id);
+		if(tmp != null)
+			tmp.addParameter(paramName, value);
 	}
 	
 	/**
@@ -168,8 +169,9 @@ public abstract class SceneryFactory {
 	 * @param String value of the new parameter
 	 */
 	public static void setParameter(int id, String paramName, String  value){
-//		MapObject tmp = map.getMapObjectsById(id);
-//		tmp.addParameter(paramName, value);
+		MapObject tmp = map.getObjectById(id);
+		if(tmp != null)
+			tmp.addParameter(paramName, value);
 	}
 	
 	/**
@@ -178,8 +180,9 @@ public abstract class SceneryFactory {
 	 * @param String parameter name to delete
 	 */
 	public static void deleteParameter(int id, String paramName){
-//		MapObject tmp = map.getMapObjectsById(id);
-//		tmp.deleteParameter(paramName);
+		MapObject tmp = map.getObjectById(id);
+		if(tmp != null)
+			tmp.deleteParameter(paramName);
 	}
 	
 	protected static int getNextId(){

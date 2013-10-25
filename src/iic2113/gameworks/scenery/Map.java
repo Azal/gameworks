@@ -156,6 +156,7 @@ class Map {
 		int[] size = new int[2];
 		size [0] = grid.length;
 		size [1] = grid[0].length;
+		return size;
 	}
 	
 	public boolean setPositionCharacter(int id, int x, int y){
@@ -200,14 +201,15 @@ class Map {
 				return (MapObject)c;
 			}
 		}
+		return null;
 	}
 
 	public void setSprite(JLabel sprite){
 		mapSprite = sprite;
 	}
 
-	public List<ISprite> getObject(){
-		List<ISprite> mapObjects = new ArrayList<ISprites>();
+	public List<ISprite> getObjects(){
+		List<ISprite> mapObjects = new ArrayList<ISprite>();
 		for(MapObject o : objects){
 			mapObjects.add((ISprite)o);
 		}

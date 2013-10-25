@@ -65,7 +65,7 @@ class MapObject implements ISprite{
 	 * @param name Name (key) for the new String parameter
 	 * @param value The String value
 	 */
-	public void addStringParameter(String name, String value){
+	public void addParameter(String name, String value){
 		stringParameters.put(name, value);
 	}
 
@@ -74,7 +74,7 @@ class MapObject implements ISprite{
 	 * @param name Name (key) for the new Integer parameter
 	 * @param value The Integer value
 	 */
-	public void addIntParameter(String name, int value){
+	public void addParameter(String name, int value){
 		intParameters.put(name, value);
 	}
 
