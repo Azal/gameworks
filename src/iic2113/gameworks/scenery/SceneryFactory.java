@@ -33,6 +33,7 @@ public abstract class SceneryFactory {
 	 * @param yDim dimension of the Y coordinate of the map
 	 */
 	public static void createMap(int xDim, int yDim){
+		nextId = 0;
 		map = new Map(xDim,yDim);
 	}
 
@@ -71,6 +72,7 @@ public abstract class SceneryFactory {
 		Map aux = map;
 		useSavedMap(path);
 		deleteCurrentMap();
+		//PERSISTENCIA DELETE
 		map = aux;
 	}
 
