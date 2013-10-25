@@ -3,6 +3,8 @@ package iic2113.gameworks.scenery;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JLabel;
+
 /**
 Here reside all MapObjects and MapCharacters that compose the Map
  	-Reference to external code-
@@ -19,6 +21,7 @@ class Map {
 	protected List<MapCharacter> characters; 
 	protected List<MapObject> objects; 
 	protected MapObject grid[][];
+	protected JLabel mapPath;
 	
 	
 	/**
@@ -41,6 +44,22 @@ class Map {
 		objects = new ArrayList<MapObject>();
 		grid = new MapObject[n][m];
 		//recursos ver path de imagen del mapa
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public JLabel getSpritePath(){
+		return mapPath;
+	}
+
+	/**
+	 * 
+	 * @param mapPath
+	 */
+	public void setSpritePath(JLabel mapPath){
+		this.mapPath=mapPath;
 	}
 
 	/**

@@ -17,13 +17,6 @@ interface iSprite {
 	void setSpritePath(JLabel spritePath);
 
 	/**
-	 * Method to move the Sprite in a given direction and distance
-	 * @param direction Direction of the movement. Can be UP, DOWN, LEFT, RIGHT
-	 * @param distance How many grid spaces will it move in the given direction
-	 */
-	void move(Direction direction, int distance);
-
-	/**
 	 * Get the position of the Sprite
 	 * @return Returns a int array of length=2. The position X will be in [0] and position Y will be in [1].
 	 */

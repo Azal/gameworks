@@ -1,5 +1,7 @@
 package iic2113.gameworks.scenery;
 
+import javax.swing.JLabel;
+
 /**
 Here reside all methods to create scenery
  	-Reference to external code-
@@ -11,5 +13,33 @@ Here reside all methods to create scenery
  */
 
 public class MapCharacter extends MapObject{
+	
+	
+	
+	/**
+	 * Method to move the Character in a given direction and distance
+	 * @param direction Direction of the movement. Can be UP, DOWN, LEFT, RIGHT
+	 * @param distance How many grid spaces will it move in the given direction
+	 */
+	public void move(Direction direction, int distance){
+		switch (direction) {
+		case UP:
+			posY+=distance;
+			break;
 
+		case DOWN:
+			posY-=distance;
+			break;	
+
+		case LEFT:
+			posX-=distance;
+			break;	
+
+		case RIGHT:
+			posX+=distance;
+			break;
+		}
+	}
+	
+	
 }

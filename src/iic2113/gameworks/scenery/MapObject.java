@@ -12,21 +12,24 @@ All characters and object inherit from this class
 	22/10/2013 - @group5/ngbravo,gevalenz,javicabello,vibaseta      
  */
 
-abstract class MapObject implements iSprite{
-
+class MapObject implements iSprite{
+	
+	protected int id;
 	protected JLabel spritePath;
 	protected int posX;
 	protected int posY;
+	
+	
 	/**
-	 * 
-	 * @return
+	 * Get the sprite path
+	 * @return JLabel spirtePath
 	 */
 	public JLabel getSpritePath(){
 		return spritePath;
 	}
 
 	/**
-	 * 
+	 * Set the sprite path
 	 * @param spritePath
 	 */
 	public void setSpritePath(JLabel spritePath){
@@ -34,30 +37,14 @@ abstract class MapObject implements iSprite{
 	}
 
 	/**
-	 * Method to move the Sprite in a given direction and distance
-	 * @param direction Direction of the movement. Can be UP, DOWN, LEFT, RIGHT
-	 * @param distance How many grid spaces will it move in the given direction
+	 * Get the map object id
+	 * @return id
 	 */
-	public void move(Direction direction, int distance){
-		switch (direction) {
-		case UP:
-			posY+=distance;
-			break;
-
-		case DOWN:
-			posY-=distance;
-			break;	
-
-		case LEFT:
-			posX-=distance;
-			break;	
-
-		case RIGHT:
-			posX+=distance;
-			break;
-		}
+	public int getId(){
+		return id;
 	}
 
+	
 	/**
 	 * Get the position of the Sprite
 	 * @return Returns a int array of length=2. The position X will be in [0] and position Y will be in [1].
