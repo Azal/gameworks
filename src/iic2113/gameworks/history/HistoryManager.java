@@ -171,6 +171,16 @@ public class HistoryManager {
         	restrictionManager.markRestrictionAsDone(identifier);
         }
         
+        public void markRestrictionAsDone(String identifier, Object parameter)
+        {
+        	restrictionManager.markRestrictionAsDone(identifier, parameter);
+        }
+        
+        public void markRestrictionAsDone(String identifier, Object[] parameter)
+        {
+        	restrictionManager.markRestrictionAsDone(identifier, parameter);
+        }
+        
         //Check all Restrictions
         //Mark a specific restriction as done
         public void checkAllRestrictions()

@@ -117,8 +117,37 @@ public class RestrictionManager {
     	throw new IllegalArgumentException("There's no Restriction with the identifier '"+identifier+"'.");
     }
     
+    public void markRestrictionAsDone(String identifier, Object parameter)
+    {
+    	//Check that it exists
+    	for(Restriction r: restrictions){
+    		if(r.getIdentifier().equals(identifier))
+    		{
+    			r.check(parameter);
+    			return ;
+    		}
+    			
+    	}
+    	//If we make it here, there's no such exception, throw an ... error
+    	throw new IllegalArgumentException("There's no Restriction with the identifier '"+identifier+"'.");
+    }
+    
+    public void markRestrictionAsDone(String identifier, Object[] parameter)
+    {
+    	//Check that it exists
+    	for(Restriction r: restrictions){
+    		if(r.getIdentifier().equals(identifier))
+    		{
+    			r.check(parameter);
+    			return ;
+    		}
+    			
+    	}
+    	//If we make it here, there's no such exception, throw an ... error
+    	throw new IllegalArgumentException("There's no Restriction with the identifier '"+identifier+"'.");
+    }
+    
     //Check all Restrictions
-  //Mark a specific restriction as done
     public void checkAllRestrictions()
     {
     	//Iterate through all of them

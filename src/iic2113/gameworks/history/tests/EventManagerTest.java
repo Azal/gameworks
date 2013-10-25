@@ -81,11 +81,77 @@ public class EventManagerTest {
 		org.junit.Assert.assertFalse("EM: Should fail trigger, needs restrictions done", em.triggerEvent("Event_4") );
 		em.markRestrictionAsDone("Restriction_1") ;
 		em.markRestrictionAsDone("r_1") ;
-		org.junit.Assert.assertFalse("EM: trigger event", em.triggerEvent("Event_4") );
-
-
-		
+		org.junit.Assert.assertTrue("EM: trigger event", em.triggerEvent("Event_4") );		
 	}
+    
+    @Test
+	public void HistoryManagerPacManTest() {
+
+    	HistoryManager em = HistoryManager.getInstance();
+    	
+    	// Event that allow access to level 2
+	    	ArrayList<Result> results = new ArrayList<Result>(); 
+			results.add(new Result("Pasar a nivel 2")
+			{
+				public void execute()
+				{
+					System.out.println("¡Has pasado al nivel 2!");
+				}
+			});
+			ArrayList<Restriction> restrictions = new ArrayList<Restriction>(); 
+			restrictions.add(new Restriction("Comerse 3 pelotas")
+			{
+				public void check(int pelotasComidas)
+				{
+					if(pelotasComidas >= 3)
+						done = true;				
+				}			
+			});
+	    	em.createEvent("Acceder Nivel 2", restrictions, results);
+	    
+    	results.clear();
+    	restrictions.clear();
+    	
+	    // Event that determine the end of the game
+	    	results.add(new Result("Se termina el juego")
+			{
+				public void execute()
+				{
+					System.out.println("¡Mala suerte, el juego se ha acabado!");
+				}
+			});
+	    	restrictions.add(new Restriction("No tener vidas")
+			{
+				public void check(int vidas)
+				{
+					if(vidas <= 0)
+						done = true;				
+				}			
+			});
+	    	em.createEvent("GameOver", restrictions, results);
+	    	
+	    // The tests
+	    	int vidas = 3;
+	    	int pelotasComidas = 0;
+	    	
+	    	org.junit.Assert.assertFalse("You cannot access level 2", em.triggerEvent("Acceder Nivel 2"));
+	    	org.junit.Assert.assertFalse("The Game isn't over", em.triggerEvent("GameOver"));
+	    	
+	    	em.markRestrictionAsDone("GameOver", vidas);
+	    	em.markRestrictionAsDone("Acceder Nivel 2", pelotasComidas);
+	    	
+	    	org.junit.Assert.assertFalse("You still cannot access level 2", em.triggerEvent("Acceder Nivel 2"));
+	    	org.junit.Assert.assertFalse("The Game isn't over again", em.triggerEvent("GameOver"));
+	    		    	
+	    	pelotasComidas = 3;	    	
+	    	em.markRestrictionAsDone("Acceder Nivel 2", pelotasComidas);	    	
+	    	org.junit.Assert.assertTrue("You can access level 2", em.triggerEvent("Acceder Nivel 2"));
+	    	
+	    	vidas = 0;
+	    	em.markRestrictionAsDone("GameOver", vidas);
+	    	org.junit.Assert.assertTrue("The Game is over", em.triggerEvent("GameOver"));
+	    
+    }
 
 
 
