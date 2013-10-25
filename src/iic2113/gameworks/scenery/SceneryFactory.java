@@ -43,10 +43,10 @@ public abstract class SceneryFactory {
 	 * @return true if the map was saved correctly
 	 */
 	public static boolean saveMap(String path){
-		//PERSISTENCIA SAVE MAPs
-//		IFile file;
-//		Object o = map;
-//		file.newFile(path, o);
+		//Esto esta bien pero persistence todavia no sube la ultima version, donde cambian 
+		//el metodo newFile para que reciba un String en vez de un File
+		Object o = map;
+//		return IFile.newFile(path, o);
 		return true;
 	}
 
@@ -57,7 +57,9 @@ public abstract class SceneryFactory {
 	 */
 	public static void useSavedMap(String path){
 		//PERSISTENCIA GET MAP
+		//cast a objeto map?
 		//map = 
+		
 	}
 	
 	/**
@@ -74,7 +76,7 @@ public abstract class SceneryFactory {
 	public static void deleteSavedMap(String path){
 		Map aux = map;
 		useSavedMap(path);
-		deleteCurrentMap();
+		deleteCurrentMap();//falta delete del path donde estaba guardado tambien
 		//PERSISTENCIA DELETE
 		map = aux;
 	}
