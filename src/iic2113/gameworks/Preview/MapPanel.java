@@ -4,6 +4,8 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 import iic2113.gameworks.Preview.Placeholders.MapObject;
@@ -19,27 +21,22 @@ import iic2113.gameworks.Preview.Placeholders.MapObject;
 class MapPanel extends JPanel {
 	
 	private static final long serialVersionUID = -756677306651426444L;
-	public BufferedImage backTile;		//background tile image
-	public int cellPix = 0; 			//size of the tiles in pixels
-	public int width = 0; 				//of the map in cells
-	public int height = 0; 				//of the map in cells
-	public List<MapObject> objects = new ArrayList<MapObject>(); //objects in the map
+	public Scenery.Map map;
 	
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
-		//fills the background of the map using the properties backtile as image, and cellPix to determine the size of the tiles
-		for(int i = 0; i < width;i++){
-			for(int j = 0; j < height;j++){
-				g.drawImage(backTile, i*cellPix, j*cellPix, null);
+		//fills the background of the map
+		for(int i = 0; i < map.getWidth();i++){
+			for(int j = 0; j < map.getHeight();j++){
+				g.drawImage(ImageIO.read(this.getClass().getResource(map.getSpritePath())), i*map.getPixelsPerCell(), j*map.getPixelsPerCell(), null);
 			}
 		}
 		
 		//draw the objects in the map
-		for (MapObject obj : objects){
-			g.drawImage(obj.sprite, obj.x*cellPix, obj.y*cellPix, null);
+		for (Scenery.MapObject obj : map.getMapObjects()){
+			g.drawImage(obj.getSpritePath(), obj.getPositionX()*map.getPixelsPerCell(), obj.getPositionY()*map.getPixelsPerCell(), null);
 		}
 	}
-
 }
