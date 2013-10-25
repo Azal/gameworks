@@ -2,6 +2,7 @@ package iic2113.gameworks.Preview;
 
 
 import iic2113.gameworks.Preview.Interfaces.IGameworksWindow;
+import iic2113.gameworks.scenery.SceneryFactory;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -15,7 +16,6 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import GameTest.Game;
-import Scenery.NPC;
 
 
 /**
@@ -103,7 +103,7 @@ public class MainFrame extends JFrame implements IGameworksWindow {
 	private class OpenCharacterEditionFrame extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			CharacterEditionFrame characterEditionFrame = CharacterEditionFrame.getInstance(new NPC());
+			CharacterEditionFrame characterEditionFrame = CharacterEditionFrame.getInstance(SceneryFactory.createMapCharacter());
 		}
 	}
 	
