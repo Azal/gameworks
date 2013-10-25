@@ -27,8 +27,8 @@ public class PersistenceMain {
 		encrypter.write("preview", "otrotardis", 0, json);
 		encrypter.write("preview", "tardis", 0, json);
 		encrypter.write("preview", "tardis", 1, json1);
-		//encrypter.read("assets/data/preview/");
-		
+		//JSONObject j = encrypter.read("assets/data/preview/");
+		//System.out.println("hola: " + j);
 		/*JSONObject jo = new JSONObject(encrypter.read("assets/data/preview/"));
 		
 		// Encrypt

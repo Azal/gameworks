@@ -12,12 +12,17 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.Map;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -92,7 +97,7 @@ public class Encrypter {
 			}
 
 			FileWriter writer = new FileWriter(file);
-			//writer.write(encrypt(json.toJSONString()));
+			// writer.write(encrypt(json.toJSONString()));
 			writer.write(json.toJSONString());
 			writer.flush();
 			writer.close();
@@ -106,6 +111,12 @@ public class Encrypter {
 		return success;
 	}
 
+	/*
+	 * this method is not working properly because the JSON is not getting
+	 * correctly formated. It should be: { "otrotardis": [ { "a": { "hola1":
+	 * "hola1", "hola2": "hola2" } } ], "tardis": [ { "1": { "hola2": "hola2" },
+	 * "a": { "hola1": "hola1" } } ] }
+	 */
 	@SuppressWarnings("unchecked")
 	public JSONObject read(String route) {
 
@@ -129,7 +140,7 @@ public class Encrypter {
 			String actual_id = "";
 			if (i > hiddenFiles) {
 				if (!actual_class.equals(file.getName().split("_")[0])) {
-					finalJson.put(actual_class, subfinalJson);
+					finalJson.put(actual_class, subfinalJson.toJSONString());
 					System.out.println(finalJson);
 					subfinalJson = new JSONObject();
 				}
@@ -146,24 +157,31 @@ public class Encrypter {
 			if (file.isFile() && file.getName().endsWith(".json")) {
 
 				try {
-					Object obj = parser.parse(new FileReader(file.getPath()));
-					JSONObject jsonObject = (JSONObject) obj;
-					subfinalJson.put(actual_id, jsonObject);
+					byte[] encoded = Files.readAllBytes(Paths.get(file
+							.getPath()));
+					String decripted = decrypt((StandardCharsets.UTF_8).decode(
+							ByteBuffer.wrap(encoded)).toString());
+					subfinalJson.put(actual_id, decripted);
 					System.out.println("subfinal " + i + " " + subfinalJson);
 
-				} catch (FileNotFoundException e) {
-					e.printStackTrace();
 				} catch (IOException e) {
-					e.printStackTrace();
-				} catch (ParseException e) {
 					e.printStackTrace();
 				}
 			}
 		}
 
-		finalJson.put(actual_class, subfinalJson);
-		System.out.println(finalJson);
-		return finalJson;
+		finalJson.put(actual_class, subfinalJson.toJSONString());
+		String temp = finalJson.toString().replace("\\", "");
+		Object obj;
+		try {
+			obj = parser.parse(temp);
+			System.out.println(obj);
+			return new JSONObject((Map) obj);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 
 	}
 

@@ -30,8 +30,10 @@ import org.json.*;
 public class ModuleCommunicator implements ICommunicate {
 	enum Modules { story, resources, characterBehaviour, preview, scenery, persistence, network }
 	
-	public ModuleCommunicator(){
+	private Encrypter encrypter;
 	
+	public ModuleCommunicator(){
+		encrypter = new Encrypter();
 	}
 	public boolean subscribe() {
 		
@@ -54,7 +56,7 @@ public class ModuleCommunicator implements ICommunicate {
 		try {
 			obj = parser.parse(data);
 			JSONObject json = new JSONObject((Map)obj);
-			Encrypter.write(module, className, id, json);
+			encrypter.write(module, className, id, json);
 			
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
@@ -68,7 +70,7 @@ public class ModuleCommunicator implements ICommunicate {
 	@SuppressWarnings("unchecked")
 	public Map<String, Map<Integer,JSONObject>> load(int module) {
 		
-		JSONObject json = Encrypter.read("assets/data/" + module + "/");
+		JSONObject json = encrypter.read("assets/data/" + module + "/");
 		Map<String,Map<Integer,JSONObject>> classMap = new HashMap<String,Map<Integer,JSONObject>>();
 		Map<Integer,JSONObject> idsMap = new HashMap<Integer, JSONObject>();
 		System.out.println("ESTO ESTO");
