@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import GameTest.Game;
+import Scenery.NPC;
 
 
 /**
@@ -92,9 +93,8 @@ public class MainFrame extends JFrame implements IGameworksWindow {
 		getContentPane().add(playTestBtn);
 	}
 	
-
 	@Override
-	public void setHandlers(){
+	public void setHandlers() {
 		editCharacterBtn.addMouseListener(new OpenCharacterEditionFrame());
 		editMapBtn.addMouseListener(new OpenMapEditionFrame());
 		playTestBtn.addMouseListener(new OpenPlayTest());
@@ -103,7 +103,7 @@ public class MainFrame extends JFrame implements IGameworksWindow {
 	private class OpenCharacterEditionFrame extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			CharacterEditionFrame characterEditionFrame = CharacterEditionFrame.getInstance();
+			CharacterEditionFrame characterEditionFrame = CharacterEditionFrame.getInstance(new NPC());
 		}
 	}
 	
@@ -128,5 +128,10 @@ public class MainFrame extends JFrame implements IGameworksWindow {
 		public void mouseClicked(MouseEvent e) {
 			MapEditionFrame mapEditionFrame = MapEditionFrame.getInstance();
 		}
+	}
+
+	@Override
+	public void clean() {
+		
 	}
 }

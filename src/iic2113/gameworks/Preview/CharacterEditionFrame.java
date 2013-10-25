@@ -1,5 +1,8 @@
 package iic2113.gameworks.Preview;
 
+import iic2113.gameworks.Preview.Interfaces.IGameworksWindow;
+import iic2113.gameworks.Preview.Widgets.CharacterAttributeList;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
@@ -16,7 +19,7 @@ import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 
-import iic2113.gameworks.Preview.Interfaces.IGameworksWindow;
+import Scenery.Character;
 
 /**
 * Class CharacterEditionFrame
@@ -30,6 +33,8 @@ public class CharacterEditionFrame extends JFrame implements IGameworksWindow
 {
 	private static final long serialVersionUID = -7491192988502147491L;
 	private static CharacterEditionFrame characterEditionFrame = null;
+	private Character character = null;
+	private CharacterAttributeList characterAttrList; 
 	
 	private JList<Object> attributesList;
 	private JTextField stringName;
@@ -50,16 +55,39 @@ public class CharacterEditionFrame extends JFrame implements IGameworksWindow
 
 	private JButton saveBtn;
 	
-	private CharacterEditionFrame() 
-	{
+	private CharacterEditionFrame() {
 		initGraphicalInterface();
 		setHandlers();
+		characterAttrList = new CharacterAttributeList(attributesList);
 	}
 	
-	public static CharacterEditionFrame getInstance() {
+	public void setCharacter(Character character) {
+		clean();
+		this.character = character;
+		loadCharacterData();
+	}
+	
+	private void loadCharacterData() {
+		characterAttrList.addAttr("name", character.getName());
+		characterAttrList.addAttr("hp", character.getHP());
+		characterAttrList.addAttr("stamina", character.getStamina());
+		characterAttrList.addAttr("power", character.getPower());
+		characterAttrList.addAttr("killable", character.getKillable());
+		characterAttrList.addAttr("attackable", character.getAttackable());
+		characterAttrList.addAttr("x_position", character.getXPosition());
+		characterAttrList.addAttr("y_position", character.getYPosition());
+	}
+	
+	public void clean(){
+		attributesList.removeAll();
+		characterAttrList.removeAll();
+	}
+	
+	public static CharacterEditionFrame getInstance(Character character) {
 		if(characterEditionFrame == null) {
 			characterEditionFrame = new CharacterEditionFrame();
 		}
+		characterEditionFrame.setCharacter(character);
 		characterEditionFrame.setVisible(true);
 		return characterEditionFrame;
 	}
