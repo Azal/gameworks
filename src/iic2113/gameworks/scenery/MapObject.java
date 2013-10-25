@@ -14,7 +14,7 @@ All characters and object inherit from this class
 	22/10/2013 - @group5/ngbravo,gevalenz,javicabello,vibaseta      
  */
 
-class MapObject implements iSprite{
+class MapObject implements ISprite{
 	
 	protected int id;
 	protected JLabel spritePath;
