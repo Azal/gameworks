@@ -3,17 +3,17 @@ package iic2113.gameworks.scenery;
 /**
 Here reside all methods to create scenery
  	-Reference to external code-
-*
-*	@version  0.1
-@created_by @group5/gevalenz,javicabello,ngbravo
-@update_log
+ *
+ *	@version  0.1
+ *  @created_by @group5/gevalenz,javicabello,ngbravo
+ *  @update_log
 	26/09/2013 - @group5/ngbravo,gevalenz,javicabello       
-*/
+ */
 
 public abstract class SceneryFactory {
-	
+
 	protected static Map map;
-	
+
 	/**
 	 * Method to create a default map
 	 * @return the map
@@ -22,7 +22,7 @@ public abstract class SceneryFactory {
 		map = new Map();
 		return map;
 	}
-	
+
 	/**
 	 * Method to create a map
 	 * @param xDim dimension of the X coordinate of the map
@@ -33,7 +33,7 @@ public abstract class SceneryFactory {
 		map = new Map(xDim,yDim);
 		return map;
 	}
-	
+
 	/**
 	 * Get the current map
 	 * @return the map
@@ -41,7 +41,7 @@ public abstract class SceneryFactory {
 	public static Map getCurrentMap(){
 		return map;
 	}
-	
+
 
 	/**
 	 * Save the current map
@@ -51,7 +51,7 @@ public abstract class SceneryFactory {
 		//PERSISTENCIA SAVE MAP
 		return true;
 	}
-	
+
 
 	/**
 	 * Get a saved map
@@ -62,7 +62,7 @@ public abstract class SceneryFactory {
 		//PERSISTENCIA GET MAP
 		return map;
 	}
-	
+
 	/**
 	 * Method to create a default map object
 	 * @return the map object
@@ -73,7 +73,7 @@ public abstract class SceneryFactory {
 		map.addMapObject(o);
 		return o;
 	}
-	
+
 	/**
 	 * Method to create a default map character
 	 * @return the character
