@@ -28,12 +28,12 @@ public class ISoundTest {
 
 	@Test
 	public void loadAndPlayAsynchronousSound() {
-		ISound sound = rm.createSound("assets/sounds/sound_ambience_nature.wav");
+		ISound sound = rm.createSound("res/sounds/sound_ambience_nature.wav");
 		assertTrue(sound.playAsynchronous());
 	}
 	@Test
 	public void loadAndPlaySynchronousSound() {
-		ISound sound = rm.createSound("assets/sounds/sound_ambience_nature.wav");
+		ISound sound = rm.createSound("res/sounds/sound_ambience_nature.wav");
 		assertTrue(sound.playSynchronous());
 	}
 
