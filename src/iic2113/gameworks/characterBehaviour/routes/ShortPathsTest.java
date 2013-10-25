@@ -2,50 +2,27 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package iic2113.gameworks.characterBehaviour.test.routes;
+package iic2113.gameworks.characterBehaviour.routes;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertNotNull;
-
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-import iic2113.gameworks.characterBehaviour.routes.ShortPath;
 
 /**
  *
  * @author Giorgio
  */
 public class ShortPathsTest {
-    
-    public ShortPathsTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
+	
     /**
      * Test of getPath method, of class ShortPaths.
      */
     @Test
     public void testGetPath() {
         System.out.println("Test to get shortest path");
+        
+    	// Test when simple path
         char[][] map = new char[8][];
 		map[0] = new char[] {'o', 'o', 'o', 'o', 's', 'o', 'x', 'o'};
 		map[1] = new char[] {'o', 'o', 'o', 'o', 'x', 'o', 'o', 'o'};
@@ -60,5 +37,20 @@ public class ShortPathsTest {
         int[][] result = ShortPath.getPath(map);
         assertNotNull(result);
         assertArrayEquals(expResult, result);
+        
+        // Test when no path available
+		map[0] = new char[] {'o', 'o', 'o', 'o', 's', 'o', 'x', 'o'};
+		map[1] = new char[] {'o', 'o', 'o', 'o', 'x', 'x', 'o', 'o'};
+		map[2] = new char[] {'o', 'o', 'x', 'x', 'o', 'o', 'o', 'o'};
+		map[3] = new char[] {'x', 'x', 'x', 'o', 'o', 'o', 'o', 'o'};
+		map[4] = new char[] {'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'};
+		map[5] = new char[] {'o', 'o', 'x', 'x', 'x', 'x', 'x', 'x'};
+		map[6] = new char[] {'o', 'o', 'o', 'o', 'o', 'x', 'g', 'o'};
+		map[7] = new char[] {'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'};
+		// Expected result must be empty path
+		expResult = new int[][]{};
+		result = ShortPath.getPath(map);
+		assertNotNull(result);
+		assertArrayEquals(expResult, result);
     }
 }

@@ -18,17 +18,25 @@ public class PatrolPath
 		
 		List<AState> result = agent.search();
 		int roadSize = result.size() * 2 - 1;
-		int[][] road = new int[roadSize][2];
-		for(int i = 0; i < result.size(); i++)
+		int[][] road;
+		if (roadSize > 0)
 		{
-			road[i][0] = result.get(i).getX();
-			road[i][1] = result.get(i).getY();
+			road = new int[roadSize][2];
+			for(int i = 0; i < result.size(); i++)
+			{
+				road[i][0] = result.get(i).getX();
+				road[i][1] = result.get(i).getY();
+			}
+			
+			for(int i = result.size(), j = result.size() - 2; i < roadSize; i++, j--)
+			{
+				road[i][0] = result.get(j).getX();
+				road[i][1] = result.get(j).getY();
+			}
 		}
-		
-		for(int i = result.size(), j = result.size() - 2; i < roadSize; i++, j--)
+		else
 		{
-			road[i][0] = result.get(j).getX();
-			road[i][1] = result.get(j).getY();
+			road = new int[0][2];
 		}
 		
 		return road;
