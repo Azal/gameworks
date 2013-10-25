@@ -36,5 +36,11 @@ public class ISoundTest {
 		ISound sound = rm.createSound("res/sounds/sound_ambience_nature.wav");
 		assertTrue(sound.playSynchronous());
 	}
+	
+	@Test
+	public void loadAndPlayMp3() {
+		ISound sound = rm.createSound("res/sounds/Zelda.mp3");
+		assertTrue(sound.playSynchronous());
+	}
 
 }
