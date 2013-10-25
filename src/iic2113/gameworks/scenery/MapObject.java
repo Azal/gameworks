@@ -1,5 +1,7 @@
 package iic2113.gameworks.scenery;
 
+import java.util.HashMap;
+
 import javax.swing.JLabel;
 
 /**
@@ -18,6 +20,46 @@ class MapObject implements iSprite{
 	protected JLabel spritePath;
 	protected int posX;
 	protected int posY;
+	protected HashMap<String,String> stringParameters;
+	protected HashMap<String,Integer> intParameters;
+	protected HashMap<String,Boolean> boolParameters;
+	protected HashMap<String,Double> doubleParameters;
+	
+	public void addStringParameter(String name, String value){
+		if(!stringParameters.containsKey(name))
+			stringParameters.put(name, value);
+	}
+	
+	public void addIntParameter(String name, int value){
+		if(!intParameters.containsKey(name))
+			intParameters.put(name, value);
+	}
+	
+	public void addBoolParameter(String name, boolean value){
+		if(!boolParameters.containsKey(name))
+			boolParameters.put(name, value);
+	}
+	
+	public void addDoubleParameter(String name, double value){
+		if(!doubleParameters.containsKey(name))
+			doubleParameters.put(name, value);
+	}
+	
+	public String getStringParameter(String name){
+		return stringParameters.get(name);
+	}
+	
+	public int getIntParameter(String name){
+		return intParameters.get(name);
+	}
+	
+	public boolean getBoolParameter(String name){
+		return boolParameters.get(name);
+	}
+	
+	public double getDoubleParameter(String name){
+		return doubleParameters.get(name);
+	}
 	
 	
 	/**

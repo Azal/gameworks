@@ -42,7 +42,21 @@ interface iSprite {
 	 */
 	void setPosition(int positionX, int positionY);
 
+	public void addStringParameter(String name, String value);
 	
+	public void addIntParameter(String name, int value);
+	
+	public void addBoolParameter(String name, boolean value);
+	
+	public void addDoubleParameter(String name, double value);
+	
+	public String getStringParameter(String name);
+	
+	public int getIntParameter(String name);
+	
+	public boolean getBoolParameter(String name);
+	
+	public double getDoubleParameter(String name);
 	
 	
 }
