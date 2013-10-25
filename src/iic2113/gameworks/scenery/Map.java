@@ -13,7 +13,8 @@ Here reside all MapObjects and MapCharacters that compose the Map
 *	@version  0.1
 @created_by @group5/gevalenz,javicabello,ngbravo,vibaseta
 @update_log
-	26/09/2013 - @group5/ngbravo,gevalenz,javicabello,vibaseta      
+	26/09/2013 - @group5/ngbravo,gevalenz,javicabello,vibaseta  
+	25/10/2013 - @group5/ngbravo,gevalenz,javicabello,vibaseta     
 */
 
 
@@ -50,13 +51,13 @@ public class Map {
 	
 	/**
 	 * Constructor
-	 * @param n dimension of the X coordinate of the map
-	 * @param m dimension of the Y coordinate of the map
+	 * @param x dimension of the X coordinate of the map
+	 * @param y dimension of the Y coordinate of the map
 	 */
-	public Map( int n, int m){
+	public Map( int x, int y){
 		characters = new ArrayList<MapCharacter>();
 		objects = new ArrayList<MapObject>();
-		grid = new MapObject[n][m];
+		grid = new MapObject[x][y];
 		//recursos ver path de imagen del mapa
 	}
 
@@ -79,8 +80,7 @@ public class Map {
 	/**
 	 * Method to add MapCharacter to the map
 	 * @param c MapCharacter to add
-	 * @return true if the MapCharacter was added and false if it wasn't added because there is another 
-	 * mapObject in the same position
+	 * @return true if the MapCharacter was added and false if it wasn't added 
 	 */
 	public boolean addMapCharacter( MapCharacter c){			
 		return characters.add(c);
@@ -100,7 +100,7 @@ public class Map {
 	 * Method to check if a position in the map is occupied
 	 * @param x position in the map
 	 * @param y position in the map
-	 * @return the mapObject in the given position
+	 * @return the mapObject in the given position. If the position is empty return null
 	 */
 	public MapObject checkPosition(int x, int y){
 		return grid[x][y];		
@@ -152,6 +152,10 @@ public class Map {
 		return deleteMapObject(o);
 	}
 	
+	/**
+	 * Method to get the map size
+	 * @return Returns a int array of length=2. The X length will be in [0] and Y length will be in [1].
+	 */
 	public int[] getSize(){
 		int[] size = new int[2];
 		size [0] = grid.length;
@@ -159,6 +163,13 @@ public class Map {
 		return size;
 	}
 	
+	/**
+	 * Method to set position of a MapCharacter in the map
+	 * @param id id of the MapCharacter
+	 * @param x new position in the map
+	 * @param y new position in the map
+	 * @return true if the MapCharacter was moved and false if the new position is not available
+	 */
 	public boolean setPositionCharacter(int id, int x, int y){
 		if (grid[x][y]==null){
 			for(MapCharacter c : characters){
@@ -174,6 +185,13 @@ public class Map {
 		return false;
 	}
 	
+	/**
+	 * Method to set position of a MapObject in the map
+	 * @param id id of the MapObject
+	 * @param x new position in the map
+	 * @param y new position in the map
+	 * @return true if the MapObject was moved and false if the new position is not available
+	 */
 	public boolean setPositionObject(int id, int x, int y){
 		if (grid[x][y] == null){
 			for(MapObject o : objects){
@@ -189,6 +207,11 @@ public class Map {
 		return false;
 	}
 	
+	/**
+	 * Method to get a MapObject
+	 * @param id id of the MapObject
+	 * @return the MapObject with this id and null if there isnt a MapObject in the list with this id 
+	 */
 	public MapObject getObjectById(int id){
 		for(MapObject o : objects){
 			if(o.getId() == id){
@@ -204,10 +227,19 @@ public class Map {
 		return null;
 	}
 
+	/**
+	 * Method to set the sprite of the Map
+	 * @param JLabel new sprite of the Map
+	 * @return the MapObject with this id and null if there isnt a MapObject in the list with this id 
+	 */
 	public void setSprite(JLabel sprite){
 		mapSprite = sprite;
 	}
 
+	/**
+	 * Method to get the List of MapObjects 
+	 * @return a list of ISprites 
+	 */
 	public List<ISprite> getObjects(){
 		List<ISprite> mapObjects = new ArrayList<ISprite>();
 		for(MapObject o : objects){
