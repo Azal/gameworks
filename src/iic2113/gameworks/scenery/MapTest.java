@@ -40,7 +40,7 @@ public class MapTest {
 	public void testAddMapCharacter() {
 		try {
 			Map map = new Map();
-			MapCharacter ch = new MapCharacter();
+			MapCharacter ch = new MapCharacter(0);
 			if(map.checkPosition(0, 0) == null){
 				ch.setPosition(0,0);
 				map.addMapCharacter(ch);
@@ -54,7 +54,7 @@ public class MapTest {
 	public void testAddMapCharacterAsMapObject() {
 		try {
 			Map map = new Map();
-			MapObject ch = new MapCharacter();
+			MapObject ch = new MapCharacter(0);
 			if(map.checkPosition(0, 0) == null){
 				ch.setPosition(0,0);
 				map.addMapObject(ch);
@@ -84,7 +84,7 @@ public class MapTest {
 	@Test
 	public void testDeleteMapCharacterMapCharacter() {
 		Map map = new Map();
-		MapCharacter ch = new MapCharacter();
+		MapCharacter ch = new MapCharacter(0);
 		ch.setPosition(0,0);
 		map.addMapCharacter(ch);
 		//assertTrue(map.deleteMapCharacter(ch));
@@ -94,7 +94,7 @@ public class MapTest {
 	@Test
 	public void testDeleteMapCharacterIntInt() {
 		Map map = new Map();
-		MapCharacter ch = new MapCharacter();
+		MapCharacter ch = new MapCharacter(0);
 		ch.setPosition(0,0);
 		map.addMapCharacter(ch);
 		//assertTrue(map.deleteMapCharacter(0,0));
