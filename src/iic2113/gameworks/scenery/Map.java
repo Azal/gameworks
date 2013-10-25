@@ -1,8 +1,9 @@
 package iic2113.gameworks.scenery;
 
+import iic2113.gameworks.scenery.MapCharacter;
+
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.JLabel;
 
 /**
@@ -68,29 +69,19 @@ class Map {
 	 * @return true if the MapCharacter was added and false if it wasn't added because there is another 
 	 * mapObject in the same position
 	 */
-	public boolean addMapCharacter( MapCharacter c){
-		if(grid[c.getX()] == null && grid[c.getY()] == null){
-			characters.add(c);
-			grid[c.getX()][c.getY()] = c;
-			return true;
-		}
-		return false;
+	public boolean addMapCharacter( MapCharacter c){			
+		return characters.add(c);
 	}
 	
 	/**
 	 * Method to add MapObject to the map
 	 * @param o MapObject to add
-	 * @return true if the MapObject was added and false if it wasn't added because there is another 
-	 * mapObject in the same position
+	 * @return true if the MapObject was added to the List and false if it wasn't added.
 	 */
 	public boolean addMapObject( MapObject o){
-		if(grid[o.getX()] == null && grid[o.getY()] == null){
-			objects.add(o);
-			grid[o.getX()][o.getY()] = o;
-			return true;
-		}
-		return false;
+		return objects.add(o);
 	}
+	
 	
 	/**
 	 * Method to check if a position in the map is occupied
@@ -148,6 +139,71 @@ class Map {
 		return deleteMapObject(o);
 	}
 	
+	public int[] getSize(){
+		int[] size = new int[2];
+		size [0] = grid.length;
+		size [1] = grid[0].length;
+	}
+	
+	public boolean setPositionCharacter(int id, int x, int y){
+		if (grid[x][y]==null){
+			for(MapCharacter c : characters){
+				if(c.getId() == id){
+					if (c.getX()!=-1 && c.getY()!=-1)
+						grid[c.getX()][c.getY()]=null;
+					c.setPosition(x, y);
+					grid[x][y]=c;
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	public boolean setPositionObject(int id, int x, int y){
+		if (grid[x][y] == null){
+			for(MapObject o : objects){
+				if(o.getId() == id){
+					if (o.getX() != -1 && o.getY() != -1)
+						grid[o.getX()][o.getY()] = null;
+					o.setPosition(x, y);
+					grid[x][y] = o;
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	public MapObject getObjectById(int id){
+		for(MapObject o : objects){
+			if(o.getId() == id){
+				return o;
+			}
+		}
+		
+		for(MapCharacter c : characters){
+			if(c.getId() == id){
+				return (MapObject)c;
+			}
+		}
+	}
+
+	public void setSprite(JLabel sprite){
+		mapSprite = sprite;
+	}
+
+	public List<ISprite> getObject(){
+		List<ISprite> mapObjects = new ArrayList<ISprites>();
+		for(MapObject o : objects){
+			mapObjects.add((ISprite)o);
+		}
+		
+		for(MapCharacter c : characters){
+			mapObjects.add((ISprite)c);
+		}
+		return mapObjects;
+	}
 }
 
 
