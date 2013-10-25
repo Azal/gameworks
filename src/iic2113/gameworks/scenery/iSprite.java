@@ -2,7 +2,7 @@ package iic2113.gameworks.scenery;
 
 import javax.swing.JLabel;
 
-interface iSprite {
+interface ISprite {
 
 	/**
 	 * 
