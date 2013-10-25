@@ -25,6 +25,30 @@ class MapObject implements ISprite{
 	protected HashMap<String,Boolean> boolParameters;
 	protected HashMap<String,Double> doubleParameters;
 	
+	public MapObject(int id){
+		posX = -1;
+		posY = -1;
+		this.id = id;
+		stringParameters = new HashMap<String, String>();
+		intParameters = new HashMap<String, Integer>();
+		boolParameters = new HashMap<String, Boolean>();
+		doubleParameters = new HashMap<String, Double>();
+		
+		//Falta pedir sprite por defecto
+	}
+	
+	public MapObject(int id, int posX, int posY){
+		this.posX = posX;
+		this.posY = posY;
+		this.id = id;
+		stringParameters = new HashMap<String, String>();
+		intParameters = new HashMap<String, Integer>();
+		boolParameters = new HashMap<String, Boolean>();
+		doubleParameters = new HashMap<String, Double>();
+		
+		//Falta pedir sprite por defecto
+	}
+	
 	public void addStringParameter(String name, String value){
 		if(!stringParameters.containsKey(name))
 			stringParameters.put(name, value);
@@ -59,6 +83,31 @@ class MapObject implements ISprite{
 	
 	public double getDoubleParameter(String name){
 		return doubleParameters.get(name);
+	}
+	
+	public void deleteParameter(String name){
+		if(stringParameters.containsKey(name))
+			stringParameters.remove(name);
+		else if(intParameters.containsKey(name))
+			intParameters.remove(name);
+		else if(doubleParameters.containsKey(name))
+			doubleParameters.remove(name);
+		else if(boolParameters.containsKey(name))
+			boolParameters.remove(name);
+	}
+	
+	public void editParameter(String name, String value){
+		if(stringParameters.containsKey(name))
+			stringParameters.put(name, value);
+		else if(intParameters.containsKey(name)){
+			intParameters.put(name, Integer.parseInt(value));
+		}
+		else if(doubleParameters.containsKey(name)){
+			doubleParameters.put(name, Double.parseDouble(value));
+		}
+		else if(boolParameters.containsKey(name)){
+			boolParameters.put(name, Boolean.parseBoolean(value));
+		}
 	}
 	
 	
