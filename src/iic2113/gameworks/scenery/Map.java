@@ -9,16 +9,17 @@ import javax.swing.JLabel;
 /**
 Here reside all MapObjects and MapCharacters that compose the Map
  	-Reference to external code-
-*
-*	@version  0.1
-@created_by @group5/gevalenz,javicabello,ngbravo,vibaseta
-@update_log
-	26/09/2013 - @group5/ngbravo,gevalenz,javicabello,vibaseta      
-*/
+ *
+ *	@version  0.1
+ *  @created_by @group5/gevalenz,javicabello,ngbravo,vibaseta
+ *  @update_log
+	26/09/2013 - @group5/ngbravo,gevalenz,javicabello,vibaseta  
+	25/10/2013 - @group5/ngbravo,gevalenz,javicabello,vibaseta     
+ */
 
 
 public class Map {
-	
+
 	/**
 	 * List for all MapCharacters
 	 */
@@ -36,8 +37,8 @@ public class Map {
 	 * JLabel for the Sprite of this Map.
 	 */
 	protected JLabel mapSprite;
-	
-	
+
+
 	/**
 	 * Constructor by default dimensions 20 x 20
 	 */
@@ -47,16 +48,16 @@ public class Map {
 		grid = new MapObject[20][20];
 		//recursos ver path de imagen del mapa
 	}
-	
+
 	/**
 	 * Constructor
-	 * @param n dimension of the X coordinate of the map
-	 * @param m dimension of the Y coordinate of the map
+	 * @param x dimension of the X coordinate of the map
+	 * @param y dimension of the Y coordinate of the map
 	 */
-	public Map( int n, int m){
+	public Map( int x, int y){
 		characters = new ArrayList<MapCharacter>();
 		objects = new ArrayList<MapObject>();
-		grid = new MapObject[n][m];
+		grid = new MapObject[x][y];
 		//recursos ver path de imagen del mapa
 	}
 
@@ -79,13 +80,12 @@ public class Map {
 	/**
 	 * Method to add MapCharacter to the map
 	 * @param c MapCharacter to add
-	 * @return true if the MapCharacter was added and false if it wasn't added because there is another 
-	 * mapObject in the same position
+	 * @return true if the MapCharacter was added and false if it wasn't added 
 	 */
 	public boolean addMapCharacter( MapCharacter c){			
 		return characters.add(c);
 	}
-	
+
 	/**
 	 * Method to add MapObject to the map
 	 * @param o MapObject to add
@@ -94,18 +94,18 @@ public class Map {
 	public boolean addMapObject( MapObject o){
 		return objects.add(o);
 	}
-	
-	
+
+
 	/**
 	 * Method to check if a position in the map is occupied
 	 * @param x position in the map
 	 * @param y position in the map
-	 * @return the mapObject in the given position
+	 * @return the mapObject in the given position. If the position is empty return null
 	 */
 	public MapObject checkPosition(int x, int y){
 		return grid[x][y];		
 	}
-	
+
 	/**
 	 * Method to delete MapCharacter to the map
 	 * @param c MapCharacter to delete
@@ -115,7 +115,7 @@ public class Map {
 		grid[c.getX()][c.getY()] = null;
 		return characters.remove(c);
 	}
-	
+
 	/**
 	 * Method to delete MapCharacter to the map
 	 * @param x position in the map
@@ -128,7 +128,7 @@ public class Map {
 			return false;
 		return deleteMapCharacter(c);
 	}
-	
+
 	/**
 	 * Method to delete MapObject to the map
 	 * @param o MapObject to delete
@@ -138,7 +138,7 @@ public class Map {
 		grid[o.getX()][o.getY()] = null;
 		return objects.remove(o);
 	}
-	
+
 	/**
 	 * Method to delete MapObject to the map
 	 * @param x position in the map
@@ -151,7 +151,7 @@ public class Map {
 			return false;
 		return deleteMapObject(o);
 	}
-	
+
 	/**
 	 * Gets the size of the Map
 	 * @return A int array of length 2. In [0] you will find the length in the x-axis, 
@@ -163,7 +163,7 @@ public class Map {
 		size [1] = grid[0].length;
 		return size;
 	}
-	
+
 	/**
 	 * Places a MapCharacter of a given id, in the grid in (x,y)
 	 * @param id The ID of the MapCharacter
@@ -185,7 +185,7 @@ public class Map {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Places a MapObject of a given id, in the grid in (x,y)
 	 * @param id The ID of the MapObject
@@ -207,11 +207,11 @@ public class Map {
 		}
 		return false;
 	}
-	
+
 	/**
-	 * Gets a MapObject with it's id
-	 * @param id The id of the MapObject
-	 * @return The MapObject
+	 * Method to get a MapObject
+	 * @param id id of the MapObject
+	 * @return the MapObject with this id and null if there isnt a MapObject in the list with this id 
 	 */
 	public MapObject getObjectById(int id){
 		for(MapObject o : objects){
@@ -219,7 +219,7 @@ public class Map {
 				return o;
 			}
 		}
-		
+
 		for(MapCharacter c : characters){
 			if(c.getId() == id){
 				return (MapObject)c;
@@ -237,15 +237,15 @@ public class Map {
 	}
 
 	/**
-	 * Gets all objects and characters
-	 * @return A list of all Object's and Character's Sprites
+	 * Method to get the List of MapObjects 
+	 * @return a list of ISprites 
 	 */
 	public List<ISprite> getObjects(){
 		List<ISprite> mapObjects = new ArrayList<ISprite>();
 		for(MapObject o : objects){
 			mapObjects.add((ISprite)o);
 		}
-		
+
 		for(MapCharacter c : characters){
 			mapObjects.add((ISprite)c);
 		}
