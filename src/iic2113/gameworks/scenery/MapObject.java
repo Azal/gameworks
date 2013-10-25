@@ -124,5 +124,5 @@ class MapObject implements iSprite{
 		posX=positionX;
 		posY=positionY;
 	}
-
+	
 }
