@@ -128,11 +128,28 @@ public abstract class SceneryFactory {
 	 * Method to add a new parameter to a character
 	 * @param int character id
 	 * @param String parameter name to add
-	 * @param String value of the new parameter
+	 * @param String value of the new parameter (if double, as 9.56, if boolean, as 0/1)
 	 * @param Enum parameter type
 	 */
-	public static void setParameter(int id, String paramName, String value, Enum type){
-		//MapObject tmp = map.getMapObjectsById(id);
+	public static void setParameter(int id, String paramName, String value, VarType type){
+//		MapObject tmp = map.getMapObjectsById(id);
+//		if(type == VarType.BOOL){
+//			boolean val;
+//			if(value == "0")
+//				val = false;
+//			else
+//				val = true;
+//			tmp.addBoolParameter(paramName, val);
+//		}
+//		else if(type == VarType.DOUBLE){
+//			tmp.addDoubleParameter(paramName, Double.parseDouble(value));
+//		}
+//		else if(type == VarType.INT){
+//			tmp.addIntParameter(paramName, Integer.parseInt(value));
+//		}
+//		else {
+//			tmp.addStringParameter(paramName, value);
+//		}
 	}
 	
 	
@@ -141,9 +158,27 @@ public abstract class SceneryFactory {
 	 * @param int character id
 	 * @param String parameter name to change
 	 * @param String new value of the parameter
+	 * @param Enum parameter type
 	 */
-	public static void editParameter(int id, String paramName, String value){
-		
+	public static void editParameter(int id, String paramName, String value, VarType type){
+//		MapObject tmp = map.getMapObjectsById(id);
+//		if(type == VarType.BOOL){
+//			boolean val;
+//			if(value == "0")
+//				val = false;
+//			else
+//				val = true;
+//			tmp.setBoolParameter(paramName, val);
+//		}
+//		if(type == VarType.DOUBLE){
+//			tmp.setDoubleParameter(paramName, Double.parseDouble(value));
+//		}
+//		if(type == VarType.INT){
+//			tmp.setIntParameter(paramName, Integer.parseInt(value));
+//		}
+//		if(type == VarType.STRING){
+//			tmp.setStringParameter(paramName, value);
+//		}
 	}
 
 	/**
@@ -152,7 +187,15 @@ public abstract class SceneryFactory {
 	 * @param String parameter name to delete
 	 */
 	public static void deleteParameter(int id, String paramName){
-	
+//		MapObject tmp = map.getMapObjectsById(id);
+//		if(type == VarType.BOOL)
+//			tmp.deleteBoolParameter(paramName);
+//		if(type == VarType.DOUBLE)
+//			tmp.deleteDoubleParameter(paramName);
+//		if(type == VarType.INT)
+//			tmp.deleteIntParameter(paramName);
+//		if(type == VarType.STRING)
+//			tmp.deleteStringParameter(paramName);
 	}
 
 
