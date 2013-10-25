@@ -7,24 +7,24 @@ import javax.swing.JLabel;
 /**
 Here reside all methods to create scenery
  	-Reference to external code-
-*
-*	@version  0.1
-@created_by @group5/gevalenz,javicabello,ngbravo
-@update_log
+ *
+ *	@version  0.1
+ *  @created_by @group5/gevalenz,javicabello,ngbravo
+ *  @update_log
 	26/09/2013 - @group5/ngbravo,gevalenz,javicabello       
-*/
+ */
 
 public abstract class SceneryFactory {
-	
+
 	protected static Map map;
-	
+
 	/**
 	 * Method to create a default map
 	 */
 	public static void createMap(){
 		map = new Map();
 	}
-	
+
 	/**
 	 * Method to create a map
 	 * @param xDim dimension of the X coordinate of the map
@@ -33,8 +33,18 @@ public abstract class SceneryFactory {
 	public static void createMap(int xDim, int yDim){
 		map = new Map(xDim,yDim);
 	}
-	
+
 	/**
+	 * Get the current map
+	 * @return the map
+	 */
+	public static Map getCurrentMap(){
+		return map;
+	}
+
+
+	/**
+
 	 * Save the current map
 	 * @return true if the map was saved correctly
 	 */
@@ -42,6 +52,7 @@ public abstract class SceneryFactory {
 		//PERSISTENCIA SAVE MAPs
 		return true;
 	}
+
 
 	/**
 	 * Get a saved map
@@ -87,7 +98,7 @@ public abstract class SceneryFactory {
 	public static JLabel getMapSprite(){
 		return map.getSpritePath();
 	}
-	
+
 	/**
 	 * Get size of the current map
 	 * @return int[] with x dimension and y dimension of the map
@@ -107,7 +118,7 @@ public abstract class SceneryFactory {
 		map.addMapObject(o);
 		return o; //RETURN QUE?
 	}
-	
+
 	/**
 	 * Get map objects of the current map
 	 * @return List of map objects as ISprites
