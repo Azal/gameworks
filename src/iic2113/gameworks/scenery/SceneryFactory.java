@@ -1,8 +1,9 @@
 package iic2113.gameworks.scenery;
 
-import java.util.List;
+import iic2113.gameworks.persistence.IFile;
 
-import javax.swing.JLabel;
+import java.awt.Image;
+import java.util.List;
 
 /**
 Here reside all methods to create scenery
@@ -37,13 +38,15 @@ public abstract class SceneryFactory {
 		map = new Map(xDim,yDim);
 	}
 
-
 	/**
 	 * Save the current map
 	 * @return true if the map was saved correctly
 	 */
 	public static boolean saveMap(String path){
 		//PERSISTENCIA SAVE MAPs
+//		IFile file;
+//		Object o = map;
+//		file.newFile(path, o);
 		return true;
 	}
 
@@ -78,20 +81,18 @@ public abstract class SceneryFactory {
 
 	/**
 	 * Set sprite of the current map
-	 * @param JLabel mapSprite
+	 * @param Image mapImage
 	 */
-	public static void setMapSprite(String path){
-		//PEDIR A ALGUIEN
-		//JLabel x = persistencia
-		//map.setSpritePath(x);
+	public static void setMapSprite(Image mapImage){
+		map.setSprite(mapImage);
 	}
 
 	/**
 	 * Get sprite of the current map
 	 * @return JLabel mapSprite
 	 */
-	public static JLabel getMapSprite(){
-		return map.getSpritePath();
+	public static Image getMapSprite(){
+		return map.getSprite();
 	}
 
 	/**

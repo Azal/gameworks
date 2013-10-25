@@ -1,10 +1,9 @@
 package iic2113.gameworks.scenery;
 
 import iic2113.gameworks.scenery.MapCharacter;
-
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JLabel;
 
 /**
 Here reside all MapObjects and MapCharacters that compose the Map
@@ -36,7 +35,8 @@ public class Map {
 	/**
 	 * JLabel for the Sprite of this Map.
 	 */
-	protected JLabel mapSprite;
+	//protected JLabel mapSprite;
+	protected Image mapImage;
 
 
 	/**
@@ -61,20 +61,36 @@ public class Map {
 		//recursos ver path de imagen del mapa
 	}
 
+//	/**
+//	 * Get the sprite path
+//	 * @return JLabel mapSprite
+//	 */
+//	public JLabel getSpritePath(){
+//		return mapSprite;
+//	}
+	
+//	/**
+//	 * Set the sprite path
+//	 * @param JLabel mapSprite
+//	 */
+//	public void setSpritePath(JLabel mapSprite){
+//		this.mapSprite=mapSprite;
+//	}
+	
 	/**
-	 * Get the sprite path
-	 * @return JLabel mapSprite
+	 * Get the sprite image
+	 * @return Image mapImage
 	 */
-	public JLabel getSpritePath(){
-		return mapSprite;
+	public Image getSprite(){
+		return mapImage;
 	}
 
 	/**
-	 * Set the sprite path
-	 * @param JLabel mapSprite
+	 * Set the sprite image
+	 * @param Image mapImage
 	 */
-	public void setSpritePath(JLabel mapSprite){
-		this.mapSprite=mapSprite;
+	public void setSprite(Image mapImage){
+		this.mapImage = mapImage;
 	}
 
 	/**
@@ -226,14 +242,6 @@ public class Map {
 			}
 		}
 		return null;
-	}
-
-	/**
-	 * Sets the JLabel Sprite for the Map
-	 * @param JLableSprite The JLable for the new Sprite
-	 */
-	public void setSprite(JLabel JLableSprite){
-		mapSprite = JLableSprite;
 	}
 
 	/**
