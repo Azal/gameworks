@@ -37,7 +37,6 @@ public class SoundMP3 implements ISound{
 			new Format[]{output},
 			PlugInManager.CODEC
 		);
-
 	}
 
 	public boolean playSynchronous() {
