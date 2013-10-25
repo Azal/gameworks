@@ -4,52 +4,30 @@ import java.util.ArrayList;
 
 /**
    The EventManager, as the name implies, is in charge of managing the Events.
-   It does this by managing a list of Events, which have a list of Restrictions (conditions that must be met to declare the Event as done)
-   and Results (actions that will be taken when the Event is marked as done).
-   This manager also handles a list of the Restrictions, which can be applied to more than one Event. To do this, the EventManager simply adds a
-   previously created Restriction to the list that each Event has. Then, when the Restriction is marked as done, every single Event that requires it
-   will have it marked as done.
+   It does this by managing a list of Events, with each Event having a list of Results and Restrictions. This manager is in charge of handling
+   everything related to Results as well, since it's just related to Events. It's not in charge of handling the list of Restrictions, that's the RestrictionManager's job.
    
    @version  1.0  
    @created_by @group4/Squirrels
    @update_log
         26/09/2013 * @group4/Squirrels - Created the class using the Singleton pattern. 
         27/09/2013 * @group4/Kulppi - Return values in many methods, create event, also add restrictions.
-   @todo
-   		- Perhaps using Exceptions to check the uniqueness of the identifiers is too much. This could be switched to simple boolean methods.
+        24/10/2013 * @group4/Squirrels - Modified the class so that it's no longer a Singleton and instead is just in charge of handling events and results.
         *
         */
 public class EventManager {
 		
-		/*
-	    	Instance of the EventManager class, using the Singleton design pattern.
-	    	When an instance is required, this variable is checked to see if it's null.
-    	*/
-        private static EventManager instance = null;
+
         /* 
          * ArrayList of Events. By having the complete list of Events, the Manager can check each Event to see if it's done or not(Restrictions) and run the correct
          * response (Results).
          */
         public ArrayList<Event> events;
         
-        //Since restrictions can be applied to more than one event, we have a general list of Restrictions that will be passed to each Event by reference
-        public ArrayList<Restriction> restrictions;
         
-        //We make the constructor private so that it can only be accessed by the getInstance() method, forcing the singleton design pattern
-        //Our constructor simply initializes the lists the EventManager uses.
-        private EventManager() {
+        //Our constructor simply initializes the list the EventManager uses.
+        public EventManager() {
         	events = new ArrayList<Event>(); 
-        	restrictions = new ArrayList<Restriction>();
-        }
-        
-        //This method forces the singleton design pattern:
-        // - If there's already an instance of EventManager created, it returns it
-        // - If there's not,we create one and THEN we return it.
-        public static synchronized EventManager getInstance() {
-                if (instance == null) {
-                        instance = new EventManager ();
-                }
-                return instance;
         }
         
         
@@ -66,19 +44,7 @@ public class EventManager {
         		}
            //Then we add that Event to our list
         	events.add(newEvent);
-
-            if(restrictions != null )              
-            for(Restriction r: restrictions){
-                boolean check = true;
-                for(Restriction r_in: this.restrictions){
-                    if(r_in.getIdentifier().equals(r.getIdentifier()))
-                        check = false;
-                }
-                //We add it normally
-                if (check)
-                    this.restrictions.add(r);
-            }
-
+        	
             return newEvent;
         }
         
@@ -128,7 +94,7 @@ public class EventManager {
         }
         
         //This method changes the identifier of an Event, checking first that the new one hasn't been taken.
-        public void setEventAsNonRepeating(String oldIdentifier, String newIdentifier)
+        public void changeEventIdentifier(String oldIdentifier, String newIdentifier)
         {
         	for(Event e: events){
         		if(e.getIdentifier().equals(newIdentifier))
@@ -145,77 +111,16 @@ public class EventManager {
         	throw new IllegalArgumentException("There's no Event with identifier '"+oldIdentifier+"'.");
         }
         
-        //Methods to handle restrictions
-        
-        //Add a new Restriction to the general restriction list.
-        public void addRestriction(Restriction newRestriction)
+        //Gets a particular event by it's identifier. If none are found, returns null
+        public Event getEventByIdentifier(String identifier)
         {
-        	//Check that it hasn't been added yet
-        	for(Restriction r: restrictions){
-        		if(r.getIdentifier().equals(newRestriction.getIdentifier()))
-        			throw new IllegalArgumentException("There's already a restriction with that identifier. Identifiers need to be unique.");
-        		}
-        	//We add it normally
-        	restrictions.add(newRestriction);
-        }
-        
-        //Add a restriction from the general list to an event
-        public void addRestrictionToEvent(String eventIdentifier, String restrictionIdentifier)
-        {
-        	//Get that restriction
-        	Restriction restrictionToAdd = null;
-        	for(Restriction r: restrictions){
-        		if(r.getIdentifier().equals(restrictionIdentifier))
-        			restrictionToAdd = r;
-        		}
-        	//Check that it exists
-        	if(restrictionToAdd == null)
-        		throw new IllegalArgumentException("There's no restriction with the identifier '"+restrictionIdentifier+"'.");
-        	
         	for(Event e: events){
-        		if(e.getIdentifier().equals(eventIdentifier))
-        		{
-        			//We check if the restriction is already there
-        			for(Restriction r: e.getRestrictions()){
-                		if(r.getIdentifier().equals(restrictionIdentifier))
-                			throw new IllegalArgumentException("There's already a restriction with that identifier. Identifiers need to be unique.");
-                		}
-        			//If not, just add it
-        			e.getRestrictions().add(restrictionToAdd);
-        			return;
-        		}	
-        	}
-        	throw new IllegalArgumentException("There's no event with the identifier '"+eventIdentifier+"'.");
+        		if(e.getIdentifier().equals(identifier))
+        			return e;
+        		}
+        	return null;
         }
         
-        //Remove a restriction from the general list
-        public void removeRestriction(String identifier)
-        {
-        	//Check that it hasn't been added yet
-        	for(Restriction r: restrictions){
-        		if(r.getIdentifier().equals(identifier))
-        			restrictions.remove(r);
-        		}
-        	//We add it normally
-        	
-        }
-        
-        //Remove a restriction from an specific event
-        public void removeRestriction(String eventIdentifier, String restrictionIdentifier)
-        {
-        	//Check that it hasn't been added yet
-        	for(Event e: events){
-        		if(e.getIdentifier().equals(eventIdentifier))
-        		{
-        			for(Restriction r: e.getRestrictions()){
-                		if(r.getIdentifier().equals(restrictionIdentifier))
-                			e.getRestrictions().remove(r);
-                		}
-        		}
-        			
-        	}
-        	
-        }
         
         //Get restrictions from an event
         public ArrayList<Restriction> getRestrictionsFromEvent(String identifier)
@@ -226,41 +131,11 @@ public class EventManager {
         		if(e.getIdentifier().equals(identifier))
          		   return e.getRestrictions();
         		}
-	        //If we arrive here, there were no events with that identifier, so we throw an exception
+            //If we arrive here, there were no events with that identifier, so we throw an exception
         	throw new IllegalArgumentException("There's no Event with the identifier '"+identifier+"'.");
         }
         
-        //Mark a specific restriction as done
-        public void markRestrictionAsDone(String identifier)
-        {
-        	//Check that it exists
-        	for(Restriction r: restrictions){
-        		if(r.getIdentifier().equals(identifier))
-        		{
-        			r.check();
-        			return ;
-        		}
-        			
-        	}
-        	//If we make it here, there's no such exception, throw an ... error
-        	throw new IllegalArgumentException("There's no Restriction with the identifier '"+identifier+"'.");
-        }
-        
-        //Check all Restrictions
-      //Mark a specific restriction as done
-        public void checkAllRestrictions()
-        {
-        	//Iterate through all of them
-        	for(Restriction r: restrictions){
-        		r.check();	
-        	}	
-        }
-        
-        //Methods to handle results
-        //This includes executing results
-        //We can either trigger one event (if all it's restrictions have been completed) or all events that haven't been triggered (or repeating events)
-        
-        //Trigger one event (will only be triggered if all restrictions have been completed).
+      //Trigger one event (will only be triggered if all restrictions have been completed).
         public boolean triggerEvent(String identifier)
         {
         	for(Event e: events){
@@ -269,7 +144,8 @@ public class EventManager {
         		}
             return false;
         }
-        //Trigger all events
+        
+      //Trigger all events
         //The idea is for this method to be called per tick, so that all methods that haven't been triggered yet and have all their restrictions
         //completed can be triggered.
         public void triggerAllDoneEvents()
@@ -279,7 +155,7 @@ public class EventManager {
         	}
         }
         
-        //Get al the results from an event
+      //Get al the results from an event
         public ArrayList<Result> getResultsFromEvent(String identifier)
         {
         	//We iterate through the whole list, checking for the Event with that identifier
@@ -331,21 +207,6 @@ public class EventManager {
         	}
         	throw new IllegalArgumentException("There's no event with the identifier '"+eventIdentifier+"'.");
         }
-        
-       //Methods used for persistency
-        
-       //This method will be used by the persistency module to load a saved EventManager
-       //To get the current Event Manager, we use the getInstance() method, defined previously.
-       public void loadEventManager(EventManager existingEventManager)
-       {
-    	   //We simply load the values from the exisitng Event Manager
-    	   instance = existingEventManager;
-    	   events = existingEventManager.events;
-    	   restrictions = existingEventManager.restrictions;
-    	   
-    	   
-       }
-        
         
         
 }

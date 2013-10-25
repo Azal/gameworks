@@ -17,6 +17,7 @@ import java.util.ArrayList;
  * @author @group4/Kulppi
  * @update_log
  *		26/09/2013 * @group4/kulppi - Created the class and test. 
+ *		24/10/2013 * @group4/Squirrels - Updated the tests. 
  */
 public class EventManagerTest {
 
@@ -24,12 +25,12 @@ public class EventManagerTest {
 
     //Event Manager
     @Test
-	public void CreateEventManagerTest() {
-		org.junit.Assert.assertNotNull("should not be null", EventManager.getInstance());
+	public void CreateHistoryManagerTest() {
+		org.junit.Assert.assertNotNull("should not be null", HistoryManager.getInstance());
 	}
     @Test
-	public void EventManagerCreateEventTest() {
-		EventManager em = EventManager.getInstance();
+	public void HistoryManagerCreateEventTest() {
+    	HistoryManager em = HistoryManager.getInstance();
 
     	ArrayList<Result> results = new ArrayList<Result>(); 
 		results.add(new Result("r_1") );
@@ -41,8 +42,8 @@ public class EventManagerTest {
 
 	
     @Test
-	public void EventManagerCheckEventStatusTest() {
-		EventManager em = EventManager.getInstance();
+	public void HistoryManagerCheckEventStatusTest() {
+    	HistoryManager em = HistoryManager.getInstance();
 
     	ArrayList<Result> results = new ArrayList<Result>(); 
 		results.add(new Result("r_1") );
@@ -60,8 +61,8 @@ public class EventManagerTest {
 
 	
     @Test
-	public void EventManagerAddRestrictionToEventTest() {
-		EventManager em = EventManager.getInstance();
+	public void HistoryManagerAddRestrictionToEventTest() {
+    	HistoryManager em = HistoryManager.getInstance();
 
 		//org.junit.Assert.testAssertNull("EM: Needs Restriction and Event", em.addRestrictionToEvent("Event_1", "Restriction_1") );
 

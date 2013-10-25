@@ -39,6 +39,16 @@ public class Result {
 		identifier = newIdentifier;
 	}
 		
+	//Similar to Restriction, these variations of the execute() method are intended to be rewritten by the programmer.
+	public void execute(Object[] parameters)
+	{
+		//Perform the action
+	}
+	
+	public void execute(Object parameter)
+	{
+		//Perform the action
+	}
 
 	public void execute()
 	{

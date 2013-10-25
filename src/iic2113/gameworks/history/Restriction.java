@@ -43,8 +43,22 @@ public class Restriction {
 	
 	//This method validates the condition for the Restriction (which varies depending on the Restriction).
 	//If the condition is met, it changes the variable "done" to true.
+	//We have 3 different types of check(), so that it can be re-written easily
+	//This one recieves a list of different parameters
+	public void check(Object[] parameters)
+	{
+		done = true;
+	}
+	
+	//This one recieves one parameter
+	public void check(Object parameter)
+	{
+		done = true;
+	}
+	//No parameters
 	public void check()
 	{
 		done = true;
 	}
+
 }
