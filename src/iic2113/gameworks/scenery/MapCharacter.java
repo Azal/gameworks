@@ -14,6 +14,10 @@ Here reside all methods to create scenery
 
 public class MapCharacter extends MapObject{
 
+	public MapCharacter(int id) {
+		super(id);
+	}
+
 	/**
 	 * Method to move the Character in a given direction and distance
 	 * @param direction Direction of the movement. Can be UP, DOWN, LEFT, RIGHT

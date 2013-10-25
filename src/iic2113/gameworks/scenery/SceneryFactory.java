@@ -17,11 +17,13 @@ Here reside all methods to create scenery
 public abstract class SceneryFactory {
 
 	protected static Map map;
+	protected static int nextId;
 
 	/**
 	 * Method to create a default map
 	 */
 	public static void createMap(){
+		nextId = 0;
 		map = new Map();
 	}
 
@@ -44,7 +46,6 @@ public abstract class SceneryFactory {
 
 
 	/**
-
 	 * Save the current map
 	 * @return true if the map was saved correctly
 	 */
@@ -111,28 +112,28 @@ public abstract class SceneryFactory {
 
 	/**
 	 * Method to create a default map object
-	 * @return the map object
+	 * @return the map object as ISprite
 	 */
-	public static MapObject createMapObject(){
-		MapObject o = new MapObject();
+	public static ISprite createMapObject(){
+		MapObject o = new MapObject(getNextId());
 		map.addMapObject(o);
-		return o; //RETURN QUE?
+		return (ISprite)o;
 	}
 
 	/**
 	 * Get map objects of the current map
 	 * @return List of map objects as ISprites
 	 */
-//	public static List<iSprite> getMapObjects(){
+//	public static List<ISprite> getMapObjects(){
 //		return map.getObjects()
 //	}
 	
 	/**
 	 * Method to create a default map character
-	 * @return the character
+	 * @return the character as ISprite
 	 */
-	public static MapCharacter createMapCharacter(){
-		return new MapCharacter(); //RETURN SPRITE O QUE?
+	public static ISprite createMapCharacter(){
+		return (ISprite)new MapCharacter(getNextId());
 	}
 	
 	/**
@@ -207,6 +208,10 @@ public abstract class SceneryFactory {
 //			tmp.deleteIntParameter(paramName);
 //		if(type == VarType.STRING)
 //			tmp.deleteStringParameter(paramName);
+	}
+	
+	protected static int getNextId(){
+		return nextId++;
 	}
 
 
