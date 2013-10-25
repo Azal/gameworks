@@ -1,12 +1,13 @@
 package iic2113.gameworks.Preview;
 
 import iic2113.gameworks.Preview.Interfaces.IGameworksWindow;
-import iic2113.gameworks.Preview.Widgets.CharacterAttributeList;
+import iic2113.gameworks.Preview.Utils.CharacterAttributeList;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -18,6 +19,8 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import Scenery.Character;
 
@@ -25,8 +28,11 @@ import Scenery.Character;
 * Class CharacterEditionFrame
 *  Class which contains the logic associated with the window displayed to make character editions: 
 *  manage attributes, behaviors and sprites linked to the character.
-*	@version  0.5
-* @created_by @group1/fjsandov       
+*	@version  0.7
+* @created_by @group1/fjsandov
+* @update_log
+		25/10/2013 * @group1/fjsandov - updated to work with scenery module (as it was on this date).   
+* 
 */
 
 public class CharacterEditionFrame extends JFrame implements IGameworksWindow
@@ -40,12 +46,12 @@ public class CharacterEditionFrame extends JFrame implements IGameworksWindow
 	private JTextField stringName;
 	private JTextField stringValue;
 	private JButton saveAttrString;
+	private JButton saveAttrBoolean;
 	private JTextField numericName;
-	private JSpinner numericValue;
 	private JButton saveAttrNumeric;
+	private JSpinner numericValue;
 	private JTextField booleanName;
 	private JCheckBox booleanValue;
-	private JButton saveAttrBoolean;
 	private JButton removeAttributeBtn;
 	
 	private JList<Object> behaviorList;
@@ -78,7 +84,7 @@ public class CharacterEditionFrame extends JFrame implements IGameworksWindow
 		characterAttrList.addAttr("y_position", character.getYPosition());
 	}
 	
-	public void clean(){
+	public void clean() {
 		attributesList.removeAll();
 		characterAttrList.removeAll();
 	}
@@ -171,7 +177,7 @@ public class CharacterEditionFrame extends JFrame implements IGameworksWindow
 		getContentPane().add(attributesList);
 		
 		saveAttrNumeric = new JButton("Add/Edit");
-		saveAttrNumeric.addMouseListener(new AddNumericAttributeHandler());
+		saveAttrNumeric.addMouseListener(new SaveNumericAttributeHandler());
 		saveAttrNumeric.setBounds(356, 102, 81, 23);
 		getContentPane().add(saveAttrNumeric);
 		
@@ -188,6 +194,7 @@ public class CharacterEditionFrame extends JFrame implements IGameworksWindow
 		getContentPane().add(behaviorList);
 		
 		removeAttributeBtn = new JButton("Remove Attribute");
+		removeAttributeBtn.setEnabled(false);
 		removeAttributeBtn.setBounds(468, 189, 132, 23);
 		getContentPane().add(removeAttributeBtn);
 		
@@ -198,9 +205,64 @@ public class CharacterEditionFrame extends JFrame implements IGameworksWindow
 	}
 	
 	@Override
-	public void setHandlers(){
+	public void setHandlers() {
 		loadSpriteBtn.addMouseListener(new LoadSpriteHandler());
-		saveAttrNumeric.addMouseListener(new AddNumericAttributeHandler());
+		saveAttrNumeric.addMouseListener(new SaveNumericAttributeHandler());
+		saveAttrString.addMouseListener(new SaveStringAttributeHandler());
+		saveAttrBoolean.addMouseListener(new SaveBooleanAttributeHandler());
+		attributesList.addListSelectionListener(new AttributeListSelectionListener());
+		saveBtn.addMouseListener(new SaveButtonListener());
+	}
+	
+	private class SaveButtonListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			character.setName((String)characterAttrList.getAttr("name"));
+			character.setHP((int)characterAttrList.getAttr("hp"));
+			character.setStamina((int)characterAttrList.getAttr("stamina"));
+			character.setPower((int)characterAttrList.getAttr("power"));
+			character.setKillable((boolean)characterAttrList.getAttr("killable"));
+			character.setAttackable((boolean)characterAttrList.getAttr("attackable"));
+			character.setXPosition((int)characterAttrList.getAttr("x_position"));
+			character.setYPosition((int)characterAttrList.getAttr("y_position"));
+			
+			//METHOD MISSING FOR SAVING THE CHARACTER.
+		}
+	}
+	
+	private class AttributeListSelectionListener implements ListSelectionListener {
+		@Override
+		public void valueChanged(ListSelectionEvent listSelectionEvent) {
+	        boolean adjust = listSelectionEvent.getValueIsAdjusting();
+	        if(!adjust) {
+	          JList list = (JList) listSelectionEvent.getSource();
+	          
+	          @SuppressWarnings("unchecked")
+	          List<Object> selectionValues = list.getSelectedValuesList();
+	          String key = selectionValues.get(0).toString();
+	          
+	          switch(characterAttrList.getType(key)) {
+	          	case STRING: {
+	          		stringName.setText(key);
+	          		stringValue.setText((String)characterAttrList.getAttr(key));
+	          		break;
+	          	}
+	          	case INT: {
+	          		numericName.setText(key);
+	          		numericValue.setValue((int)characterAttrList.getAttr(key));
+	          		break;
+	          	}
+	          	case BOOLEAN: {
+	          		booleanName.setText(key);
+	          		booleanValue.setSelected((boolean)characterAttrList.getAttr(key));
+	          		break;
+	          	}
+	          	default: {
+	          		break;
+	          	}   	 
+	          }
+	        }
+		}
 	}
 	
 	private class LoadSpriteHandler extends MouseAdapter {
@@ -211,10 +273,24 @@ public class CharacterEditionFrame extends JFrame implements IGameworksWindow
 		}
 	}
 	
-	private class AddNumericAttributeHandler extends MouseAdapter {
+	private class SaveNumericAttributeHandler extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			
+			characterAttrList.setAttr(numericName.getText(), (int)numericValue.getValue());
+		}
+	}
+	
+	private class SaveStringAttributeHandler extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			characterAttrList.setAttr(stringName.getText(), stringValue.getText());
+		}
+	}
+	
+	private class SaveBooleanAttributeHandler extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			characterAttrList.setAttr(booleanName.getText(), booleanValue.isSelected());
 		}
 	}
 }
