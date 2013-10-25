@@ -29,16 +29,21 @@ public class MapEditionFrame extends JFrame implements IGameworksWindow {
 
 	private static final long serialVersionUID = 1699801098792119697L;
 	private static MapEditionFrame mapEditionFrame = null;
-	private MapPanel panel = new MapPanel();
-	private JPanel contentPane;
-	private TextField filepath = new TextField();
-	private JSpinner yCell = new JSpinner();
-	private JSpinner xCell = new JSpinner();
-	private Button addObject = new Button("Add Object");
-	private Button save = new Button("Save");
+	private MapPanel panel = new MapPanel();				//this panel shows the current state of the map
+	private JPanel contentPane;								//this panel contains all the objects in the MapEditionFrame
+	private TextField characterName = new TextField();		//input for the name of the player
+	private TextField filePath = new TextField();			//path to the sprite for the player
+	private JSpinner yCell = new JSpinner();				//number of the cell that represents the y position for the player
+	private JSpinner xCell = new JSpinner();				//number of the cell that represents the x position for the player
+	private Button addObject = new Button("Add Object");	//button to add an object given the required inputs
+	private Button addPlayer = new Button("Add Player");	//button to add a player
+	private Button save = new Button("Save");				//save the state of the scenary module
+	private TextField backgroundFilePath = new TextField();	//path to the sprite for the backround
+	private Button changeBackground = new Button("Change Background"); //change the background using the given path 
 	
 	private MapEditionFrame() 
 	{
+		panel.map = Scenery.Map.getCurrentMap();
 		initGraphicalInterface();
 		setHandlers();
 		setVisible(true);
@@ -62,63 +67,87 @@ public class MapEditionFrame extends JFrame implements IGameworksWindow {
 		
 		panel.setBounds(10, 10, 32*16, 32*9);
 		contentPane.add(panel);
-		addObject.setBounds(316, 304, 79, 24);
-		contentPane.add(addObject);
+		addPlayer.setBounds(443, 304, 79, 24);
+		contentPane.add(addPlayer);
 		
-		filepath.setText("/images/exp32.png");
-		filepath.setBounds(20, 304, 122, 24);
-		contentPane.add(filepath);
+		characterName.setText("Name");
+		characterName.setBounds(20, 319, 122, 24);
+		contentPane.add(characterName);
 		
-		xCell.setBounds(181, 304, 38, 24);
+		filePath.setText("/images/exp32.png");
+		filePath.setBounds(147, 319, 122, 24);
+		contentPane.add(filePath);
+		
+		backgroundFilePath.setText("/images/Green tile.png");
+		backgroundFilePath.setBounds(20, 380, 155, 24);		
+		contentPane.add(backgroundFilePath);
+		
+		xCell.setBounds(308, 319, 38, 24);
 		contentPane.add(xCell);
 		
-		yCell.setBounds(249, 304, 38, 24);
+		yCell.setBounds(376, 319, 38, 24);
 		contentPane.add(yCell);
 		
 		JLabel lblX = new JLabel("x");
 		lblX.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblX.setBounds(166, 305, 18, 23);
+		lblX.setBounds(293, 320, 18, 23);
 		contentPane.add(lblX);
 		
 		JLabel lblY = new JLabel("y");
 		lblY.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblY.setBounds(237, 304, 18, 24);
+		lblY.setBounds(364, 319, 18, 24);
 		contentPane.add(lblY);
 		
 		save.setBounds(533, 399, 79, 24);
 		contentPane.add(save);
 		
-		//gets the image for the background tiles (placeholder)
-		try {
-			panel.backTile = ImageIO.read(this.getClass().getResource("/images/Green tile.png"));
-			panel.cellPix = 32;
-			panel.width = 16;
-			panel.height = 9;
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		changeBackground.setBounds(181, 380, 130, 24);
+		contentPane.add(changeBackground);
+		
+		addObject.setBounds(443, 333, 79, 24);
+		contentPane.add(addObject);
 	}
 	
 
 	@Override
 	public void setHandlers(){
+		addPlayer.addMouseListener(new AddPlayerHandler());
 		addObject.addMouseListener(new AddObjectHandler());
+		changeBackground.addMouseListener(new ChangeBackgroundHandler());
+	}
+	
+	private class AddPlayerHandler extends MouseAdapter {
+		@Override
+		//adds an object to the map (panel)
+		public void mouseClicked(MouseEvent e) {
+			Scenery.PlayableCharacter ply = new Scenery.PlayableCharacter(characterName.getText());
+			ply.setXPosition((int) xCell.getValue());
+			ply.setYPosition((int) yCell.getValue());
+			ply.setSpritePath(filePath.getText());
+			panel.map.addCharacter(ply);
+			panel.repaint();
+		}
 	}
 	
 	private class AddObjectHandler extends MouseAdapter {
 		@Override
 		//adds an object to the map (panel)
 		public void mouseClicked(MouseEvent e) {
-			try {
-				MapObject obj = new MapObject();
-				obj.sprite = ImageIO.read(this.getClass().getResource(filepath.getText()));
-				obj.x = (int) xCell.getValue();
-				obj.y = (int) yCell.getValue();
-				panel.objects.add(obj);
-				panel.repaint();
-			} catch (IOException ex) {
-				ex.printStackTrace();
-			}
+			Scenery.MapObject obj = new Scenery.MapObject();
+			obj.setXPosition((int) xCell.getValue());
+			obj.setYPosition((int) yCell.getValue());
+			obj.setSpritePath(filePath.getText());
+			panel.map.addMapObject(obj);
+			panel.repaint();
+		}
+	}
+	
+	private class ChangeBackgroundHandler extends MouseAdapter {
+		@Override
+		//changes the background path for the map
+		public void mouseClicked(MouseEvent e) {
+			panel.map.setSpritePath(backgroundFilePath.getText());
+			panel.repaint();
 		}
 	}
 }
