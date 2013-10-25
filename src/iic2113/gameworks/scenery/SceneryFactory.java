@@ -9,9 +9,9 @@ Here reside all methods to create scenery
  	-Reference to external code-
  *
  *	@version  0.1
- *  @created_by @group5/gevalenz,javicabello,ngbravo
+ *  @created_by @group5/gevalenz,javicabello,ngbravo,vibaseta
  *  @update_log
-	26/09/2013 - @group5/ngbravo,gevalenz,javicabello       
+	26/09/2013 - @group5/ngbravo,gevalenz,javicabello,vibaseta     
  */
 
 public abstract class SceneryFactory {
@@ -34,14 +34,6 @@ public abstract class SceneryFactory {
 	 */
 	public static void createMap(int xDim, int yDim){
 		map = new Map(xDim,yDim);
-	}
-
-	/**
-	 * Get the current map
-	 * @return the map
-	 */
-	public static Map getCurrentMap(){
-		return map;
 	}
 
 
@@ -111,6 +103,14 @@ public abstract class SceneryFactory {
 	}
 
 	/**
+	 * Get map objects of the current map
+	 * @return List of map objects as ISprites
+	 */
+//	public static List<ISprite> getMapObjects(){
+//		return map.getObjects()
+//	}
+	
+	/**
 	 * Method to create a default map object
 	 * @return the map object as ISprite
 	 */
@@ -119,14 +119,6 @@ public abstract class SceneryFactory {
 		map.addMapObject(o);
 		return (ISprite)o;
 	}
-
-	/**
-	 * Get map objects of the current map
-	 * @return List of map objects as ISprites
-	 */
-//	public static List<ISprite> getMapObjects(){
-//		return map.getObjects()
-//	}
 	
 	/**
 	 * Method to create a default map character
@@ -137,62 +129,49 @@ public abstract class SceneryFactory {
 	}
 	
 	/**
-	 * Method to add a new parameter to a character
+	 * Method to add or update a boolean parameter to a character
 	 * @param int character id
 	 * @param String parameter name to add
-	 * @param String value of the new parameter (if double, as 9.56, if boolean, as 0/1)
-	 * @param Enum parameter type
+	 * @param String value of the new parameter
 	 */
-	public static void setParameter(int id, String paramName, String value, VarType type){
+	public static void setParameter(int id, String paramName, boolean value){
 //		MapObject tmp = map.getMapObjectsById(id);
-//		if(type == VarType.BOOL){
-//			boolean val;
-//			if(value == "0")
-//				val = false;
-//			else
-//				val = true;
-//			tmp.addBoolParameter(paramName, val);
-//		}
-//		else if(type == VarType.DOUBLE){
-//			tmp.addDoubleParameter(paramName, Double.parseDouble(value));
-//		}
-//		else if(type == VarType.INT){
-//			tmp.addIntParameter(paramName, Integer.parseInt(value));
-//		}
-//		else {
-//			tmp.addStringParameter(paramName, value);
-//		}
+//		tmp.addParameter(paramName, value);
 	}
-	
 	
 	/**
-	 * Method to change a value parameter of a character
+	 * Method to add or update a double parameter to a character
 	 * @param int character id
-	 * @param String parameter name to change
-	 * @param String new value of the parameter
-	 * @param Enum parameter type
+	 * @param String parameter name to add
+	 * @param String value of the new parameter
 	 */
-	public static void editParameter(int id, String paramName, String value, VarType type){
+	public static void setParameter(int id, String paramName, double  value){
 //		MapObject tmp = map.getMapObjectsById(id);
-//		if(type == VarType.BOOL){
-//			boolean val;
-//			if(value == "0")
-//				val = false;
-//			else
-//				val = true;
-//			tmp.setBoolParameter(paramName, val);
-//		}
-//		if(type == VarType.DOUBLE){
-//			tmp.setDoubleParameter(paramName, Double.parseDouble(value));
-//		}
-//		if(type == VarType.INT){
-//			tmp.setIntParameter(paramName, Integer.parseInt(value));
-//		}
-//		if(type == VarType.STRING){
-//			tmp.setStringParameter(paramName, value);
-//		}
+//		tmp.addParameter(paramName, value);
 	}
-
+	
+	/**
+	 * Method to add or update a int parameter to a character
+	 * @param int character id
+	 * @param String parameter name to add
+	 * @param String value of the new parameter
+	 */
+	public static void setParameter(int id, String paramName, int value){
+//		MapObject tmp = map.getMapObjectsById(id);
+//		tmp.addParameter(paramName, value);
+	}
+	
+	/**
+	 * Method to add or update a string parameter to a character
+	 * @param int character id
+	 * @param String parameter name to add
+	 * @param String value of the new parameter
+	 */
+	public static void setParameter(int id, String paramName, String  value){
+//		MapObject tmp = map.getMapObjectsById(id);
+//		tmp.addParameter(paramName, value);
+	}
+	
 	/**
 	 * Method to delete a parameter from a character
 	 * @param int character id
@@ -200,19 +179,10 @@ public abstract class SceneryFactory {
 	 */
 	public static void deleteParameter(int id, String paramName){
 //		MapObject tmp = map.getMapObjectsById(id);
-//		if(type == VarType.BOOL)
-//			tmp.deleteBoolParameter(paramName);
-//		if(type == VarType.DOUBLE)
-//			tmp.deleteDoubleParameter(paramName);
-//		if(type == VarType.INT)
-//			tmp.deleteIntParameter(paramName);
-//		if(type == VarType.STRING)
-//			tmp.deleteStringParameter(paramName);
+//		tmp.deleteParameter(paramName);
 	}
 	
 	protected static int getNextId(){
 		return nextId++;
 	}
-
-
 }
