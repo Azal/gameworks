@@ -12,7 +12,7 @@ All characters and object inherit from this class
 	22/10/2013 - @group5/ngbravo,gevalenz,javicabello,vibaseta      
  */
 
-abstract class MapObject {
+abstract class MapObject implements iSprite{
 
 	protected JLabel spritePath;
 	protected int posX;
@@ -21,7 +21,7 @@ abstract class MapObject {
 	 * 
 	 * @return
 	 */
-	JLabel getSpritePath(){
+	public JLabel getSpritePath(){
 		return spritePath;
 	}
 
@@ -29,7 +29,7 @@ abstract class MapObject {
 	 * 
 	 * @param spritePath
 	 */
-	void setSpritePath(JLabel spritePath){
+	public void setSpritePath(JLabel spritePath){
 		this.spritePath=spritePath;
 	}
 
@@ -38,7 +38,7 @@ abstract class MapObject {
 	 * @param direction Direction of the movement. Can be UP, DOWN, LEFT, RIGHT
 	 * @param distance How many grid spaces will it move in the given direction
 	 */
-	void move(Direction direction, int distance){
+	public void move(Direction direction, int distance){
 		switch (direction) {
 		case UP:
 			posY+=distance;
@@ -62,7 +62,7 @@ abstract class MapObject {
 	 * Get the position of the Sprite
 	 * @return Returns a int array of length=2. The position X will be in [0] and position Y will be in [1].
 	 */
-	int[] getPosition(){
+	public int[] getPosition(){
 		int[] position=new int[2];
 		position[0]=posX;
 		position[1]=posY;
@@ -73,7 +73,7 @@ abstract class MapObject {
 	 * Get the x position of the MapObject
 	 * @return int position x
 	 */
-	int getX(){
+	public int getX(){
 		return posX;
 	}
 	
@@ -81,7 +81,7 @@ abstract class MapObject {
 	 * Get the y position of the MapObject
 	 * @return int position y
 	 */
-	int getY(){
+	public int getY(){
 		return posY;
 	}
 
@@ -91,7 +91,7 @@ abstract class MapObject {
 	 * @param positionX new position X
 	 * @param positionY new position Y
 	 */
-	void setPosition(int positionX, int positionY){
+	public void setPosition(int positionX, int positionY){
 		posX=positionX;
 		posY=positionY;
 	}
