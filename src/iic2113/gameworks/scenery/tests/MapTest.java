@@ -1,6 +1,9 @@
-package iic2113.gameworks.scenery;
+package iic2113.gameworks.scenery.tests;
 
 import static org.junit.Assert.*;
+import iic2113.gameworks.scenery.Map;
+import iic2113.gameworks.scenery.MapCharacter;
+import iic2113.gameworks.scenery.MapObject;
 
 import org.junit.Test;
 
